@@ -68,4 +68,5 @@ if getDist()<20:
         print "STILL ROLLING!"
     stop()
     print "tired"
+stop()
 print "lost it"
