@@ -63,27 +63,11 @@ def stop():
     return;
     #}
 
-#if getDist()<20:
-#    print "HERE WE GO!!!!!!"
-#    moveForward()
-#    while (getDist() <20):
-#        print "STILL ROLLING!"
-#    stop()
-#    print "tired"
-
-#print "lost it"
-
-
-GPIO.setmode(GPIO.BCM)
-A1 = 26
-A2 = 27
-B1 = 24
-B2 = 25
-GPIO.setup(A1,GPIO.OUT)
-GPIO.setup(A2,GPIO.OUT)
-GPIO.setup(B1,GPIO.OUT)
-GPIO.setup(B2,GPIO.OUT)
-GPIO.output(A1, 1)
-GPIO.output(A2, 1)
-GPIO.output(B1, 1)
-GPIO.output(B2, 1)
+if getDist()<20:
+    print "HERE WE GO!!!!!!"
+    moveForward()
+    while (getDist() <20):
+        print "STILL ROLLING!"
+    stop()
+    print "tired"
+print "lost it"
