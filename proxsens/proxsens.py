@@ -1,9 +1,9 @@
-import RPi.GPIO as GPIO
+﻿import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BCM)
 
-TRIG = 22
-ECHO = 21
+TRIG = 23
+ECHO = 22
 
 print "Distance Measurement In Progress"
 
