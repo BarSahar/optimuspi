@@ -3,7 +3,6 @@ import time
 
 def getDist():
     #{
-    GPIO.setmode(GPIO.BCM)
     TRIG = 23
     ECHO = 22
     GPIO.setup(TRIG,GPIO.OUT)
@@ -26,7 +25,6 @@ def getDist():
 
 def moveForward():
     #{
-    GPIO.setmode(GPIO.BCM)
     A1 = 26
     A2 = 27
     B1 = 24
@@ -63,6 +61,7 @@ def stop():
     return;
     #}
 
+GPIO.setmode(GPIO.BCM)
 if getDist()<20:
     print "HERE WE GO!!!!!!"
     moveForward()
