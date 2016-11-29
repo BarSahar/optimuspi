@@ -1,9 +1,9 @@
 ﻿import RPi.GPIO as GPIO
 import time
-GPIO.setmode(GPIO.BCM)
 
 def getDist():
     #{
+    GPIO.setmode(GPIO.BCM)
     TRIG = 23
     ECHO = 22
     GPIO.setup(TRIG,GPIO.OUT)
@@ -26,6 +26,7 @@ def getDist():
 
 def moveForward():
     #{
+    GPIO.setmode(GPIO.BCM)
     A1 = 26
     A2 = 27
     B1 = 24
@@ -45,6 +46,7 @@ def moveForward():
 
 def stop():
     #{
+    GPIO.setmode(GPIO.BCM)
     A1 = 26
     A2 = 27
     B1 = 24
