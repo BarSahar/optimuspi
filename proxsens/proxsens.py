@@ -34,10 +34,10 @@ def moveForward():
     GPIO.setup(A2,GPIO.OUT)
     GPIO.setup(B1,GPIO.OUT)
     GPIO.setup(B2,GPIO.OUT)
-    GPIO.output(A1, True)
-    GPIO.output(A2, False)
-    GPIO.output(B1, True)
-    GPIO.output(B2, False)
+    GPIO.output(A1, False)
+    GPIO.output(A2, True)
+    GPIO.output(B1, False)
+    GPIO.output(B2, True)
     #time.sleep(3)
     return;
     #}
