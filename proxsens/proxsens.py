@@ -26,6 +26,7 @@ def getDist():
 
 def moveForward():
     #{
+    GPIO.setmode(GPIO.BCM)
     A1 = 26
     A2 = 27
     B1 = 24
@@ -62,10 +63,10 @@ def stop():
     return;
     #}
 
-if getDist()<20:
-    print "HERE WE GO!!!!!!"
-    moveForward()
-    while (getDist() <20):
-        print "STILL ROLLING!"
-    stop()
-    print "tired"
+#if getDist()<20:
+#    print "HERE WE GO!!!!!!"
+#    moveForward()
+#    while (getDist() <20):
+#        print "STILL ROLLING!"
+#    stop()
+#    print "tired"
