@@ -63,6 +63,7 @@ def stop():
     return;
     #}
 
+moveForward()
 #if getDist()<20:
 #    print "HERE WE GO!!!!!!"
 #    moveForward()
