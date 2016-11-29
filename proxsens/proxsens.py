@@ -19,7 +19,8 @@ time.sleep(0.00001)
 GPIO.output(TRIG, False)
 
 while GPIO.input(ECHO)==0:
-  pulse_start = time.time()
+    print "In the Loop"
+    #pulse_start = time.time()
 
 while GPIO.input(ECHO)==1:
   pulse_end = time.time()
