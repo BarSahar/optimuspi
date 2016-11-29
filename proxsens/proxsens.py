@@ -40,7 +40,6 @@ def moveForward():
     GPIO.output(B1, True)
     GPIO.output(B2, False)
     #time.sleep(3)
-    GPIO.cleanup()
     return;
     #}
 
