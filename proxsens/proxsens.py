@@ -73,6 +73,8 @@ def stop():
 
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(21,GPIO.IN)
-    while 1:
+    while True:
         print GPIO.input(21)
+
+    print "end"
 
