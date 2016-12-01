@@ -86,7 +86,6 @@ GPIO.setup(19,GPIO.IN)
 counterleft=0
 counterright=0
 
-
 #while True:
     #GPIO.wait_for_edge(21,GPIO.RISING)
     #counter= counter+1
@@ -102,16 +101,46 @@ def prtinter(channel):
 def addright(channel):
     global counterright
     counterright+=1
+    if counterright == 12:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.output(24, False)
+        GPIO.output(25, False)
+        print "Right Finished"
+
 
 def addleft(channel):
     global counterleft
     counterleft+=1
-    print "left"
+    if counterleft == 12:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.output(26, False)
+        GPIO.output(27, False)
+        print "Left Finished"
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
+def turnleft():
+    #{
+    GPIO.setmode(GPIO.BCM)
+    A1 = 26
+    A2 = 27
+    B1 = 24
+    B2 = 25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
+    GPIO.output(A1, False)
+    GPIO.output(A2, True)
+    GPIO.output(B1, True)
+    GPIO.output(B2, False)
+    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    return;
+    #}
+
+turnleft()
 while True:
     pass
-
