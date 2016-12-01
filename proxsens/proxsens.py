@@ -1,5 +1,6 @@
 ﻿import RPi.GPIO as GPIO
 import time
+import datetime
 
 def getDist():
     #{
@@ -74,6 +75,7 @@ def stop():
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 while True:
+    print datetime.datetime.now().time()
     print GPIO.input(21)
 
 print "end"
