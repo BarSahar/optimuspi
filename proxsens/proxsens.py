@@ -78,7 +78,7 @@ counter=0
 while True:
     GPIO.wait_for_edge(21,GPIO.RISING)
     counter= counter+1
-    print "increment in" + datetime.datetime.now().time();
+    print "increment in" + str(datetime.datetime.now().time())
     if counter==12:
         print "yay!"
         break
