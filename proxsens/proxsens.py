@@ -61,12 +61,18 @@ def stop():
     return;
     #}
 
-if getDist()<20:
-    print "HERE WE GO!!!!!!"
-    moveForward()
-    while (getDist() <20):
-        print "STILL ROLLING!"
-    stop()
-    print "tired"
-stop()
-print "lost it"
+#if getDist()<20:
+#    print "HERE WE GO!!!!!!"
+#    moveForward()
+#    while (getDist() <20):
+#        print "STILL ROLLING!"
+#    stop()
+#    print "tired"
+#stop()
+#print "lost it"##
+
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(21,GPIO.IN)
+    while 1:
+        print GPIO.input(21)
+
