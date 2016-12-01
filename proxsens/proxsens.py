@@ -107,8 +107,8 @@ def addleft(channel):
     global counterleft
     counterleft=+1
 
-GPIO.add_event_detect(21,GPIO.RISING,callback=addleft)
-GPIO.add_event_detect(20,GPIO.RISING,callback=addright)
+GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
 while True:
