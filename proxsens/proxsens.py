@@ -132,12 +132,11 @@ def turnleft():
     GPIO.setup(A2,GPIO.OUT)
     GPIO.setup(B1,GPIO.OUT)
     GPIO.setup(B2,GPIO.OUT)
+    print "Startng to turn"
     GPIO.output(A1, False)
     GPIO.output(A2, True)
     GPIO.output(B1, True)
     GPIO.output(B2, False)
-    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
     return;
     #}
 
