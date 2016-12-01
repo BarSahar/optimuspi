@@ -95,14 +95,14 @@ counterright=0
     #    print "yay!"
      #   break
    
-def prtinter():
+def prtinter(channel):
     print "Right"+str(counterright)
     print "Left"+str(counterleft)
 
-def addright():
+def addright(channel):
     counterright+=1
 
-def addleft():
+def addleft(channel):
     counterleft=+1;
 
 GPIO.add_event_detect(21,GPIO.RISING,callback=addleft)
