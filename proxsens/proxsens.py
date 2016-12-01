@@ -140,6 +140,27 @@ def turnleft():
     return;
     #}
 
+    def turnright():
+    #{
+    GPIO.setmode(GPIO.BCM)
+    A1 = 26
+    A2 = 27
+    B1 = 24
+    B2 = 25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
+    print "Startng to turn"
+    GPIO.output(A1, True)
+    GPIO.output(A2, False)
+    GPIO.output(B1, False)
+    GPIO.output(B2, True)
+    return;
+    #}
 turnleft()
+sleep(5)
+turnright()
+
 while True:
     pass
