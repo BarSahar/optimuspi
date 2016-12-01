@@ -100,10 +100,12 @@ def prtinter(channel):
     print "Left"+str(counterleft)
 
 def addright(channel):
+    global counterright
     counterright+=1
 
 def addleft(channel):
-    counterleft=+1;
+    global counterleft
+    counterleft=+1
 
 GPIO.add_event_detect(21,GPIO.RISING,callback=addleft)
 GPIO.add_event_detect(20,GPIO.RISING,callback=addright)
