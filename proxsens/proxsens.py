@@ -105,7 +105,7 @@ def addright(channel):
 
 def addleft(channel):
     global counterleft
-    counterleft=+1
+    counterleft+=1
     print "left"
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
