@@ -71,10 +71,10 @@ def stop():
 #stop()
 #print "lost it"##
 
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setup(21,GPIO.IN)
-    while True:
-        print GPIO.input(21)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(21,GPIO.IN)
+while True:
+    print GPIO.input(21)
 
-    print "end"
+print "end"
 
