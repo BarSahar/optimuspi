@@ -74,9 +74,14 @@ def stop():
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
+counter=0
 while True:
-    print datetime.datetime.now().time()
-    print GPIO.input(21)
+    GPIO.wait_for_edge(21,GPIO.RISING)
+    counter++;
+    print "increment in" + datetime.datetime.now().time();
+    if counter==12:
+        print "yay!"
+        break;
 
 print "end"
 
