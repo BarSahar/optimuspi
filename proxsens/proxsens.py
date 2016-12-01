@@ -159,8 +159,9 @@ def turnleft():
         return;
     #}
 turnleft()
-sleep(5)
+time.sleep(3)
 turnright()
+time.sleep(3)
 stop()
 
 while True:
