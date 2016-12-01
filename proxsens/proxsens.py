@@ -2,6 +2,11 @@
 import time
 import datetime
 
+
+
+
+
+
 def getDist():
     #{
     GPIO.setmode(GPIO.BCM)
@@ -73,15 +78,33 @@ def stop():
 #print "lost it"##
 
 GPIO.setmode(GPIO.BCM)
+
 GPIO.setup(21,GPIO.IN)
-counter=0
-while True:
-    GPIO.wait_for_edge(21,GPIO.RISING)
-    counter= counter+1
-    print "increment in" + str(datetime.datetime.now().time())
-    if counter==12:
-        print "yay!"
-        break
+GPIO.setup(20,GPIO.IN)
+GPIO.setup(19,GPIO.IN)
 
-print "end"
+counterleft=0
+counterright=0
 
+
+#while True:
+    #GPIO.wait_for_edge(21,GPIO.RISING)
+    #counter= counter+1
+    #print "increment in" + str(datetime.datetime.now().time())
+    #if counter==12:
+    #    print "yay!"
+     #   break
+
+def prtinter():
+    print "Right"+str(counterright)
+    print "Left"+str(counterleft)
+
+def addright():
+    counterright+=1
+
+def addleft():
+    counterleft=+1;
+
+GPIO.add_event_detect(21,GPIO.RISING,callback=addleft())
+GPIO.add_event_detect(20,GPIO.RISING,callback=addright())
+GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter())
