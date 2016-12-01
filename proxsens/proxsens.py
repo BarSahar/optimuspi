@@ -94,7 +94,7 @@ counterright=0
     #if counter==12:
     #    print "yay!"
      #   break
-
+   
 def prtinter():
     print "Right"+str(counterright)
     print "Left"+str(counterleft)
@@ -108,3 +108,6 @@ def addleft():
 GPIO.add_event_detect(21,GPIO.RISING,callback=addleft)
 GPIO.add_event_detect(20,GPIO.RISING,callback=addright)
 GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
+
+while True:
+    pass
