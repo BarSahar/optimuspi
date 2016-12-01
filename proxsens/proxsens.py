@@ -161,6 +161,7 @@ def turnleft():
 turnleft()
 sleep(5)
 turnright()
+stop()
 
 while True:
     pass
