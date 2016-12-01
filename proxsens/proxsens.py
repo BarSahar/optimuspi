@@ -140,7 +140,7 @@ def turnleft():
     return;
     #}
 
-    def turnright():
+def turnright():
     #{
         GPIO.setmode(GPIO.BCM)
         A1 = 26
