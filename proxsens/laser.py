@@ -24,7 +24,8 @@ rawCapture = PiRGBArray(camera, size=(640, 480))
  
 #if rval == 1 :
 while loop == 1:
- rval, frame = vc.read()
+ #rval, frame = vc.read()
+ frame = rawCapture
  #key = cv2.waitKey(20)
  #if key == 27: # exit on ESC
  #    loop = 0
