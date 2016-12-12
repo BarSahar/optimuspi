@@ -132,6 +132,8 @@ def turnright():
         return
     #}
 def turnleft():
+	global counterleft
+	global counterright
 	global lock
 	lock.acquire()
 	GPIO.setmode(GPIO.BCM)
@@ -147,8 +149,7 @@ def turnleft():
 		lock.wait()
 		if counterleft==24 and counterright==24:
 			break
-	global counterleft
-	global counterright
+	
 	counterleft=0
 	counterright=0
 	lock.release()
