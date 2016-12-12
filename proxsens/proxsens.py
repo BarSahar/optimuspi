@@ -153,12 +153,9 @@ def turnleft():
 	
 
 
-try:
-   thread.start_new_thread(turnleft)
-except:
-   print "Error: unable to start thread"
-
-print "Hello"
+t=threading.Thread(target=turnleft)
+t.deamon=True
+t.start()
  
 
 while True:
