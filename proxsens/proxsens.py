@@ -132,7 +132,7 @@ def addright(channel):
 		GPIO.output(25,False)
 		con.acquire()
 		con.notify()
-		con.relase()
+		con.release()
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
