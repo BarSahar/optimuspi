@@ -1,8 +1,9 @@
 ﻿import RPi.GPIO as GPIO
 import time
 import datetime
+import threading 
 
-
+lock=threading.Lock()
 
 
 
@@ -26,7 +27,7 @@ def getDist():
     pulse_duration = pulse_end - pulse_start
     distance = pulse_duration * 17150
     distance = round(distance, 2)
-    return distance;
+    return distance
     #}
 
 def moveForward():
@@ -45,7 +46,7 @@ def moveForward():
     GPIO.output(B1, False)
     GPIO.output(B2, True)
     #time.sleep(3)
-    return;
+    return
     #}
 
 def stop():
@@ -64,18 +65,10 @@ def stop():
     GPIO.output(B1, 0)
     GPIO.output(B2, 0)
     GPIO.cleanup()
-    return;
+    return
     #}
 
-#if getDist()<20:
-#    print "HERE WE GO!!!!!!"
-#    moveForward()
-#    while (getDist() <20):
-#        print "STILL ROLLING!"
-#    stop()
-#    print "tired"
-#stop()
-#print "lost it"##
+
 
 GPIO.setmode(GPIO.BCM)
 
@@ -86,14 +79,7 @@ GPIO.setup(19,GPIO.IN)
 counterleft=0
 counterright=0
 
-#while True:
-    #GPIO.wait_for_edge(21,GPIO.RISING)
-    #counter= counter+1
-    #print "increment in" + str(datetime.datetime.now().time())
-    #if counter==12:
-    #    print "yay!"
-     #   break
-   
+
 def prtinter(channel):
     print "Right"+str(counterright)
     print "Left"+str(counterleft)
@@ -105,7 +91,7 @@ def addright(channel):
         GPIO.setmode(GPIO.BCM)
         GPIO.output(24, False)
         GPIO.output(25, False)
-        print "Right Finished"
+        lock.notify()
 
 
 def addleft(channel):
@@ -115,30 +101,14 @@ def addleft(channel):
         GPIO.setmode(GPIO.BCM)
         GPIO.output(26, False)
         GPIO.output(27, False)
-        print "Left Finished"
+        lock.notify()
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
-def turnleft():
-    #{
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
-    print "Startng to turn"
-    GPIO.output(A1, False)
-    GPIO.output(A2, True)
-    GPIO.output(B1, True)
-    GPIO.output(B2, False)
-    return;
-    #}
+
+
 
 def turnright():
     #{
@@ -156,13 +126,37 @@ def turnright():
         GPIO.output(A2, False)
         GPIO.output(B1, False)
         GPIO.output(B2, True)
-        return;
+        return
     #}
+def turnleft():
+	lock.acquire()
+	GPIO.setmode(GPIO.BCM)
+	A1=26
+	A2=27
+	B1=24
+	B2=25
+	GPIO.setup(A1,GPIO.OUT)
+	GPIO.setup(A2,GPIO.OUT)
+	GPIO.setup(B1,GPIO.OUT)
+	GPIO.setup(B2,GPIO.OUT)
+	while True:
+		lock.wait()
+		if counterleft==24 and counterright==24:
+			break
+	global counterleft
+	global counterright
+	counterleft=0
+	counterright=0
+	lock.realse()
+
+
+	
+
+
 turnleft()
-time.sleep(3)
-turnright()
-time.sleep(3)
-stop()
+wait(3)
+print "Hello"
+ 
 
 while True:
     pass
