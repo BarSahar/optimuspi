@@ -4,7 +4,8 @@ import datetime
 import threading 
 from threading import Thread
 
-lock=threading.Lock()
+lock=threading.Condition()
+
 
 
 
