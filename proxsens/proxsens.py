@@ -5,7 +5,7 @@ import threading
 from threading import Thread
 GPIO.setwarnings(False)
 
-lock=threading.Condition()
+con=threading.Condition()
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
@@ -89,22 +89,29 @@ def prtinter(channel):
 
 def addright(channel):
     global counterright
+	global con
     counterright+=1
     if counterright == 24:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(24, False)
         GPIO.output(25, False)
-        lock.notify()
+        con.acquire()
+        con.notify()
+		con..release()
 
 
 def addleft(channel):
+	global con
     global counterleft
     counterleft+=1
     if counterleft == 24:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(26, False)
         GPIO.output(27, False)
-        lock.notify()
+		con.acquire()
+        con.notify()
+		con..release()
+
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
@@ -134,8 +141,8 @@ def turnright():
 def turnleft():
 	global counterleft
 	global counterright
-	global lock
-	lock.acquire()
+	global con
+	con.acquire()
 	GPIO.setmode(GPIO.BCM)
 	A1=26
 	A2=27
@@ -147,14 +154,14 @@ def turnleft():
 	GPIO.setup(B2,GPIO.OUT)
 	while True:
 		print "Sleep"
-		lock.wait()
+		con.wait()
 		if counterleft==24 and counterright==24:
 			print "pe"
 			break
 	
 	counterleft=0
 	counterright=0
-	lock.release()
+	con.release()
 
 
 turnleft()
