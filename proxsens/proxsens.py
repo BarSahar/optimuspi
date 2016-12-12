@@ -156,7 +156,7 @@ try:
    thread.start_new_thread(turnleft)
 except:
    print "Error: unable to start thread"
-wait(3)
+
 print "Hello"
  
 
