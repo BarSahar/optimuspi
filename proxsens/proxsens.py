@@ -81,7 +81,7 @@ def addleft(channel):
 		GPIO.output(26,False)
 		GPIO.output(27,False)
 		con.acquire()
-		print "notify left"
+		print "notify left"+str(counterleft)
 		con.notify()
 		con.release()
 def turnright():
@@ -133,7 +133,7 @@ def addright(channel):
 		GPIO.output(25,False)
 		con.acquire()
 		con.notify()
-		print "notify right"
+		print "notify right"+str(counterright)
 		con.release()
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
