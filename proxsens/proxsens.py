@@ -88,7 +88,7 @@ def prtinter(channel):
     print "Left"+str(counterleft)
 
 def addright(channel):
-    global counterright
+    global counterright,con
     counterright+=1
     if counterright == 24:
         GPIO.setmode(GPIO.BCM)
@@ -100,8 +100,7 @@ def addright(channel):
 
 
 def addleft(channel):
-	global con
-    global counterleft
+    global counterleft,con
     counterleft+=1
     if counterleft == 24:
         GPIO.setmode(GPIO.BCM)
