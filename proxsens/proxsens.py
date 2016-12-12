@@ -2,6 +2,7 @@
 import time
 import datetime
 import threading 
+import thread 
 
 lock=threading.Lock()
 
@@ -153,7 +154,7 @@ def turnleft():
 
 
 try:
-   thread.start_new_thread(turnleft,)
+   thread.start_new_thread(turnleft)
 except:
    print "Error: unable to start thread"
 
