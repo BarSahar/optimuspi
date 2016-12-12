@@ -6,6 +6,13 @@ from threading import Thread
 
 lock=threading.Condition()
 
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(21,GPIO.IN)
+GPIO.setup(20,GPIO.IN)
+GPIO.setup(19,GPIO.IN)
+
+counterleft=0
+counterright=0
 
 
 
@@ -72,13 +79,7 @@ def stop():
 
 
 
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(21,GPIO.IN)
-GPIO.setup(20,GPIO.IN)
-GPIO.setup(19,GPIO.IN)
 
-counterleft=0
-counterright=0
 
 
 def prtinter(channel):
@@ -157,7 +158,7 @@ def turnleft():
 
 t=Thread(target=turnleft)
 t.start()
- 
+print "Hello"
 
 while True:
     pass
