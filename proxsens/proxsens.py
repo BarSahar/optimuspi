@@ -140,7 +140,7 @@ def turnleft():
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
 	while True:
-		lock.wait()
+		wait()
 		if counterleft==24 and counterright==24:
 			break
 	global counterleft
