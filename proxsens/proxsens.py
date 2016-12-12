@@ -89,7 +89,6 @@ def prtinter(channel):
 
 def addright(channel):
     global counterright
-	global con
     counterright+=1
     if counterright == 24:
         GPIO.setmode(GPIO.BCM)
