@@ -15,9 +15,6 @@ GPIO.setup(19,GPIO.IN)
 counterleft=0
 counterright=0
 
-
-
-
 def getDist():
     #{
     GPIO.setmode(GPIO.BCM)
@@ -38,8 +35,6 @@ def getDist():
     distance = pulse_duration * 17150
     distance = round(distance, 2)
     return distance
-    #}
-
 def moveForward():
     #{
     GPIO.setmode(GPIO.BCM)
@@ -57,10 +52,7 @@ def moveForward():
     GPIO.output(B2, True)
     #time.sleep(3)
     return
-    #}
-
 def stop():
-    #{
     GPIO.setmode(GPIO.BCM)
     A1 = 26
     A2 = 27
@@ -76,13 +68,6 @@ def stop():
     GPIO.output(B2, 0)
     GPIO.cleanup()
     return
-    #}
-
-
-
-
-
-
 def prtinter(channel):
     print "Right"+str(counterright)
     print "Left"+str(counterleft)
@@ -97,18 +82,20 @@ def addright(channel):
         con.acquire()
         con.notify()
 		con.release()
-
-
+		
 def addleft(channel):
-    global counterleft,con
-    counterleft+=1
-    if counterleft == 24:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(26, False)
-        GPIO.output(27, False)
+	global counterleft,con
+	counterleft+=1
+	if counterleft==24:
+		GPIO.setmode(GPIO.BCM)
+		GPIO.output(26,False)
+		GPIO.output(27,False)
 		con.acquire()
-        con.notify()
+		con.notify()
 		con.release()
+
+
+
 
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
@@ -119,7 +106,6 @@ GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
 
 def turnright():
-    #{
         GPIO.setmode(GPIO.BCM)
         A1 = 26
         A2 = 27
@@ -135,7 +121,7 @@ def turnright():
         GPIO.output(B1, False)
         GPIO.output(B2, True)
         return
-    #}
+    
 def turnleft():
 	global counterleft
 	global counterright
@@ -160,7 +146,6 @@ def turnleft():
 	counterleft=0
 	counterright=0
 	con.release()
-
 
 turnleft()
 
