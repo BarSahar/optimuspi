@@ -146,8 +146,10 @@ def turnleft():
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
 	while True:
+		print "Sleep"
 		lock.wait()
 		if counterleft==24 and counterright==24:
+			print "pe"
 			break
 	
 	counterleft=0
@@ -155,11 +157,8 @@ def turnleft():
 	lock.release()
 
 
-	
+turnleft()
 
-
-t=Thread(target=turnleft)
-t.start()
 print "Hello"
 
 while True:
