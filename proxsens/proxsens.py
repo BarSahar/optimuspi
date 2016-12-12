@@ -109,7 +109,7 @@ def addleft(channel):
         GPIO.output(27, False)
 		con.acquire()
         con.notify()
-		con..release()
+		con.release()
 
 
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
