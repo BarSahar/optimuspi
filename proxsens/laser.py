@@ -2,14 +2,16 @@ from picamera.array import PiRGBArray
 from picamera import PiCamera
 import cv2
 from numpy import *
+import numpy
 import math
+import io
  
 #variables
 loop = 1
 dot_dist = 0
 
 #vc = cv2.VideoCapture(0)
-
+stream = io.BytesIO()
 camera = PiCamera()
 camera.resolution = (640, 480)
 camera.framerate = 32
@@ -26,6 +28,10 @@ rawCapture = PiRGBArray(camera, size=(640, 480))
 while loop == 1:
  #rval, frame = vc.read()
  frame = rawCapture
+ camera.capture(stream, format='jpeg')
+ data = numpy.fromstring(stream.getvalue(), dtype=numpy.uint8)
+ frame = cv2.imdecode(data, 1)
+ 
  #key = cv2.waitKey(20)
  #if key == 27: # exit on ESC
  #    loop = 0
