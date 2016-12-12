@@ -3,6 +3,7 @@ import time
 import datetime
 import threading 
 from threading import Thread
+GPIO.setwarnings(False)
 
 lock=threading.Condition()
 
