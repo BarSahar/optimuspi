@@ -123,7 +123,7 @@ def turnleft():
 	counterleft=0
 	counterright=0
 	con.release()
-def addright():
+def addright(channel):
 	global counterright,con
 	counterright+=1
 	if counterright==24:
