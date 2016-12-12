@@ -155,7 +155,7 @@ def turnleft():
 
 t=threading.Thread(target=turnleft)
 t.deamon=True
-t.start()
+
  
 
 while True:
