@@ -2,7 +2,7 @@
 import time
 import datetime
 import threading 
-import thread 
+from threading import Thread
 
 lock=threading.Lock()
 
@@ -153,8 +153,7 @@ def turnleft():
 	
 
 
-t=threading.Thread(target=turnleft)
-t.deamon=True
+t=Thread(target=turnleft)
 t.start()
  
 
