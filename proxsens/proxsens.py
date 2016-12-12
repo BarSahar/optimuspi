@@ -117,8 +117,8 @@ def turnleft():
 	while True:
 		print "Sleep"
 		con.wait()
-		print "counters in turn"+str(counterleft)+str(counterright)
-		if counterleft==24 and counterright==24:
+		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
+		if counterleft>=24 and counterright>=24:
 			print "pe"
 			break
 	
