@@ -96,7 +96,7 @@ def addright(channel):
         GPIO.output(25, False)
         con.acquire()
         con.notify()
-		con..release()
+		con.release()
 
 
 def addleft(channel):
