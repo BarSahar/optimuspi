@@ -28,7 +28,7 @@ while loop == 1:
  #rval, frame = vc.read()
  frame = rawCapture
  camera.capture(stream, format='jpeg')
- data = np.fromstring(stream.getvalue(), dtype=np.uint8)
+ data = numpy.fromstring(stream.getvalue(), dtype=numpy.uint8)
  frame = cv2.imdecode(data, 1)
  
  #key = cv2.waitKey(20)
