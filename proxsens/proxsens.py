@@ -7,6 +7,10 @@ GPIO.setwarnings(False)
 
 con=threading.Condition()
 
+GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
@@ -71,18 +75,6 @@ def stop():
 def prtinter(channel):
     print "Right"+str(counterright)
     print "Left"+str(counterleft)
-
-def addright(channel):
-    global counterright,con
-    counterright+=1
-    if counterright == 24:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(24, False)
-        GPIO.output(25, False)
-        con.acquire()
-        con.notify()
-		con.release()
-		
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
@@ -93,18 +85,6 @@ def addleft(channel):
 		con.acquire()
 		con.notify()
 		con.release()
-
-
-
-
-
-GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
-
-
-
-
 def turnright():
         GPIO.setmode(GPIO.BCM)
         A1 = 26
@@ -120,8 +100,7 @@ def turnright():
         GPIO.output(A2, False)
         GPIO.output(B1, False)
         GPIO.output(B2, True)
-        return
-    
+        return    
 def turnleft():
 	global counterleft
 	global counterright
@@ -146,10 +125,20 @@ def turnleft():
 	counterleft=0
 	counterright=0
 	con.release()
+def addright():
+	global counterright,con
+	counterright+=1
+	if counterright==24:
+		GPIO.setmode(GPIO.BCM)
+		GPIO.output(24,False)
+		GPIO.output(25,False)
+		con.acquire()
+		con.notify()
+		con.relase()
+
+
 
 turnleft()
-
 print "Hello"
-
 while True:
     pass
