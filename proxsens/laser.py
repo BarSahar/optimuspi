@@ -1,168 +1,49 @@
-import RPi.GPIO as GPIO
-import time
-import datetime
+import cv2
+from numpy import *
+import math
+ 
+#variables
+loop = 1
+dot_dist = 0
 
-
-
-
-
-
-def getDist():
-    #{
-    GPIO.setmode(GPIO.BCM)
-    TRIG = 23
-    ECHO = 22
-    GPIO.setup(TRIG,GPIO.OUT)
-    GPIO.setup(ECHO,GPIO.IN)
-    GPIO.output(TRIG, False)
-    time.sleep(1)
-    GPIO.output(TRIG, True)
-    time.sleep(0.00001)
-    GPIO.output(TRIG, False)
-    while GPIO.input(ECHO)==0:
-        pulse_start = time.time()
-    while GPIO.input(ECHO)==1:
-        pulse_end = time.time()
-    pulse_duration = pulse_end - pulse_start
-    distance = pulse_duration * 17150
-    distance = round(distance, 2)
-    return distance;
-    #}
-
-def moveForward():
-    #{
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
-    GPIO.output(A1, False)
-    GPIO.output(A2, True)
-    GPIO.output(B1, False)
-    GPIO.output(B2, True)
-    #time.sleep(3)
-    return;
-    #}
-
-def stop():
-    #{
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
-    GPIO.output(A1, 0)
-    GPIO.output(A2, 0)
-    GPIO.output(B1, 0)
-    GPIO.output(B2, 0)
-    GPIO.cleanup()
-    return;
-    #}
-
-#if getDist()<20:
-#    print "HERE WE GO!!!!!!"
-#    moveForward()
-#    while (getDist() <20):
-#        print "STILL ROLLING!"
-#    stop()
-#    print "tired"
-#stop()
-#print "lost it"##
-
-GPIO.setmode(GPIO.BCM)
-
-GPIO.setup(21,GPIO.IN)
-GPIO.setup(20,GPIO.IN)
-GPIO.setup(19,GPIO.IN)
-
-counterleft=0
-counterright=0
-
-#while True:
-    #GPIO.wait_for_edge(21,GPIO.RISING)
-    #counter= counter+1
-    #print "increment in" + str(datetime.datetime.now().time())
-    #if counter==12:
-    #    print "yay!"
-     #   break
-   
-def prtinter(channel):
-    print "Right"+str(counterright)
-    print "Left"+str(counterleft)
-
-def addright(channel):
-    global counterright
-    counterright+=1
-    if counterright == 24:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(24, False)
-        GPIO.output(25, False)
-        print "Right Finished"
-
-
-def addleft(channel):
-    global counterleft
-    counterleft+=1
-    if counterleft == 24:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(26, False)
-        GPIO.output(27, False)
-        print "Left Finished"
-
-GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
-
-def turnleft():
-    #{
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
-    print "Startng to turn"
-    GPIO.output(A1, False)
-    GPIO.output(A2, True)
-    GPIO.output(B1, True)
-    GPIO.output(B2, False)
-    return;
-    #}
-
-def turnright():
-    #{
-        GPIO.setmode(GPIO.BCM)
-        A1 = 26
-        A2 = 27
-        B1 = 24
-        B2 = 25
-        GPIO.setup(A1,GPIO.OUT)
-        GPIO.setup(A2,GPIO.OUT)
-        GPIO.setup(B1,GPIO.OUT)
-        GPIO.setup(B2,GPIO.OUT)
-        print "Startng to turn"
-        GPIO.output(A1, True)
-        GPIO.output(A2, False)
-        GPIO.output(B1, False)
-        GPIO.output(B2, True)
-        return;
-    #}
-turnleft()
-time.sleep(3)
-turnright()
-time.sleep(3)
-stop()
-
-while True:
-    pass
+vc = cv2.VideoCapture(0)
+ 
+if vc.isOpened(): # try to get the first frame
+    rval, frame = vc.read()
+ 
+else:
+    rval = False
+    #print "failed to open Camera"
+ 
+if rval == 1 :
+ 
+    while loop == 1:
+            rval, frame = vc.read()
+            #key = cv2.waitKey(20)
+            #if key == 27: # exit on ESC
+            #    loop = 0
+            num = (frame[...,...,1] > 236)
+            xy_val =  num.nonzero()
+ 
+            y_val = median(xy_val[0])
+            #x_val = median(xy_val[1])
+            
+            print (xy_val)
+            input("Press Enter to continue...")
+            
+            #dist = ((x_val - 320)**2 + (y_val - 240)**2 )**0.5 # distance of dot from center pixel
+            dist = abs(y_val - 240) # distance of dot from center y_axis only
+ 
+            print " dist from center pixel is " + str(dist)
+ 
+            # work out distance using D = h/tan(theta)
+ 
+            theta =0.0011450*dist + 0.0154
+            tan_theta = math.tan(theta)
+ 
+            if tan_theta > 0: # bit of error checking
+                obj_dist =  int(5.33 / tan_theta)
+ 
+            print "\033[12;0H" + "the dot is " + str(obj_dist) + "cm  away"
+elif rval == 0:
+        print " webcam error "
