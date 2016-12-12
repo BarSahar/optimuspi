@@ -71,7 +71,6 @@ def stop():
 
 
 GPIO.setmode(GPIO.BCM)
-
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
 GPIO.setup(19,GPIO.IN)
@@ -153,7 +152,10 @@ def turnleft():
 	
 
 
-turnleft()
+try:
+   thread.start_new_thread(turnleft)
+except:
+   print "Error: unable to start thread"
 wait(3)
 print "Hello"
  
