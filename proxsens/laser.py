@@ -3,6 +3,7 @@ from picamera import PiCamera
 import cv2
 from numpy import *
 import math
+import io
  
 #variables
 loop = 1
