@@ -18,7 +18,6 @@ counterleft=0
 counterright=0
 
 def getDist():
-    #{
     GPIO.setmode(GPIO.BCM)
     TRIG = 23
     ECHO = 22
@@ -76,6 +75,7 @@ def prtinter(channel):
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
+	print str(counterleft)
 	if counterleft==24:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(26,False)
@@ -128,6 +128,7 @@ def turnleft():
 def addright(channel):
 	global counterright,con
 	counterright+=1
+	print str(counterright)
 	if counterright==24:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
