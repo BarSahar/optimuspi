@@ -91,8 +91,6 @@ def turnleft():
 	global counterleft_limit
 	counterright_limit=24
 	counterleft_limit=24
-	
-	con.acquire()
 	GPIO.setmode(GPIO.BCM)
 	A1=26
 	A2=27
@@ -102,6 +100,7 @@ def turnleft():
 	GPIO.setup(A2,GPIO.OUT)
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
+	con.acquire()
 	while True:
 		print "Sleep"
 		con.wait()
