@@ -1,6 +1,6 @@
-import io
 import time
 import picamera
+import picamera.array
 import cv2
 import numpy as np
 import math
