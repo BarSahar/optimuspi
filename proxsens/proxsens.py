@@ -16,6 +16,8 @@ GPIO.setup(19,GPIO.IN)
 
 counterleft=0
 counterright=0
+counterleft_limit=0
+counterright_limit=0
 
 def getDist():
     GPIO.setmode(GPIO.BCM)
@@ -38,6 +40,10 @@ def getDist():
     return distance
 def moveForward():
     #{
+    global counterright_right
+    global counterright_left
+    counterright_limit=100
+    counterleft_limit=100
     GPIO.setmode(GPIO.BCM)
     A1 = 26
     A2 = 27
@@ -76,7 +82,7 @@ def addleft(channel):
 	global counterleft,con
 	counterleft+=1
 	print str(counterleft)
-	if counterleft==24:
+	if counterleft==counterleft_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(26,False)
 		GPIO.output(27,False)
@@ -104,6 +110,11 @@ def turnleft():
 	global counterleft
 	global counterright
 	global con
+	global counterright_right
+	global counterright_left
+	counterright_limit=24
+	counterleft_limit=24
+	
 	con.acquire()
 	GPIO.setmode(GPIO.BCM)
 	A1=26
@@ -118,7 +129,7 @@ def turnleft():
 		print "Sleep"
 		con.wait()
 		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
-		if counterleft>=24 and counterright>=24:
+		if counterleft>=counterright_limit and counterright>=counterleft_limit:
 			print "pe"
 			break
 	
@@ -129,7 +140,7 @@ def addright(channel):
 	global counterright,con
 	counterright+=1
 	print str(counterright)
-	if counterright==24:
+	if counterright==counterright_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
