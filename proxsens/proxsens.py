@@ -104,6 +104,8 @@ def turnleft():
 	GPIO.output(A2, False)
 	GPIO.output(B1, False)
 	GPIO.output(B2, True)
+	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	con.acquire()
 	while True:
 		print "Sleep"
