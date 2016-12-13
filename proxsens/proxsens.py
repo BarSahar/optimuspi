@@ -201,8 +201,8 @@ def globalinit():
 	counterright_limit=0
 
 def main():
-	turnsens()
-	#turnleft()
+	#turnsens()
+	turnleft()
 	#moveForward()
 	#print "end forward"
 	#time.sleep(3)
