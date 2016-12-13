@@ -205,7 +205,9 @@ def main():
 	#turnsens()
 	#turnleft()
 	moveForward()
+	print "end forward"
 	sleep(3)
+	print "after sleep"
 	turnleft()
 	#stop()
 	while True:
