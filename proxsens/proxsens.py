@@ -68,21 +68,40 @@ def addleft(channel):
 		con.release()
 		GPIO.remove_event_detect(channel)
 def turnright():
-        GPIO.setmode(GPIO.BCM)
-        A1 = 26
-        A2 = 27
-        B1 = 24
-        B2 = 25
-        GPIO.setup(A1,GPIO.OUT)
-        GPIO.setup(A2,GPIO.OUT)
-        GPIO.setup(B1,GPIO.OUT)
-        GPIO.setup(B2,GPIO.OUT)
-        print "Startng to turn"
-        GPIO.output(A1, True)
-        GPIO.output(A2, False)
-        GPIO.output(B1, False)
-        GPIO.output(B2, True)
-        return    
+	global counterleft
+	global counterright
+	global con
+	global counterright_limit
+	global counterleft_limit
+
+	counterright_limit=58
+	counterleft_limit=58
+
+	GPIO.setmode(GPIO.BCM)
+	A1 = 26
+	A2 = 27
+	B1 = 24
+	B2 = 25
+	GPIO.setup(A1,GPIO.OUT)
+	GPIO.setup(A2,GPIO.OUT)
+	GPIO.setup(B1,GPIO.OUT)
+	GPIO.setup(B2,GPIO.OUT)
+	GPIO.output(A1, True)
+	GPIO.output(A2, False)
+	GPIO.output(B1, False)
+	GPIO.output(B2, True)
+	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+
+	con.acquire()
+	while True:
+	 con.wait()
+	 if counterleft>=counterright_limit and counterright>=counterleft_limit:
+	  break
+	counterleft=0
+	counterright=0
+	con.release()
+	    
 def turnleft():
 	global counterleft
 	global counterright
@@ -151,8 +170,15 @@ def moveForward():
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
 	GPIO.output(B2, True)
-	#time.sleep(3)
-	return
+	con.acquire()
+	while True:
+	 con.wait()
+	 if counterleft>=counterright_limit and counterright>=counterleft_limit:
+	  break
+	counterleft=0
+	counterright=0
+	con.release()
+	
 
 
 
@@ -160,9 +186,7 @@ def moveForward():
 
 
 #turnleft()
-print "left at start: "+str(counterleft)
-print "right at start: "+str(counterright)
-turnleft()
+moveForward()
 #stop()
 print "Hello"
 while True:
