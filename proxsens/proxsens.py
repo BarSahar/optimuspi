@@ -178,9 +178,8 @@ def moveForward():
 	while True:
 	 con.wait()
 	 if counterleft>=counterright_limit and counterright>=counterleft_limit:
+	  print "wait"
 	  break
-	counterleft=0
-	counterright=0
 	con.release()
 	
 def turnsens():
