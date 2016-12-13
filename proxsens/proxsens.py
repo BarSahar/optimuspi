@@ -76,18 +76,18 @@ def stop():
     GPIO.cleanup()
     return
 def prtinter(channel):
-    print "Right"+str(counterright)
-    print "Left"+str(counterleft)
+    print "Right "+str(counterright)
+    print "Left "+str(counterleft)
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
-	print "add left"+ str(counterleft)
+	print "add left "+ str(counterleft)
 	if counterleft==counterleft_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(26,False)
 		GPIO.output(27,False)
 		con.acquire()
-		print "notify left"+str(counterleft)
+		print "notify left "+str(counterleft)
 		con.notify()
 		con.release()
 def turnright():
