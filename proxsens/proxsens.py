@@ -141,7 +141,6 @@ def addright(channel):
 	global counterright,con
 	counterright+=1
 	print "right counter: "+str(counterright)
-	print "addright"+ str(counterright)
 	if counterright==counterright_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
@@ -187,8 +186,8 @@ def moveForward():
 
 
 #turnleft()
-#moveForward()
-stop()
+moveForward()
+#stop()
 print "Hello"
 while True:
     pass
