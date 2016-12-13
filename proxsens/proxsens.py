@@ -205,7 +205,7 @@ def main():
 	#turnleft()
 	moveForward()
 	print "end forward"
-	sleep(3)
+	time.sleep(3)
 	print "after sleep"
 	turnleft()
 	#stop()
