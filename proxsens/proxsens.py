@@ -38,27 +38,6 @@ def getDist():
     distance = pulse_duration * 17150
     distance = round(distance, 2)
     return distance
-def moveForward():
-    #{
-    global counterright_limit
-    global counterleft_limit
-    counterright_limit=100
-    counterleft_limit=100
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
-    GPIO.output(A1, False)
-    GPIO.output(A2, True)
-    GPIO.output(B1, False)
-    GPIO.output(B2, True)
-    #time.sleep(3)
-    return
 def stop():
     GPIO.setmode(GPIO.BCM)
     A1 = 26
@@ -75,9 +54,6 @@ def stop():
     GPIO.output(B2, 0)
     GPIO.cleanup()
     return
-def prtinter(channel):
-    print "Right "+str(counterright)
-    print "Left "+str(counterleft)
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
@@ -90,6 +66,7 @@ def addleft(channel):
 		print "notify left "+str(counterleft)
 		con.notify()
 		con.release()
+		GPIO.remove_event_detect(channel)
 def turnright():
         GPIO.setmode(GPIO.BCM)
         A1 = 26
@@ -148,10 +125,32 @@ def addright(channel):
 		con.notify()
 		print "notify right"+str(counterright)
 		con.release()
+		GPIO.remove_event_detect(channel)
+def moveForward():
+    global counterright_limit
+    global counterleft_limit
+	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	counterright_limit=100
+    counterleft_limit=100
+    GPIO.setmode(GPIO.BCM)
+    A1 = 26
+    A2 = 27
+    B1 = 24
+    B2 = 25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
+    GPIO.output(A1, False)
+    GPIO.output(A2, True)
+    GPIO.output(B1, False)
+    GPIO.output(B2, True)
+    #time.sleep(3)
+    return
 
-GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
+
+
 
 
 
