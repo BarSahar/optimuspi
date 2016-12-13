@@ -151,8 +151,12 @@ def addright(channel):
 		con.release()
 		GPIO.remove_event_detect(channel)
 def moveForward():
+	global counterleft
+	global counterright
+	global con
 	global counterright_limit
 	global counterleft_limit
+	globalinit()
 	counterright_limit=25
 	counterleft_limit=25
 	GPIO.setmode(GPIO.BCM)
@@ -179,15 +183,32 @@ def moveForward():
 	counterright=0
 	con.release()
 	
+def turnsens():
+	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	globalinit()
+	global counterright_limit
+	global counterleft_limit
+	counterleft_limit=1000
+	counterright_limit=1000
+def globalinit():
+	global counterleft
+	global counterright
+	global counterright_limit
+	global counterleft_limit
+	counterleft=0
+	counterright=0
+	counterleft_limit=0
+	counterright_limit=0
+
+def main():
+	turnsens()
+	#turnleft()
+	#moveForward()
+	#stop()
+	while True:
+		pass
 
 
 
-
-
-
-#turnleft()
-#moveForward()
-stop()
-print "Hello"
-while True:
-    pass
+main()
