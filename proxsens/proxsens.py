@@ -199,7 +199,7 @@ def globalinit():
 	counterleft_limit=0
 	counterright_limit=0
 def turn360():
-	for x in range(0,3):
+	for x in range(0,4):
 		time.sleep(1)
 		turnleft()
 		
