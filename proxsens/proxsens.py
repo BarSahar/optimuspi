@@ -157,7 +157,7 @@ def moveForward():
 #turnleft()
 print "left at start: "+str(counterleft)
 print "right at start: "+str(counterright)
-moveForward()
+turnleft()
 #stop()
 print "Hello"
 while True:
