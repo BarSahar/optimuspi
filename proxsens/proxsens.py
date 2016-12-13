@@ -203,11 +203,11 @@ def globalinit():
 def main():
 	#turnsens()
 	#turnleft()
-	moveForward()
-	print "end forward"
-	time.sleep(3)
-	print "after sleep"
-	turnleft()
+	#moveForward()
+	#print "end forward"
+	#time.sleep(3)
+	#print "after sleep"
+	#turnleft()
 	stop()
 	while True:
 		pass
