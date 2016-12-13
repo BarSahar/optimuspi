@@ -127,10 +127,10 @@ def addright(channel):
 		con.release()
 		GPIO.remove_event_detect(channel)
 def moveForward():
-    global counterright_limit
-    global counterleft_limit
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    global counterright_limit
+    global counterleft_limit
 	counterright_limit=100
     counterleft_limit=100
     GPIO.setmode(GPIO.BCM)
