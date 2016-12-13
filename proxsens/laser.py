@@ -12,12 +12,8 @@ with picamera.PiCamera() as camera:
   camera.capture(stream, format='bgr')
   image = stream.array
   num = (image[...,...,1] > 200)
-  print "num matrix is " + str(num)
   xy_val =  num.nonzero()
-  print "@@@@@@@@@@@@@@@@@@@@@"
-  print "num non zero is " + str(xy_val)
   y_val = median(xy_val[0])
-  print "@@@@@@@@@@@@@@@@@@@@@"
   print "y values are " + str(y_val)
   
   while True:
