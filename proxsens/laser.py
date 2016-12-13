@@ -19,23 +19,21 @@ with picamera.PiCamera() as camera:
   y_val = median(xy_val[0])
   print "@@@@@@@@@@@@@@@@@@@@@"
   print "y values are " + str(y_val)
+  
   return;
-            '''x_val = median(xy_val[1])
+  x_val = median(xy_val[1])
  
-            #dist = ((x_val - 320)**2 + (y_val - 240)**2 )**0.5 # distance of dot from center pixel
-            dist = abs(x_val - 320) # distance of dot from center x_axis only
+  #dist = ((x_val - 320)**2 + (y_val - 240)**2 )**0.5 # distance of dot from center pixel
+  dist = abs(x_val - 320) # distance of dot from center x_axis only
  
-            print " dist from center pixel is " + str(dist)
+  print " dist from center pixel is " + str(dist)
  
-            # work out distance using D = h/tan(theta)
+  # work out distance using D = h/tan(theta)
  
-            theta =0.0011450*dist + 0.0154
-            tan_theta = math.tan(theta)
+  theta =0.0011450*dist + 0.0154
+  tan_theta = math.tan(theta)
  
-            if tan_theta > 0: # bit of error checking
-                obj_dist =  int(5.33 / tan_theta)
+  if tan_theta > 0: # bit of error checking
+   obj_dist =  int(5.33 / tan_theta)
  
-            print "\033[12;0H" + "the dot is " + str(obj_dist) + "cm  away"
-elif rval == 0:
-        print " webcam error "
-        '''
+  print "\033[12;0H" + "the dot is " + str(obj_dist) + "cm  away"
