@@ -110,7 +110,7 @@ def turnleft():
 	global counterleft_limit
 	globalinit()
 	counterright_limit=56
-	counterleft_limit=58
+	counterleft_limit=56
 	GPIO.setmode(GPIO.BCM)
 	A1=26
 	A2=27
@@ -181,7 +181,6 @@ def moveForward():
 	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
 	  break
 	con.release()
-	
 def turnsens():
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
@@ -214,4 +213,4 @@ def main():
 
 
 
-main()
+main()	
