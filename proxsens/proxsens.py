@@ -81,7 +81,7 @@ def prtinter(channel):
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
-	print str(counterleft)
+	print "add left"+ str(counterleft)
 	if counterleft==counterleft_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(26,False)
@@ -139,7 +139,7 @@ def turnleft():
 def addright(channel):
 	global counterright,con
 	counterright+=1
-	print str(counterright)
+	print "addright"+ str(counterright)
 	if counterright==counterright_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
@@ -156,6 +156,8 @@ GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
 
 #turnleft()
+print "left at start: "+str(counterleft)
+print "right at start: "+str(counterright)
 moveForward()
 #stop()
 print "Hello"
