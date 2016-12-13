@@ -40,8 +40,8 @@ def getDist():
     return distance
 def moveForward():
     #{
-    global counterright_right
-    global counterright_left
+    global counterright_limit
+    global counterleft_limit
     counterright_limit=100
     counterleft_limit=100
     GPIO.setmode(GPIO.BCM)
@@ -110,8 +110,8 @@ def turnleft():
 	global counterleft
 	global counterright
 	global con
-	global counterright_right
-	global counterright_left
+	global counterright_limit
+	global counterleft_limit
 	counterright_limit=24
 	counterleft_limit=24
 	
@@ -156,8 +156,8 @@ GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
 
 #turnleft()
-#moveForward()
-stop()
+moveForward()
+#stop()
 print "Hello"
 while True:
     pass
