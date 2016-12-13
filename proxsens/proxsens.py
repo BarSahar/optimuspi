@@ -201,13 +201,13 @@ def globalinit():
 	counterright_limit=0
 
 def main():
-	#turnsens()
+	turnsens()
 	#turnleft()
 	#moveForward()
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
-	turnleft()
+	#turnleft()
 	#stop()
 	while True:
 		pass
