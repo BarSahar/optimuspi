@@ -20,7 +20,9 @@ with picamera.PiCamera() as camera:
   print "@@@@@@@@@@@@@@@@@@@@@"
   print "y values are " + str(y_val)
   
-  return;
+  while True:
+   pass
+  
   x_val = median(xy_val[1])
  
   #dist = ((x_val - 320)**2 + (y_val - 240)**2 )**0.5 # distance of dot from center pixel
