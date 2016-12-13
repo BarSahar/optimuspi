@@ -186,8 +186,8 @@ def moveForward():
 
 
 #turnleft()
-moveForward()
-#stop()
+#moveForward()
+stop()
 print "Hello"
 while True:
     pass
