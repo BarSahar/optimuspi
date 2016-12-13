@@ -207,8 +207,8 @@ def main():
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
-	#turnleft()
-	stop()
+	turnleft()
+	#stop()
 	while True:
 		pass
 
