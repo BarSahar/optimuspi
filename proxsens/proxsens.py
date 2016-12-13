@@ -130,7 +130,7 @@ def turnleft():
 		print "Sleep"
 		con.wait()
 		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
-		if counterleft>=counterright_limit and counterright>=counterleft_limit:
+		if counterleft>=counterleft_limit  and counterright>=counterright_limit:
 			print "pe"
 			break
 	
@@ -177,8 +177,8 @@ def moveForward():
 	con.acquire()
 	while True:
 	 con.wait()
+	 print "wait left "+str(counterleft)+"right: "+str(counterright)
 	 if counterleft>=counterright_limit and counterright>=counterleft_limit:
-	  print "wait"
 	  break
 	con.release()
 	
