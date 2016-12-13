@@ -132,7 +132,6 @@ def turnleft():
 		con.wait()
 		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
 		if counterleft>=counterleft_limit  and counterright>=counterright_limit:
-			print "pe"
 			break
 	
 	counterleft=0
