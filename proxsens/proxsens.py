@@ -100,7 +100,11 @@ def turnleft():
 	GPIO.setup(A2,GPIO.OUT)
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
-	'''con.acquire()
+	GPIO.output(A1, True)
+	GPIO.output(A2, False)
+	GPIO.output(B1, False)
+	GPIO.output(B2, True)
+	con.acquire()
 	while True:
 		print "Sleep"
 		con.wait()
@@ -111,7 +115,7 @@ def turnleft():
 	
 	counterleft=0
 	counterright=0
-	con.release()'''
+	con.release()
 def addright(channel):
 	global counterright,con
 	counterright+=1
