@@ -11,7 +11,7 @@ with picamera.PiCamera() as camera:
  with picamera.array.PiRGBArray(camera) as stream:
   camera.capture(stream, format='bgr')
   image = stream.array
-  num = (image[...,...,1] > 50)
+  num = (image[...,...,1] > 230)
   print "num matrix is " + str(num)
   xy_val =  num.nonzero()
   print "@@@@@@@@@@@@@@@@@@@@@"
