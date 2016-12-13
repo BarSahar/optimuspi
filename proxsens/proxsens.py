@@ -198,10 +198,16 @@ def globalinit():
 	counterright=0
 	counterleft_limit=0
 	counterright_limit=0
+def turn360():
+	for x in range(0,3):
+		time.sleep(1)
+		turnleft()
+		
 
 def main():
 	#turnsens()
-	turnleft()
+	#turnleft()
+	turn360()
 	#moveForward()
 	#print "end forward"
 	#time.sleep(3)
