@@ -178,7 +178,7 @@ def moveForward():
 	while True:
 	 con.wait()
 	 print "wait left "+str(counterleft)+"right: "+str(counterright)
-	 if counterleft>=counterright_limit and counterright>=counterleft_limit:
+	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
 	  break
 	con.release()
 	
