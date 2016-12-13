@@ -156,8 +156,8 @@ GPIO.add_event_detect(19,GPIO.RISING,callback=prtinter)
 
 
 #turnleft()
-moveForward()
-
+#moveForward()
+stop()
 print "Hello"
 while True:
     pass
