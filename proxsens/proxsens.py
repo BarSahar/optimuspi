@@ -202,9 +202,9 @@ def globalinit():
 	counterright_limit=0
 
 def main():
-	turnsens()
+	#turnsens()
 	#turnleft()
-	#moveForward()
+	moveForward()
 	#stop()
 	while True:
 		pass
