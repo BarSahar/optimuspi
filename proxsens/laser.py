@@ -15,14 +15,9 @@ with picamera.PiCamera() as camera:
   xy_val =  num.nonzero()
   y_val = median(xy_val[0])
   print "y values are " + str(y_val)
-  
-  while True:
-   pass
-  
-  x_val = median(xy_val[1])
  
   #dist = ((x_val - 320)**2 + (y_val - 240)**2 )**0.5 # distance of dot from center pixel
-  dist = abs(x_val - 320) # distance of dot from center x_axis only
+  dist = abs(y_val - 240) # distance of dot from center y_axis only
  
   print " dist from center pixel is " + str(dist)
  
