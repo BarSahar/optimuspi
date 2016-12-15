@@ -212,8 +212,6 @@ def turn360():
 		turnleft()
 def movenone():
 	GPIO.setmode(GPIO.BCM)
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	A1 = 26
 	A2 = 27
 	B1 = 24
