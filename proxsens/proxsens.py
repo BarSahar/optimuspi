@@ -7,7 +7,7 @@ GPIO.setwarnings(False)
 
 con=threading.Condition()
 
-cosmos=[1,2,-1,-2]
+cosmos=(1,2,-1,-2) #1=y,2=x
 dir=1
 
 GPIO.setmode(GPIO.BCM)
@@ -75,6 +75,7 @@ def turnright():
 	global counterright_limit
 	global counterleft_limit
 	global dir
+	globalinit();
 
 	counterright_limit=58
 	counterleft_limit=58
@@ -98,10 +99,8 @@ def turnright():
 	con.acquire()
 	while True:
 	 con.wait()
-	 if counterleft>=counterright_limit and counterright>=counterleft_limit:
+	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
 	  break
-	counterleft=0
-	counterright=0
 	con.release()
 	dir=(dir+1)%4
 
