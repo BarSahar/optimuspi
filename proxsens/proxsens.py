@@ -66,7 +66,7 @@ def addleft(channel):
 		GPIO.output(27,False)
 		con.acquire()
 		print "left finito"
-		print (datetime.datetime.now()-stoper).microseconds
+		print (datetime.datetime.now()-stoper).seconds
 		con.notify()
 		con.release()
 		GPIO.remove_event_detect(channel)
@@ -153,7 +153,7 @@ def addright(channel):
 		con.acquire()
 		con.notify()
 		print "right finito"
-		print (datetime.datetime.now()-stoper).microseconds
+		print (datetime.datetime.now()-stoper).seconds
 		con.release()
 		GPIO.remove_event_detect(channel)
 
