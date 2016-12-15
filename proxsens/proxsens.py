@@ -60,12 +60,12 @@ def stop():
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
-	print "left counter "+ str(counterleft)
 	if counterleft>=counterleft_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(26,False)
 		GPIO.output(27,False)
 		con.acquire()
+		print "left finito"
 		print datetime.datetime.now()-stoper
 		con.notify()
 		con.release()
@@ -152,6 +152,7 @@ def addright(channel):
 		GPIO.output(25,False)
 		con.acquire()
 		con.notify()
+		print "right finito"
 		print datetime.datetime.now()-stoper
 		con.release()
 		GPIO.remove_event_detect(channel)
