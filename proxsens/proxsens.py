@@ -3,7 +3,6 @@ import time
 import datetime
 import threading 
 from threading import Thread
-from enum import Enum
 GPIO.setwarnings(False)
 
 con=threading.Condition()
