@@ -3,12 +3,15 @@ import time
 import datetime
 import threading 
 from threading import Thread
+from enum import Enum
 GPIO.setwarnings(False)
 
 con=threading.Condition()
 
+
+
 cosmos=(1,2,-1,-2) #1=y,2=x
-dir=1
+dir=0
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
@@ -208,10 +211,12 @@ def turn360():
 		turnleft()
 		
 
+
+
 def main():
 	#turnsens()
 	#turnleft()
-	turn360()
+	#turn360()
 	#moveForward()
 	#print "end forward"
 	#time.sleep(3)
@@ -219,7 +224,7 @@ def main():
 	#turnleft()
 	#stop()
 	while True:
-		pass
+	 pass
 
 
 
