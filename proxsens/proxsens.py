@@ -233,7 +233,7 @@ def main():
 	#turnsens()
 	#turnleft()
 	#turn360()
-	#moveForward()
+	moveForward()
 	#movenone()
 	#print "end forward"
 	#time.sleep(3)
