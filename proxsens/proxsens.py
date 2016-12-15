@@ -150,8 +150,6 @@ def addright(channel):
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
-		GPIO.output(26,False) #
-		GPIO.output(27,False) #
 		con.acquire()
 		con.notify()
 		print "right finito"
@@ -171,7 +169,7 @@ def moveForward():
 	counterleft_limit=100
 	GPIO.setmode(GPIO.BCM)
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	#GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	A1 = 26
 	A2 = 27
 	B1 = 24
