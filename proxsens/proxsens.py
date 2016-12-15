@@ -66,7 +66,7 @@ def addleft(channel):
 		GPIO.output(27,False)
 		con.acquire()
 		print "left finito"
-		print datetime.datetime.now()-stoper
+		print (datetime.datetime.now()-stoper).microseconds
 		con.notify()
 		con.release()
 		GPIO.remove_event_detect(channel)
@@ -153,7 +153,7 @@ def addright(channel):
 		con.acquire()
 		con.notify()
 		print "right finito"
-		print datetime.datetime.now()-stoper
+		print (datetime.datetime.now()-stoper).microseconds
 		con.release()
 		GPIO.remove_event_detect(channel)
 
@@ -178,12 +178,12 @@ def moveForward():
 	GPIO.setup(A2,GPIO.OUT)
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
+	stoper=datetime.datetime.now()
 	GPIO.output(A1, False)
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
 	GPIO.output(B2, True)
 	con.acquire()
-	stoper=datetime.datetime.now()
 	while True:
 	 con.wait()
 	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
