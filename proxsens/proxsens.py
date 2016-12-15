@@ -6,7 +6,7 @@ from threading import Thread
 GPIO.setwarnings(False)
 
 con=threading.Condition()
-
+stoper=0
 
 
 cosmos=(1,2,-1,-2) #1=y,2=x
@@ -66,7 +66,7 @@ def addleft(channel):
 		GPIO.output(26,False)
 		GPIO.output(27,False)
 		con.acquire()
-		print "notify left "+str(counterleft)
+		print "left finish: "+datetime.datetime.now()-stoper
 		con.notify()
 		con.release()
 		GPIO.remove_event_detect(channel)
@@ -146,14 +146,13 @@ def turnleft():
 def addright(channel):
 	global counterright,con
 	counterright+=1
-	print "right counter: "+str(counterright)
 	if counterright>=counterright_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
 		con.acquire()
 		con.notify()
-		print "notify right"+str(counterright)
+		print "right finish: "+datetime.datetime.now()-stoper
 		con.release()
 		GPIO.remove_event_detect(channel)
 
@@ -163,6 +162,7 @@ def moveForward():
 	global con
 	global counterright_limit
 	global counterleft_limit
+	global stoper
 	globalinit()
 	counterright_limit=100
 	counterleft_limit=100
@@ -182,6 +182,7 @@ def moveForward():
 	GPIO.output(B1, False)
 	GPIO.output(B2, True)
 	con.acquire()
+	stoper=datetime.datetime.now()
 	while True:
 	 con.wait()
 	 print "wait left "+str(counterleft)+" right: "+str(counterright)
