@@ -62,8 +62,8 @@ def addleft(channel):
 	counterleft+=1
 	if counterleft>=counterleft_limit:
 		GPIO.setmode(GPIO.BCM)
-		GPIO.output(26,False)
-		GPIO.output(27,False)
+		GPIO.output(26,True)
+		GPIO.output(27,True)
 		con.acquire()
 		print "left finito"
 		print datetime.datetime.now()-stoper
@@ -148,8 +148,8 @@ def addright(channel):
 	counterright+=1
 	if counterright>=counterright_limit:
 		GPIO.setmode(GPIO.BCM)
-		GPIO.output(24,False)
-		GPIO.output(25,False)
+		GPIO.output(24,True)
+		GPIO.output(25,True)
 		con.acquire()
 		con.notify()
 		print "right finito"
