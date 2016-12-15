@@ -156,6 +156,7 @@ def addright(channel):
 		print "notify right"+str(counterright)
 		con.release()
 		GPIO.remove_event_detect(channel)
+
 def moveForward():
 	global counterleft
 	global counterright
@@ -213,10 +214,10 @@ def turn360():
 
 
 def main():
-	turnsens()
+	#turnsens()
 	#turnleft()
 	#turn360()
-	#moveForward()
+	moveForward()
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
