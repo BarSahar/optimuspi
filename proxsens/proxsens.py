@@ -232,8 +232,8 @@ def main():
 	#turnsens()
 	#turnleft()
 	#turn360()
-	#moveForward()
-	movenone()
+	moveForward()
+	#movenone()
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
