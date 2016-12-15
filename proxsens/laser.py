@@ -31,4 +31,5 @@ with picamera.PiCamera() as camera:
 		    #if tan_theta > 0: # bit of error checking
 			#obj_dist =  int(5.33 / tan_theta)
 
-	        #print "\033[12;0H" + "the dot is " + str(obj_dist) + "cm  away"
+	        #print "\033[12;0H" + "the dot is " + str(obj_dist) + "cm  away"s
+		camera.close()
