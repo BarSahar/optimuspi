@@ -213,10 +213,10 @@ def turn360():
 
 
 def main():
-	#turnsens()
+	turnsens()
 	#turnleft()
 	#turn360()
-	moveForward()
+	#moveForward()
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
