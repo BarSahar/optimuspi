@@ -224,6 +224,22 @@ def movenone():
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
 	GPIO.output(B2, True)
+	
+def cali():
+	GPIO.setmode(GPIO.BCM)
+	R1	= 22 ## RELAY PIN	
+	GPIO.setup(R1,GPIO.OUT)
+	for x in range(8):
+			GPIO.output(A1, True) # laser on
+			#here some function that will take picture and calc
+			GPIO.output(A1, False) #laser off
+			move30cm()
+
+def move30cm():
+	moveForward()
+	time.sleep(2)
+	moveForward()
+	time.sleep(2)
 
 
 
