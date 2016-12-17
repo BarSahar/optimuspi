@@ -231,9 +231,11 @@ def cali():
 	GPIO.setup(R1,GPIO.OUT)
 	for x in range(8):
 			GPIO.output(A1, True) # laser on
-			#here some function that will take picture and calc
+			#here some function that will take picture
 			GPIO.output(A1, False) #laser off
 			move30cm()
+
+	##clac here
 
 def move30cm():
 	moveForward()
