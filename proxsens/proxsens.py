@@ -253,7 +253,8 @@ def main():
 	#print "after sleep"
 	#turnleft()
 	#stop()
+	cali()
 	while True:
 	 pass
 
-cali()
+main()
