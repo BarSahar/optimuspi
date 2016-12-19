@@ -223,7 +223,13 @@ def movenone():
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
 	GPIO.output(B2, True)
-	
+
+def move30cm():    
+	moveForward()
+	time.sleep(2)
+	moveForward()
+	time.sleep(2)
+
 def cali():
 	GPIO.setmode(GPIO.BCM)
 	R1	= 18 ## RELAY PIN	
@@ -233,15 +239,8 @@ def cali():
             getLaserDistArr()
 		    #here some function that will take picture
             GPIO.output(R1, False) #laser off
-	    	move30cm()
-
-	##clac here
-
-def move30cm():    
-	moveForward()
-	time.sleep(2)
-	moveForward()
-	time.sleep(2)
+            move30cm()
+##clac here
 
 def main():
 	#turnsens()
