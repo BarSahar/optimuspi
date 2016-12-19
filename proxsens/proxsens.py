@@ -255,8 +255,8 @@ def main():
 	#time.sleep(3)
 	#print "after sleep"
 	#turnleft()
-	#stop()
-	cali()
+	stop()
+	#cali()
 	while True:
 	 pass
 
