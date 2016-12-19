@@ -15,7 +15,6 @@ dir=0
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
-GPIO.setup(19,GPIO.IN)
 
 counterleft=0
 counterright=0
@@ -230,22 +229,19 @@ def cali():
 	R1	= 18 ## RELAY PIN	
 	GPIO.setup(R1,GPIO.OUT)
 	for x in range(8):
-        GPIO.output(R1, True) # laser on
-        getLaserDistArr()
-		#here some function that will take picture
-		GPIO.output(R1, False) #laser off
-		move30cm()
+           GPIO.output(R1, True) # laser on
+           getLaserDistArr()
+		   #here some function that will take picture
+	    	GPIO.output(R1, False) #laser off
+	    	move30cm()
 
 	##clac here
 
-def move30cm():
+def move30cm():    
 	moveForward()
 	time.sleep(2)
 	moveForward()
 	time.sleep(2)
-
-
-
 
 def main():
 	#turnsens()
@@ -261,6 +257,4 @@ def main():
 	while True:
 	 pass
 
-
-
-main()	
+cali()
