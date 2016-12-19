@@ -13,7 +13,7 @@ import distConst
 #Calibration
 def getLaserDistArr():
     with picamera.PiCamera() as camera:
-    	with picamera.array.PiRGBArray(camera) as stream:
+        with picamera.array.PiRGBArray(camera) as stream:
             camera.capture(stream, format='bgr')
             image = stream.array
             num = (image[...,...,1] > 200)
