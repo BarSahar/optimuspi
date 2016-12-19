@@ -232,11 +232,12 @@ def move30cm():
 
 def cali():
 	GPIO.setmode(GPIO.BCM)
-	R1	= 18 ## RELAY PIN	
-	GPIO.setup(R1,GPIO.OUT)
-	for x in range(8):
+	R1 = 18 # RELAY PIN	
+    GPIO.setup(R1,GPIO.OUT)
+    res = [0]*10
+	for x in range(10):
             GPIO.output(R1, True) # laser on
-           # getLaserDistArr()
+            res[x] = getLaserDistArr()
 		    #here some function that will take picture
             GPIO.output(R1, False) #laser off
             move30cm()
