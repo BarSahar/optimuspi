@@ -239,8 +239,8 @@ def cali():
     realDist = [285]*10
     for x in range(10):
             GPIO.output(R1, True) # laser on
-            #res[x] = getLaserDistArr()
-            time.sleep(1)
+            res[x] = getLaserDistArr()
+            #time.sleep(1)
             realDist[x] = realDist[x]-60*x
 		    #here some function that will take picture
             GPIO.output(R1, False) #laser off
