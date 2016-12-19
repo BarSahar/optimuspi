@@ -236,7 +236,7 @@ def cali():
 	GPIO.setup(R1,GPIO.OUT)
 	for x in range(8):
             GPIO.output(R1, True) # laser on
-            getLaserDistArr()
+           # getLaserDistArr()
 		    #here some function that will take picture
             GPIO.output(R1, False) #laser off
             move30cm()
@@ -246,7 +246,8 @@ def main():
 	#turnsens()
 	#turnleft()
 	#turn360()
-	moveForward()
+	#moveForward()
+	cali()
 	#movenone()
 	#print "end forward"
 	#time.sleep(3)
