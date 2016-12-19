@@ -247,7 +247,6 @@ def main():
 	#turnleft()
 	#turn360()
 	#moveForward()
-	cali()
 	#movenone()
 	#print "end forward"
 	#time.sleep(3)
