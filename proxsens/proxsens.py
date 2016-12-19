@@ -3,7 +3,7 @@ import time
 import datetime
 import threading 
 from threading import Thread
-from laser.py import getLaserDistArr
+from laser import getLaserDistArr
 GPIO.setwarnings(False)
 
 con=threading.Condition()
