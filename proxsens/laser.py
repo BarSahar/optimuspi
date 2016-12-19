@@ -15,7 +15,6 @@ def getLaserDistArr():
     with picamera.PiCamera() as camera:
     	with picamera.array.PiRGBArray(camera) as stream:
             camera.capture(stream, format='bgr')
-            camera.capture(stream, format='bgr')
             image = stream.array
             num = (image[...,...,1] > 200)
             y_vals = [0] * 640
