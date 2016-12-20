@@ -47,6 +47,7 @@ def cali():
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
             #move30cm()
+            time.sleep(2)
     
     for i in range(200,400) :
         x = pixelDist[:,i]
