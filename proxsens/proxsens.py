@@ -246,7 +246,7 @@ def move30cm():
 	con.release()
 
 def main():
-	#turnsens()
+	turnsens()
 	#turnleft()
 	#turn360()
 	#moveForward()
@@ -260,4 +260,4 @@ def main():
 	while True:
 	 pass
 
-#main()
+main()
