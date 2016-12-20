@@ -10,7 +10,7 @@ from proxsens import move30cm
 GPIO.setwarnings(False)
 
 #global variables
-DistConstArr = [0]*640
+DistConstArr = np.zeros(640)
 distH = 5
 initialD = 285
 isCalibrated = False
@@ -30,6 +30,7 @@ def getLaserDistArr():
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
                     y_vals[i] = abs(np.median(x)-240)
+                    print(str(i))
 	        #save the dists of all..... stuff
         camera.close()
     return y_vals
@@ -38,7 +39,7 @@ def cali():
     GPIO.setmode(GPIO.BCM)
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
-    pixelDist = [0]*10
+    pixelDist = np.zeros(10)
     theta = [initialD]*10 #instantaniates as D in cm, later converted to theta
     for x in range(10):
             GPIO.output(R1, True) # laser on
