@@ -30,7 +30,6 @@ def getLaserDistArr():
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
                     y_vals[i] = abs(np.median(x)-240)
-                    print(str(i))
 	        #save the dists of all..... stuff
         camera.close()
     return y_vals
@@ -53,7 +52,7 @@ def cali():
     np_pixelDist = np.asarray(pixelDist)
     for i in range(200,400) :
         x = np_pixelDist[:,i]
-        mask = ~np.isnane(x)
+        mask = ~np.isnan(x)
         slope, intercept = stats.linregress(x[mask],theta[mask])
         DistConstArr[i] = DistConst(slope,intercept)
     np.savetxt('consts.txt', DistConstArr)
