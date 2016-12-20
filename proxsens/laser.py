@@ -60,7 +60,7 @@ def cali():
     isCalibrated=True
 ##clac here
 
-cali()
+#cali()
 
 '''
 
