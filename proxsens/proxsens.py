@@ -239,7 +239,7 @@ def move30cm():
 	GPIO.setup(A2,GPIO.OUT)
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
-#	stoper=datetime.datetime.now()
+	stoper=datetime.datetime.now()
 	GPIO.output(A1, False)
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
@@ -252,7 +252,7 @@ def move30cm():
 	con.release()
 
 def main():
-	turnsens()
+	#turnsens()
 	#turnleft()
 	#turn360()
 	#moveForward()
@@ -263,6 +263,7 @@ def main():
 	#turnleft()
 	#stop()
 	#cali()
+	move30cm()
 	while True:
 	 pass
 
