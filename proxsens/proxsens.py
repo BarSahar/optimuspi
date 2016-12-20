@@ -171,7 +171,7 @@ def moveForward():
 	global counterleft_limit
 	global stoper
 	globalinit()
-	counterright_limit=98
+	counterright_limit=97
 	counterleft_limit=100
 	GPIO.setmode(GPIO.BCM)
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
