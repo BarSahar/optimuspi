@@ -55,7 +55,7 @@ def cali():
         print ("i: " + str(i))
         x = np_pixelDist[:,i]
         mask = ~np.isnan(x)
-        slope, intercept, r_value, std_err = stats.linregress(x[mask],theta[mask])
+        slope, intercept, r_value, std_err = stats.mstats.linregress(x[mask],theta[mask])
         DistConstArr[i] = DistConst(slope,intercept)
     np.savetxt('consts.txt', DistConstArr)
     isCalibrated=True
