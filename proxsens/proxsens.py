@@ -213,10 +213,37 @@ def turn360():
 
 
 def move30cm():    
-	moveForward()
-	time.sleep(0.5)
-	moveForward()
-	time.sleep(0.5)
+	global counterleft
+	global counterright
+	global con
+	global counterright_limit
+	global counterleft_limit
+	global stoper
+	globalinit()
+	counterright_limit=200
+	counterleft_limit=200
+	GPIO.setmode(GPIO.BCM)
+	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	A1 = 26
+	A2 = 27
+	B1 = 24
+	B2 = 25
+	GPIO.setup(A1,GPIO.OUT)
+	GPIO.setup(A2,GPIO.OUT)
+	GPIO.setup(B1,GPIO.OUT)
+	GPIO.setup(B2,GPIO.OUT)
+#	stoper=datetime.datetime.now()
+	GPIO.output(A1, False)
+	GPIO.output(A2, True)
+	GPIO.output(B1, False)
+	GPIO.output(B2, True)
+	con.acquire()
+	while True:
+	 con.wait()
+	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
+	  break
+	con.release()
 
 def main():
 	#turnsens()
