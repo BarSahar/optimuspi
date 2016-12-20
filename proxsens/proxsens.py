@@ -214,9 +214,9 @@ def turn360():
 
 def move30cm():    
 	moveForward()
-	time.sleep(2)
+	time.sleep(0.5)
 	moveForward()
-	time.sleep(2)
+	time.sleep(0.5)
 
 def main():
 	#turnsens()
