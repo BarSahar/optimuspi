@@ -255,7 +255,7 @@ def main():
 	#turnsens()
 	#turnleft()
 	#turn360()
-	moveForward()
+	#moveForward()
 	#movenone()
 	#print "end forward"
 	#time.sleep(3)
@@ -264,6 +264,8 @@ def main():
 	#stop()
 	#cali()
 	#move30cm()
+	x=getDist()
+	print (x)
 	while True:
 	 pass
 
