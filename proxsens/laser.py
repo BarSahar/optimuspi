@@ -25,7 +25,8 @@ def getLaserDistArr():
             camera.capture(stream, format='bgr')
             image = stream.array
             num = (image[...,...,1] > 200)
-            y_vals = [np.nan] * 640
+            y_vals = np.zeros(640)
+            y_vals.fill(np.nan)
             for i in range(200,400) :
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
