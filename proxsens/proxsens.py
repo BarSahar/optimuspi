@@ -3,7 +3,7 @@ import time
 import datetime
 import threading 
 from threading import Thread
-#from robotModels import direction 
+from robotModels import direction 
 GPIO.setwarnings(False)
 
 
@@ -13,7 +13,7 @@ con=threading.Condition()
 stoper=0
 
 
-#cosmos=(direction.north,direction.west,direction.south,direction.east) 
+cosmos=(direction.north,direction.west,direction.south,direction.east) 
 dir=0
 
 GPIO.setmode(GPIO.BCM)
