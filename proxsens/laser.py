@@ -34,7 +34,7 @@ def getLaserDistArr():
                     print(str(i))
 	        #save the dists of all..... stuff
         camera.close()
-    return y_vals
+    return y_vals.flatten()
 
 def cali():
     GPIO.setmode(GPIO.BCM)
