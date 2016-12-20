@@ -5,7 +5,7 @@ import cv2
 import numpy as np
 import math
 import RPi.GPIO as GPIO
-import proxsens
+from proxsens import move30cm 
 GPIO.setwarnings(False)
 
 #Calibration Constants 
