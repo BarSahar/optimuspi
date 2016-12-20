@@ -5,6 +5,7 @@ import cv2
 import numpy as np
 import math
 import RPi.GPIO as GPIO
+import proxsens
 GPIO.setwarnings(False)
 
 #Calibration Constants 
