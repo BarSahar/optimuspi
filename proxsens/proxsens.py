@@ -119,8 +119,8 @@ def turnleft():
 	global counterleft_limit
 	global dir
 	globalinit()
-	counterright_limit=56
-	counterleft_limit=56
+	counterright_limit=60
+	counterleft_limit=60	
 	GPIO.setmode(GPIO.BCM)
 	A1=26
 	A2=27
