@@ -3,7 +3,7 @@ import time
 import datetime
 import threading 
 from threading import Thread
-from robotModels import direction 
+#from robotModels import direction 
 GPIO.setwarnings(False)
 
 
@@ -13,7 +13,7 @@ con=threading.Condition()
 stoper=0
 
 
-cosmos=(direction.north,direction.west,direction.south,direction.east) 
+#cosmos=(direction.north,direction.west,direction.south,direction.east) 
 dir=0
 
 GPIO.setmode(GPIO.BCM)
@@ -213,25 +213,40 @@ def turn360():
 
 
 def move30cm():    
-	moveForward()
-	time.sleep(2)
-	moveForward()
-	time.sleep(2)
-
-def cali():
+	global counterleft
+	global counterright
+	global con
+	global counterright_limit
+	global counterleft_limit
+	global stoper
+	globalinit()
+	counterright_limit=200
+	counterleft_limit=200
 	GPIO.setmode(GPIO.BCM)
-	R1	= 18 ## RELAY PIN	
-	GPIO.setup(R1,GPIO.OUT)
-	for x in range(8):
-		GPIO.output(R1, True) # laser on
-      # getLaserDistArr()
-	  # here some function that will take picture
-		GPIO.output(R1, False) #laser off
-		move30cm()
-	##clac here
+	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	A1 = 26
+	A2 = 27
+	B1 = 24
+	B2 = 25
+	GPIO.setup(A1,GPIO.OUT)
+	GPIO.setup(A2,GPIO.OUT)
+	GPIO.setup(B1,GPIO.OUT)
+	GPIO.setup(B2,GPIO.OUT)
+#	stoper=datetime.datetime.now()
+	GPIO.output(A1, False)
+	GPIO.output(A2, True)
+	GPIO.output(B1, False)
+	GPIO.output(B2, True)
+	con.acquire()
+	while True:
+	 con.wait()
+	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
+	  break
+	con.release()
 
 def main():
-	#turnsens()
+	turnsens()
 	#turnleft()
 	#turn360()
 	#moveForward()
@@ -240,7 +255,7 @@ def main():
 	#time.sleep(3)
 	#print "after sleep"
 	#turnleft()
-	stop()
+	#stop()
 	#cali()
 	while True:
 	 pass

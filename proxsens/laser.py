@@ -39,9 +39,11 @@ def cali():
             res[x] = getLaserDistArr()
             #time.sleep(1)
             realDist[x] = realDist[x]-60*x
-		    #here some function that will take picture
+            #here some function that will take picture
             GPIO.output(R1, False) #laser off
             move30cm()
+    np.set_printoptions(threshold='nan')
+    print (res)
 ##clac here
 
 cali()
