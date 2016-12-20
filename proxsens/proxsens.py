@@ -147,7 +147,7 @@ def turnleft():
 def addright(channel):
     global counterright,con
     counterright+=1
-    print ("right: " + counterright)
+    print ("right: " + str(counterright))
     if counterright>=counterright_limit:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(24,True)
