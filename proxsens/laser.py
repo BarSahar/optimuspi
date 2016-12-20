@@ -5,27 +5,49 @@ import cv2
 import numpy as np
 import math
 import distConst
+import RPi.GPIO as GPIO
 
 #Calibration Constants 
 
 #DistConsts = np.loadtxt()
 
-#Calibration
+#Detect laser line and return array of y distances from horizon
+#statisticaly pixels not in [200,400] range are useless
 def getLaserDistArr():
-	with picamera.PiCamera() as camera:
-		with picamera.array.PiRGBArray(camera) as stream:
-			camera.capture(stream, format='bgr')
-			image = stream.array
-			num = (image[...,...,1] > 200)
+    with picamera.PiCamera() as camera:
+        with picamera.array.PiRGBArray(camera) as stream:
+            camera.capture(stream, format='bgr')
+            image = stream.array
+            num = (image[...,...,1] > 200)
             y_vals = [-1] * 640
             for i in range(200,400) :
-				x = num[:,i].nonzero()
-				if x.size != 0:
-					y_vals[i] = abs(np.median(x[np.isfinite(x)])-240)
-			dist = abs(y_vals - 240) # distance of dot from center y_axis only
-	        #save the dists of all..... stuff
+                x = num[:,i].nonzero()
+                if x.size != 0:
+                    y_vals[i] = abs(np.median(x[np.isfinite(x)])-240)
+            dist = abs(y_vals - 240) # distance of dot from center y_axis only
         camera.close()
     return y_vals
+
+#Callibration of Distance Constants
+#Set robot within 285cm of unobstructed wall
+def cali():
+    GPIO.setmode(GPIO.BCM)
+    R1 = 18 # RELAY PIN	
+    GPIO.setup(R1,GPIO.OUT)
+    res = [0]*10
+    realDist = [285]*10
+    for x in range(10):
+            GPIO.output(R1, True) # laser on
+            res[x] = getLaserDistArr()
+            #time.sleep(1)
+            realDist[x] = realDist[x]-30*x
+		    #here some function that will take picture
+            GPIO.output(R1, False) #laser off
+            move30cm()
+##clac here
+
+cali()
+
 '''
 isCalibrated = False
 
