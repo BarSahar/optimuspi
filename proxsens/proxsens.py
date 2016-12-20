@@ -3,7 +3,7 @@ import time
 import datetime
 import threading 
 from threading import Thread
-from robotModels import direction 
+#from robotModels import direction 
 GPIO.setwarnings(False)
 
 
@@ -13,7 +13,7 @@ con=threading.Condition()
 stoper=0
 
 
-cosmos=(direction.north,direction.west,direction.south,direction.east) 
+#cosmos=(direction.north,direction.west,direction.south,direction.east) 
 dir=0
 
 GPIO.setmode(GPIO.BCM)
@@ -217,18 +217,6 @@ def move30cm():
 	time.sleep(2)
 	moveForward()
 	time.sleep(2)
-
-def cali():
-	GPIO.setmode(GPIO.BCM)
-	R1	= 18 ## RELAY PIN	
-	GPIO.setup(R1,GPIO.OUT)
-	for x in range(8):
-		GPIO.output(R1, True) # laser on
-      # getLaserDistArr()
-	  # here some function that will take picture
-		GPIO.output(R1, False) #laser off
-		move30cm()
-	##clac here
 
 def main():
 	#turnsens()
