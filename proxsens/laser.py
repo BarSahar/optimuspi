@@ -39,8 +39,8 @@ def cali():
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     pixelDist = []
-    theta = np.empty(10)
-    theta = np.fill(initialD) #instantaniates as D in cm, later converted to theta
+    theta = np.empty(10) #instantaniates as D in cm, later converted to theta
+    theta.fill(initialD) #instantaniates as D in cm, later converted to theta
     for x in range(10):
             GPIO.output(R1, True) # laser on
             pixelDist.append(getLaserDistArr())
