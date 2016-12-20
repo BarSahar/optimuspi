@@ -40,7 +40,7 @@ def cali():
     GPIO.setmode(GPIO.BCM)
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
-    pixelDist = np.zeros(10)
+    pixelDist = np.empty(10)
     theta = [initialD]*10 #instantaniates as D in cm, later converted to theta
     for x in range(10):
             GPIO.output(R1, True) # laser on
