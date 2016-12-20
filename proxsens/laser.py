@@ -4,10 +4,16 @@ import picamera.array
 import cv2
 import numpy as np
 import math
+from scipy import stats
 import RPi.GPIO as GPIO
 from proxsens import move30cm 
 GPIO.setwarnings(False)
 
+#global variables
+DistConstArr = [0]*640
+distH = 5
+initialD = 285
+isCalibrated = False
 #Calibration Constants 
 
 #DistConsts = np.loadtxt()
@@ -19,7 +25,7 @@ def getLaserDistArr():
             camera.capture(stream, format='bgr')
             image = stream.array
             num = (image[...,...,1] > 200)
-            y_vals = [-1] * 640
+            y_vals = [np.nan] * 640
             for i in range(200,400) :
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
@@ -32,24 +38,27 @@ def cali():
     GPIO.setmode(GPIO.BCM)
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
-    res = [0]*10
-    realDist = [285]*10
+    pixelDist = [0]*10
+    theta = [initialD]*10 #instantaniates as D in cm, later converted to theta
     for x in range(10):
             GPIO.output(R1, True) # laser on
-            res[x] = getLaserDistArr()
-            #time.sleep(1)
-            realDist[x] = realDist[x]-60*x
-            #here some function that will take picture
+            pixelDist[x] = getLaserDistArr()
+            theta[x] = math.atan(distH/(theta[x]-30*x))
             GPIO.output(R1, False) #laser off
             move30cm()
-    np.set_printoptions(threshold='nan')
-    print (res)
+    
+    for i in range(200,400) :
+        x = pixelDist[:,i]
+        mask = ~np.isnane(x)
+        slope, intercept = stats.linregress(x[mask],theta[mask])
+        DistConstArr[i] = DistConst(slope,intercept)
+    np.savetxt('consts.txt', DistConstArr, delimiter = ',')
+    isCalibrated=True
 ##clac here
 
 cali()
 
 '''
-isCalibrated = False
 
 #CalcDistCalibration
 with picamera.PiCamera() as camera:
