@@ -32,7 +32,7 @@ def getDist():
     GPIO.setup(TRIG,GPIO.OUT)
     GPIO.setup(ECHO,GPIO.IN)
     GPIO.output(TRIG, False)
-  ##  time.sleep(2)
+    time.sleep(1)
     GPIO.output(TRIG, True)
     time.sleep(0.00001)
     GPIO.output(TRIG, False)
