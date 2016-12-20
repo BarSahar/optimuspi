@@ -6,9 +6,6 @@ from threading import Thread
 from robotModels import direction 
 GPIO.setwarnings(False)
 
-
-
-
 con=threading.Condition()
 stoper=0
 
@@ -69,13 +66,15 @@ def addleft(channel):
 		GPIO.output(26,False)
 		GPIO.output(27,False)
 		con.acquire()
-		print ("left finito")
-		print (datetime.datetime.now()-stoper)
+		#print ("left finito")
+		#print (datetime.datetime.now()-stoper)
 		con.notify()
 		con.release()
 		GPIO.remove_event_detect(channel)
-
-
+def loopgetDist():
+	while True:
+		print (getDist())
+		 
 
 def turnright():
 	global counterleft
@@ -85,10 +84,8 @@ def turnright():
 	global counterleft_limit
 	global dir
 	globalinit();
-
 	counterright_limit=58
 	counterleft_limit=58
-
 	GPIO.setmode(GPIO.BCM)
 	A1 = 26
 	A2 = 27
@@ -122,8 +119,8 @@ def turnleft():
 	global counterleft_limit
 	global dir
 	globalinit()
-	counterright_limit=56
-	counterleft_limit=56
+	counterright_limit=80
+	counterleft_limit=80	
 	GPIO.setmode(GPIO.BCM)
 	A1=26
 	A2=27
@@ -158,8 +155,8 @@ def addright(channel):
 		GPIO.output(25,False)
 		con.acquire()
 		con.notify()
-		print ("right finito")
-		print (datetime.datetime.now()-stoper)
+		#print ("right finito")
+		#print (datetime.datetime.now()-stoper)
 		con.release()
 		GPIO.remove_event_detect(channel)
 
@@ -171,8 +168,8 @@ def moveForward():
 	global counterleft_limit
 	global stoper
 	globalinit()
-	counterright_limit=100-50
-	counterleft_limit=100-50
+	counterright_limit=100
+	counterleft_limit=100
 	GPIO.setmode(GPIO.BCM)
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
@@ -255,15 +252,16 @@ def main():
 	#turnsens()
 	#turnleft()
 	#turn360()
-	moveForward()
+	#moveForward()
 	#movenone()
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
-	#turnleft()
+	turnleft()
 	#stop()
 	#cali()
 	#move30cm()
+	#loopgetDist()
 	while True:
 	 pass
 
