@@ -6,9 +6,6 @@ from threading import Thread
 from robotModels import direction 
 GPIO.setwarnings(False)
 
-
-
-
 con=threading.Condition()
 stoper=0
 
@@ -74,7 +71,6 @@ def addleft(channel):
 		con.notify()
 		con.release()
 		GPIO.remove_event_detect(channel)
-
 def loopgetDist():
 	while True:
 		print (getDist())
@@ -88,10 +84,8 @@ def turnright():
 	global counterleft_limit
 	global dir
 	globalinit();
-
 	counterright_limit=58
 	counterleft_limit=58
-
 	GPIO.setmode(GPIO.BCM)
 	A1 = 26
 	A2 = 27
@@ -263,11 +257,11 @@ def main():
 	#print "end forward"
 	#time.sleep(3)
 	#print "after sleep"
-	#turnleft()
+	turnleft()
 	#stop()
 	#cali()
 	#move30cm()
-	loopgetDist()
+	#loopgetDist()
 	while True:
 	 pass
 
