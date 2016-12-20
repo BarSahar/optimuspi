@@ -6,12 +6,6 @@ from threading import Thread
 from enum import Enum 
 GPIO.setwarnings(False)
 
-class direction(Enum):
-	north=1
-	east=2
-	south=3
-	west=4
-
 con=threading.Condition()
 stoper=0
 
