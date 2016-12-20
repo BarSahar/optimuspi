@@ -48,7 +48,7 @@ def cali():
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
             #move30cm()
-            time.sleep(2)
+            time.sleep(0.5)
     
     np_pixelDist = np.asarray(pixelDist)
     for i in range(200,400) :
