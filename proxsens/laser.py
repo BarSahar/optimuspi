@@ -27,6 +27,25 @@ def getLaserDistArr():
 	        #save the dists of all..... stuff
         camera.close()
     return y_vals
+
+def cali():
+    GPIO.setmode(GPIO.BCM)
+    R1 = 18 # RELAY PIN	
+    GPIO.setup(R1,GPIO.OUT)
+    res = [0]*10
+    realDist = [285]*10
+    for x in range(10):
+            GPIO.output(R1, True) # laser on
+            res[x] = getLaserDistArr()
+            #time.sleep(1)
+            realDist[x] = realDist[x]-60*x
+		    #here some function that will take picture
+            GPIO.output(R1, False) #laser off
+            move30cm()
+##clac here
+
+cali()
+
 '''
 isCalibrated = False
 
