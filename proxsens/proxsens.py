@@ -3,14 +3,20 @@ import time
 import datetime
 import threading 
 from threading import Thread
-from laser import getLaserDistArr
+from enum import Enum 
 GPIO.setwarnings(False)
+
+class direction(Enum):
+	north=1
+	east=2
+	south=3
+	west=4
 
 con=threading.Condition()
 stoper=0
 
 
-cosmos=(1,2,-1,-2) #1=y,2=x
+cosmos=(direction.north,direction.west,direction.south,direction.east) 
 dir=0
 
 GPIO.setmode(GPIO.BCM)
@@ -232,16 +238,12 @@ def move30cm():
 	time.sleep(2)
 
 def cali():
-    GPIO.setmode(GPIO.BCM)
-    R1 = 18 # RELAY PIN	
-    GPIO.setup(R1,GPIO.OUT)
-    res = [0]*10
-    realDist = [285]*10
-    for x in range(10):
+	GPIO.setmode(GPIO.BCM)
+	R1	= 18 ## RELAY PIN	
+	GPIO.setup(R1,GPIO.OUT)
+	for x in range(8):
             GPIO.output(R1, True) # laser on
-            res[x] = getLaserDistArr()
-            #time.sleep(1)
-            realDist[x] = realDist[x]-60*x
+           # getLaserDistArr()
 		    #here some function that will take picture
             GPIO.output(R1, False) #laser off
             move30cm()
@@ -257,8 +259,8 @@ def main():
 	#time.sleep(3)
 	#print "after sleep"
 	#turnleft()
-	#stop()
-	cali()
+	stop()
+	#cali()
 	while True:
 	 pass
 
