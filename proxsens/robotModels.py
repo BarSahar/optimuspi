@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum 
 
 class DistConst:
     'Constants to compute distance per pixel'
