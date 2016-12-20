@@ -8,9 +8,3 @@ class DistConst:
         self.Intercept = intercept
     def __str__(self):
         return "Slope is: " + str(self.Slope) + ". Intercept is: " + str(self.Intercept)
-
-class direction(Enum):
-	north=1
-	east=2
-	south=3
-	west=4

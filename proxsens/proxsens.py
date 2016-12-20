@@ -6,6 +6,12 @@ from threading import Thread
 from enum import Enum 
 GPIO.setwarnings(False)
 
+class direction(Enum):
+	north=1
+	east=2
+	south=3
+	west=4
+
 con=threading.Condition()
 stoper=0
 
@@ -208,11 +214,24 @@ def turn360():
 		turnleft()
 		time.sleep(1)
 
+
 def move30cm():    
 	moveForward()
 	time.sleep(2)
 	moveForward()
 	time.sleep(2)
+
+def cali():
+	GPIO.setmode(GPIO.BCM)
+	R1	= 18 ## RELAY PIN	
+	GPIO.setup(R1,GPIO.OUT)
+	for x in range(8):
+		GPIO.output(R1, True) # laser on
+      # getLaserDistArr()
+	  # here some function that will take picture
+		GPIO.output(R1, False) #laser off
+		move30cm()
+	##clac here
 
 def main():
 	#turnsens()
