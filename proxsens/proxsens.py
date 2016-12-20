@@ -75,7 +75,10 @@ def addleft(channel):
 		con.release()
 		GPIO.remove_event_detect(channel)
 
-
+def loopgetDist():
+	while True:
+		print (getDist())
+		 
 
 def turnright():
 	global counterleft
@@ -171,8 +174,8 @@ def moveForward():
 	global counterleft_limit
 	global stoper
 	globalinit()
-	counterright_limit=100-50
-	counterleft_limit=100-50
+	counterright_limit=100
+	counterleft_limit=100
 	GPIO.setmode(GPIO.BCM)
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
@@ -264,8 +267,7 @@ def main():
 	#stop()
 	#cali()
 	#move30cm()
-	x=getDist()
-	print (x)
+	loopgetDist()
 	while True:
 	 pass
 
