@@ -23,7 +23,6 @@ def getLaserDistArr():
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
                     y_vals[i] = abs(np.median(x)-240)
-            dist = abs(y_vals - 240) # distance of dot from center y_axis only
 	        #save the dists of all..... stuff
         camera.close()
     return y_vals
