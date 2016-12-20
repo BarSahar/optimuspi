@@ -19,15 +19,15 @@ def getLaserDistArr():
 			camera.capture(stream, format='bgr')
 			image = stream.array
 			num = (image[...,...,1] > 200)
-            y_vals = [-1] * 640
-            for i in range(200,400) :
+			y_vals = [-1] * 640
+			for i in range(200,400) :
 				x = num[:,i].nonzero()
 				if x.size != 0:
 					y_vals[i] = abs(np.median(x[np.isfinite(x)])-240)
 			dist = abs(y_vals - 240) # distance of dot from center y_axis only
 	        #save the dists of all..... stuff
-        camera.close()
-    return y_vals
+		camera.close()
+	return y_vals
 '''
 isCalibrated = False
 
