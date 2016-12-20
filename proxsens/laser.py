@@ -25,8 +25,7 @@ def getLaserDistArr():
             camera.capture(stream, format='bgr')
             image = stream.array
             num = (image[...,...,1] > 200)
-            y_vals = np.zeros(640)
-            y_vals.fill(np.nan)
+            y_vals = [np.nan]*640
             for i in range(200,400) :
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
@@ -34,29 +33,30 @@ def getLaserDistArr():
                     print(str(i))
 	        #save the dists of all..... stuff
         camera.close()
-    return y_vals.flatten()
+    return y_vals
 
 def cali():
     GPIO.setmode(GPIO.BCM)
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
-    pixelDist = np.empty(10)
+    pixelDist = []
     theta = [initialD]*10 #instantaniates as D in cm, later converted to theta
     for x in range(10):
             GPIO.output(R1, True) # laser on
-            pixelDist[x] = getLaserDistArr()
+            pixelDist.append(getLaserDistArr())
             theta[x] = math.atan(distH/(theta[x]-30*x))
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
             #move30cm()
             time.sleep(2)
     
+    np_pixelDist = np.asarray(pixelDist)
     for i in range(200,400) :
-        x = pixelDist[:,i]
+        x = np_pixelDist[:,i]
         mask = ~np.isnane(x)
         slope, intercept = stats.linregress(x[mask],theta[mask])
         DistConstArr[i] = DistConst(slope,intercept)
-    np.savetxt('consts.txt', DistConstArr, delimiter = ',')
+    np.savetxt('consts.txt', DistConstArr)
     isCalibrated=True
 ##clac here
 
