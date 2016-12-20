@@ -45,7 +45,8 @@ def cali():
             pixelDist[x] = getLaserDistArr()
             theta[x] = math.atan(distH/(theta[x]-30*x))
             GPIO.output(R1, False) #laser off
-            move30cm()
+            print ("ended loop" + str(x))
+            #move30cm()
     
     for i in range(200,400) :
         x = pixelDist[:,i]
