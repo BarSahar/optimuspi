@@ -52,6 +52,7 @@ def cali():
     
     np_pixelDist = np.asarray(pixelDist)
     for i in range(200,400) :
+        print ("i: " + str(i))
         x = np_pixelDist[:,i]
         mask = ~np.isnan(x)
         slope, intercept = stats.linregress(x[mask],theta[mask])
