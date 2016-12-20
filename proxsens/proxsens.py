@@ -71,8 +71,8 @@ def addleft(channel):
 		GPIO.output(26,True)
 		GPIO.output(27,True)
 		con.acquire()
-		print "left finito"
-		print datetime.datetime.now()-stoper
+#		print "left finito"
+#		print datetime.datetime.now()-stoper
 		con.notify()
 		con.release()
 		GPIO.remove_event_detect(channel)
@@ -140,13 +140,10 @@ def turnleft():
 	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	con.acquire()
 	while True:
-		print "Sleep"
 		con.wait()
-		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
+#		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
 		if counterleft>=counterleft_limit  and counterright>=counterright_limit:
 			break
-	counterleft=0
-	counterright=0
 	con.release()
 	dir=(dir-1)%4
 def addright(channel):
@@ -158,8 +155,8 @@ def addright(channel):
 		GPIO.output(25,True)
 		con.acquire()
 		con.notify()
-		print "right finito"
-		print datetime.datetime.now()-stoper
+#		print "right finito"
+#		print datetime.datetime.now()-stoper
 		con.release()
 		GPIO.remove_event_detect(channel)
 
@@ -184,7 +181,7 @@ def moveForward():
 	GPIO.setup(A2,GPIO.OUT)
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
-	stoper=datetime.datetime.now()
+#	stoper=datetime.datetime.now()
 	GPIO.output(A1, False)
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
@@ -213,23 +210,10 @@ def globalinit():
 	counterleft_limit=0
 	counterright_limit=0
 def turn360():
-	for x in range(0,4):
-		time.sleep(1)
+	for x in range(4):
 		turnleft()
-def movenone():
-	GPIO.setmode(GPIO.BCM)
-	A1 = 26
-	A2 = 27
-	B1 = 24
-	B2 = 25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
-	GPIO.output(A1, False)
-	GPIO.output(A2, True)
-	GPIO.output(B1, False)
-	GPIO.output(B2, True)
+		time.sleep(1)
+
 
 def move30cm():    
 	moveForward()
@@ -242,12 +226,12 @@ def cali():
 	R1	= 18 ## RELAY PIN	
 	GPIO.setup(R1,GPIO.OUT)
 	for x in range(8):
-            GPIO.output(R1, True) # laser on
-           # getLaserDistArr()
-		    #here some function that will take picture
-            GPIO.output(R1, False) #laser off
-            move30cm()
-##clac here
+		GPIO.output(R1, True) # laser on
+      # getLaserDistArr()
+	  # here some function that will take picture
+		GPIO.output(R1, False) #laser off
+		move30cm()
+	##clac here
 
 def main():
 	#turnsens()
