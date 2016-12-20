@@ -63,14 +63,14 @@ def stop():
 def addleft(channel):
     global counterleft,con
     counterleft+=1
-    print("left: " + str(counterleft))
+#    print("left: " + str(counterleft))
     if counterleft>=counterleft_limit:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(26,True)
         GPIO.output(27,True)
         con.acquire()
-#		print "left finito"
-#		print datetime.datetime.now()-stoper
+		print "left finito"
+		print datetime.datetime.now()-stoper
         con.notify()
         con.release()
         GPIO.remove_event_detect(channel)
@@ -144,18 +144,19 @@ def turnleft():
 			break
 	con.release()
 	dir=(dir-1)%4
+
 def addright(channel):
     global counterright,con
     counterright+=1
-    print ("right: " + str(counterright))
+#    print ("right: " + str(counterright))
     if counterright>=counterright_limit:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(24,True)
         GPIO.output(25,True)
         con.acquire()
         con.notify()
-#		print "right finito"
-#		print datetime.datetime.now()-stoper
+		print "right finito"
+		print datetime.datetime.now()-stoper
         con.release()
         GPIO.remove_event_detect(channel)
 
