@@ -10,14 +10,12 @@ from proxsens import move30cm
 from robotModels import DistConst
 GPIO.setwarnings(False)
 
-#global variables
+#Global variables
 DistConstArr = np.empty(640,dtype=DistConst)
 distH = 5
 initialD = 285
 isCalibrated = False
-#Calibration Constants 
 
-#DistConsts = np.loadtxt()
 
 #Calibration
 def getLaserDistArr():
@@ -31,7 +29,6 @@ def getLaserDistArr():
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
                     y_vals[i] = abs(np.median(x)-240)
-	        #save the dists of all..... stuff
         camera.close()
     return y_vals
 
@@ -41,7 +38,7 @@ def cali():
     GPIO.setup(R1,GPIO.OUT)
     pixelDist = []
     theta = np.empty(10) #instantaniates as D in cm, later converted to theta
-    theta.fill(initialD) #instantaniates as D in cm, later converted to theta
+    theta.fill(initialD)
     for x in range(10):
             GPIO.output(R1, True) # laser on
             pixelDist.append(getLaserDistArr())
@@ -53,12 +50,11 @@ def cali():
     
     np_pixelDist = np.asarray(pixelDist)
     for i in range(200,400) :
-        print ("i: " + str(i))
         x = np_pixelDist[:,i]
         mask = ~np.isnan(x)
         slope, intercept, r_value, p_value, std_err = stats.mstats.linregress(x[mask],theta[mask])
         DistConstArr[i] = DistConst(slope,intercept)
-    np.savetxt('consts.txt', DistConstArr)
+    np.save('consts.txt', DistConstArr)
     isCalibrated=True
 ##clac here
 
