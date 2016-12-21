@@ -7,6 +7,7 @@ import math
 from scipy import stats
 import RPi.GPIO as GPIO
 from proxsens import move30cm 
+from robotModels import DistConst
 GPIO.setwarnings(False)
 
 #global variables
