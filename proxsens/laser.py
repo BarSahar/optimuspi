@@ -11,7 +11,7 @@ from robotModels import DistConst
 GPIO.setwarnings(False)
 
 #global variables
-DistConstArr = np.zeros(640)
+DistConstArr = np.empty(640,dtype=DistConst)
 distH = 5
 initialD = 285
 isCalibrated = False
