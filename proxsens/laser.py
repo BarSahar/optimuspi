@@ -49,14 +49,14 @@ def cali():
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
             #move30cm()
-            time.sleep(2)
+            time.sleep(0.5)
     
     np_pixelDist = np.asarray(pixelDist)
     for i in range(200,400) :
         print ("i: " + str(i))
         x = np_pixelDist[:,i]
         mask = ~np.isnan(x)
-        slope, intercept, r_value, std_err = stats.mstats.linregress(x[mask],theta[mask])
+        slope, intercept, r_value, p_value, std_err = stats.mstats.linregress(x[mask],theta[mask])
         DistConstArr[i] = DistConst(slope,intercept)
     np.savetxt('consts.txt', DistConstArr)
     isCalibrated=True
