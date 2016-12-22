@@ -23,7 +23,7 @@ def dotlaster():
 			camera.resolution=(640,280)
 			camera.capture(stream, format='rgb') #take a photo
 			image = stream.array
-			num = (image[...,...,1] > 250)
+			num = (image[...,...,1] > 255)
 			xy_val =  num.nonzero()
 			y_val = np.median(xy_val[0])
 			dist = abs(y_val - 240)
