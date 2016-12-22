@@ -58,8 +58,6 @@ def cali():
         DistConstArr[i] = DistConst(slope,intercept) #add computer values to distance constants array
     np.save('consts.txt', DistConstArr) #save text
 
-#cali()
-printDist()
 def printDist():
     DistConstArr = np.load('consts.txt.npy')
     GPIO.setmode(GPIO.BCM)
@@ -70,6 +68,10 @@ def printDist():
     GPIO.output(R1, False) #laser off
     for x in range(200,400):
         print("pixel: " + str(x) + ". Distance: " + str(pixelDist[x]*DistConstArr[x].Slope + DistConstArr[x].Intercept))
+
+#cali()
+printDist()
+
 '''
 
 #CalcDistCalibration
