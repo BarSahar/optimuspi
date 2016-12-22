@@ -56,7 +56,7 @@ def cali():
         mask = ~np.isnan(x) #mask = ignore any 'nan' values in the matrix
         slope, intercept, r_value, p_value, std_err = stats.mstats.linregress(x[mask],theta[mask])
         DistConstArr[i] = DistConst(slope,intercept) #add computer values to distance constants array
-    np.save('consts.txt', DistConstArr)
+    np.save('consts.txt', DistConstArr) #save text
 
 cali()
 def printDist():
