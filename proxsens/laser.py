@@ -37,17 +37,17 @@ def cali():
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     pixelDist = []
-    theta = np.empty(10) #an array of theta per distance from wall
+    theta = np.empty(9) #an array of theta per distance from wall
     theta.fill(initialD) #the array instantaniates as D in cm and than
                          #converted to angle via artctan(h/D)
-    for x in range(10):
+    for x in range(9):
             GPIO.output(R1, True) # laser on
             pixelDist.append(getLaserDistArr())
             theta[x] = math.atan(distH/(theta[x]-30*x)) #D in cm converted to theta
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
             #move30cm()
-            time.sleep(0.5)
+            time.sleep(4)
     
     np_pixelDist = np.asarray(pixelDist) #pixelDist matrix converted to numpy matrix - for performance
     #take every column and compute slope and offset from multiple readings
@@ -58,9 +58,16 @@ def cali():
         DistConstArr[i] = DistConst(slope,intercept) #add computer values to distance constants array
     np.save('consts.txt', DistConstArr) #save text
 
-cali()
-
-
+#cali()
+DistConstArr = np.load('consts.txt.npy')
+GPIO.setmode(GPIO.BCM)
+R1 = 18 # RELAY PIN	
+GPIO.setup(R1,GPIO.OUT)
+GPIO.output(R1, True) # laser on
+pixelDist = getLaserDistArr()
+GPIO.output(R1, False) #laser off
+for x in range(200,400):
+    print("pixel: " + str(x) + ". Distance: " + str(pixelDist[x]*DistConstArr[x].Slope + DistConstArr.Intercept))
 '''
 
 #CalcDistCalibration
