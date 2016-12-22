@@ -50,6 +50,10 @@ def cali():
             time.sleep(4)
     
     np_pixelDist = np.asarray(pixelDist) #pixelDist matrix converted to numpy matrix - for performance
+    print("******************************")
+    for x in range(9):
+        print("theta: " + str(theta[x]) + "middle pixel distance: "+ str(np_pixelDist[x][320]))
+    
     #take every column and compute slope and offset from multiple readings
     for i in range(200,400) :
         x = np_pixelDist[:,i] 
