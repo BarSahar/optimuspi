@@ -47,7 +47,7 @@ def cali():
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
             #move30cm()
-            time.sleep(0.5)
+            time.sleep(4)
     
     np_pixelDist = np.asarray(pixelDist) #pixelDist matrix converted to numpy matrix - for performance
     #take every column and compute slope and offset from multiple readings
