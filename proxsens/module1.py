@@ -28,7 +28,7 @@ def dotlaster():
 			y_val = np.median(xy_val[0])
 			dist = abs(y_val - 540)
 			
-			print (xy_val[0])
+			print (str(dist))
 			'''
 			theta=slope*dist+inters
 			tan_theta = math.tan(theta)
