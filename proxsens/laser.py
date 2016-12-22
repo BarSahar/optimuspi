@@ -16,6 +16,8 @@ distH = 5
 initialD = 285
 
 
+
+
 #Function to detect laser line from camera and return array of y distances from camera horizon per column
 #Since camera resolution is 640*480, an array of 680 values is returned
 def getPicture():
@@ -40,6 +42,25 @@ def getPixelDistArr():
         x = num[:,i].nonzero()
         if len(x) != 0 :
             y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of said pixel is computed                    
+
+
+def dotlaster():
+	with picamera.PiCamera() as camera:
+		with picamera.array.PiRGBArray(camera) as stream:
+			camera.capture(stream, format='rgb') #take a photo
+			image = stream.array
+			num = (image[...,...,1] > 250)
+			xy_val =  num.nonzero()
+			y_val = median(xy_val[0])
+			dist = abs(y_val - 450)
+			print ("pix dist") + str(dist)
+			camera.close()
+
+
+
+
+
+
 
 '''
 def getPixelDistArr():
