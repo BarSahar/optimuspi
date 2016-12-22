@@ -23,12 +23,14 @@ def dotlaster():
 			y_val = np.median(xy_val[0])
 			dist = abs(y_val - 450)
 			
-			theta=slope*dist+inters
+			print (str(dict))
+
+		'''	theta=slope*dist+inters
 			tan_theta = math.tan(theta)
 			obj_dist =  int(5.0 / tan_theta)
-			print ("the dot is" + str(obj_dist) + "cm  away")
+			print ("the dot is " + str(obj_dist) + "cm  away")
 
-			camera.close()
+			camera.close()'''
 
 
 
