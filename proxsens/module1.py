@@ -20,6 +20,7 @@ inters=-0.074563241
 def dotlaster():
 	with picamera.PiCamera() as camera:
 		with picamera.array.PiRGBArray(camera) as stream:
+			camera.resolution=(1920,1080)
 			camera.capture(stream, format='rgb') #take a photo
 			image = stream.array
 			num = (image[...,...,1] > 250)
