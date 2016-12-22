@@ -29,6 +29,7 @@ def getLaserDistArr():
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
                     y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of dais pixel is computed
+                    print ("number of green pixels: "+ str(len(y_vals[i])))
         camera.close()
     return y_vals
 
@@ -73,8 +74,8 @@ def printDist():
     for x in range(200,400):
         print("pixel: " + str(x) + ". Distance: " + str(pixelDist[x]*DistConstArr[x].Slope + DistConstArr[x].Intercept))
 
-#cali()
-printDist()
+cali()
+#printDist()
 
 '''
 
