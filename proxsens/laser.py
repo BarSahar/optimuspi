@@ -58,7 +58,8 @@ def cali():
         DistConstArr[i] = DistConst(slope,intercept) #add computer values to distance constants array
     np.save('consts.txt', DistConstArr) #save text
 
-cali()
+#cali()
+printDist()
 def printDist():
     DistConstArr = np.load('consts.txt.npy')
     GPIO.setmode(GPIO.BCM)
