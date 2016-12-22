@@ -10,10 +10,11 @@ from proxsens import move30cm
 from robotModels import DistConst
 GPIO.setwarnings(False)
 
-slope=0.000686112
+slope=0.002126104
 
 
-inters=0.011552047
+inters=0.009691016
+
 
 
 
