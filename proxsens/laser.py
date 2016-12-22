@@ -37,10 +37,10 @@ def cali():
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     pixelDist = []
-    theta = np.empty(10) #an array of theta per distance from wall
+    theta = np.empty(9) #an array of theta per distance from wall
     theta.fill(initialD) #the array instantaniates as D in cm and than
                          #converted to angle via artctan(h/D)
-    for x in range(10):
+    for x in range(9):
             GPIO.output(R1, True) # laser on
             pixelDist.append(getLaserDistArr())
             theta[x] = math.atan(distH/(theta[x]-30*x)) #D in cm converted to theta
