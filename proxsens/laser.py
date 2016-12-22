@@ -28,9 +28,10 @@ def getLaserDistArr():
             for i in range(200,400) :
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
-                    y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of dais pixel is computed
-                    print ("number of green pixels: "+ str(len(y_vals)))
+                    y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of said pixel is computed                    
         camera.close()
+    print ("number of green pixels: "+ str(len(~np.isnan(y_vals))))
+    print ("y_vals in 320: "+ str(y_vals[320]))
     return y_vals
 
 def cali():
