@@ -26,7 +26,7 @@ def dotlaster():
 			num = (image[...,...,1] > 250)
 			xy_val =  num.nonzero()
 			y_val = np.median(xy_val[0])
-			dist = abs(y_val - 240)
+			dist = abs(y_val - 540)
 			
 			print (str(dist))
 			'''
