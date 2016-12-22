@@ -31,7 +31,7 @@ def dotlaster():
 			print (str(dist))
 			theta=slope*dist+inters
 			tan_theta = math.tan(theta)
-			obj_dist =  int(5.0 / tan_theta)*2
+			obj_dist =  int(5.0 / tan_theta)
 			print ("the dot is " + str(obj_dist) + "cm  away")
 
 			camera.close()
