@@ -67,7 +67,7 @@ GPIO.output(R1, True) # laser on
 pixelDist = getLaserDistArr()
 GPIO.output(R1, False) #laser off
 for x in range(200,400):
-    print("pixel: " + str(x) + ". Distance: " + str(pixelDist[x]*DistConstArr[x].Slope + DistConstArr.Intercept))
+    print("pixel: " + str(x) + ". Distance: " + str(pixelDist[x]*DistConstArr[x].Slope + DistConstArr[x].Intercept))
 '''
 
 #CalcDistCalibration
