@@ -18,7 +18,7 @@ def dotlaster():
 			image = stream.array
 			num = (image[...,...,1] > 250)
 			xy_val =  num.nonzero()
-			y_val = median(xy_val[0])
+			y_val = np.median(xy_val[0])
 			dist = abs(y_val - 450)
 			print ("pix dist") + str(dist)
 			camera.close()
@@ -30,6 +30,7 @@ def main():
 	R1 = 18 # RELAY PIN	
 	GPIO.setup(R1,GPIO.OUT)
 	GPIO.output(R1, True) # laser on
+
 	dotlaster()
 	GPIO.output(R1, False) #laser off
 
