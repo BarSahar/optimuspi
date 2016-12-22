@@ -10,9 +10,11 @@ from proxsens import move30cm
 from robotModels import DistConst
 GPIO.setwarnings(False)
 
-slope=0.000924665
+slope=0.000923485
 
-inters=-0.074701125
+
+inters=-0.074563241
+
 
 
 def dotlaster():
@@ -27,12 +29,12 @@ def dotlaster():
 			
 			print (str(dist))
 
-			'''theta=slope*dist+inters
+			theta=slope*dist+inters
 			tan_theta = math.tan(theta)
 			obj_dist =  int(5.0 / tan_theta)
 			print ("the dot is " + str(obj_dist) + "cm  away")
 
-			camera.close()'''
+			camera.close()
 
 
 
