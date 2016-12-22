@@ -20,7 +20,7 @@ def dotlaster():
 			xy_val =  num.nonzero()
 			y_val = np.median(xy_val[0])
 			dist = abs(y_val - 450)
-			print ("pix dist") + str(dist)
+			print ("pix dist" + str(dist))
 			camera.close()
 
 
