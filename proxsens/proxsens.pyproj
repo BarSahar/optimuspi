@@ -22,13 +22,13 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="module1.py">
+    <Compile Include="laser.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="robotModels.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="laser.py" />
+    <Compile Include="laserline_old.py" />
     <Compile Include="proxsens.py" />
   </ItemGroup>
   <PropertyGroup>
