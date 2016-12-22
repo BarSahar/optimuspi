@@ -18,33 +18,57 @@ initialD = 285
 
 #Function to detect laser line from camera and return array of y distances from camera horizon per column
 #Since camera resolution is 640*480, an array of 680 values is returned
-def getLaserDistArr():
+def getPicture():
     with picamera.PiCamera() as camera:
         with picamera.array.PiRGBArray(camera) as stream:
             camera.capture(stream, format='bgr') #take a photo
             image = stream.array
-            num = (image[...,...,1] > 200) #only marks pixels of bright green color
-            y_vals = [np.nan]*640
-            for i in range(200,400) :
+        camera.close()
+    return image
+
+def getPixelDistArr():
+    GPIO.setmode(GPIO.BCM)
+    R1 = 18 # RELAY PIN	
+    GPIO.setup(R1,GPIO.OUT)
+    image1 = getPicture()
+    GPIO.output(R1, True) # laser on
+    image2 = getPicture()
+    GPIO.output(R1, False) # laser off
+    num = image2-image1 #line detection
+    y_vals = [np.nan]*640
+    for i in range(200,400) :
+        x = num[:,i].nonzero()
+        if len(x) != 0 :
+            y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of said pixel is computed                    
+
+'''
+def getPixelDistArr():
+    with picamera.PiCamera() as camera:
+        with picamera.array.PiRGBArray(camera) as stream:
+            camera.capture(stream, format='bgr') #take a photo
+            image = stream.array
+            num = (image[...,...,1] > 250) #only marks pixels of bright green color
+            y_vals = [np.nan]*1440
+            for i in range(0,1440) :
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
-                    y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of said pixel is computed                    
+                    y_vals[i] = abs(np.median(x)-450) #in case of multiple pixles per column, a median of said pixel is computed                    
         camera.close()
     print ("number of green pixels: "+ str(len(~np.isnan(y_vals))))
-    print ("y_vals in 320: "+ str(y_vals[320]))
+    print ("y_vals in 720: "+ str(y_vals[720]))
     return y_vals
-
+'''
 def cali():
     GPIO.setmode(GPIO.BCM)
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     pixelDist = []
-    theta = np.empty(9) #an array of theta per distance from wall
+    theta = np.empty(9)  #an array of theta per distance from wall
     theta.fill(initialD) #the array instantaniates as D in cm and than
                          #converted to angle via artctan(h/D)
     for x in range(9):
             GPIO.output(R1, True) # laser on
-            pixelDist.append(getLaserDistArr())
+            pixelDist.append(getPixelDistArr())
             theta[x] = math.atan(distH/(theta[x]-30*x)) #D in cm converted to theta
             GPIO.output(R1, False) #laser off
             print ("ended loop" + str(x))
@@ -70,7 +94,7 @@ def printDist():
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     GPIO.output(R1, True) # laser on
-    pixelDist = getLaserDistArr()
+    pixelDist = getPixelDistArr()
     GPIO.output(R1, False) #laser off
     for x in range(200,400):
         print("pixel: " + str(x) + ". Distance: " + str(pixelDist[x]*DistConstArr[x].Slope + DistConstArr[x].Intercept))
