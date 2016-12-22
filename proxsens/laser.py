@@ -29,7 +29,7 @@ def getLaserDistArr():
                 x = num[:,i].nonzero()
                 if len(x) != 0 :
                     y_vals[i] = abs(np.median(x)-240) #in case of multiple pixles per column, a median of dais pixel is computed
-                    print ("number of green pixels: "+ str(len(y_vals[i])))
+                    print ("number of green pixels: "+ str(len(y_vals)))
         camera.close()
     return y_vals
 
