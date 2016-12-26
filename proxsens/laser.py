@@ -1,13 +1,9 @@
-import time
 import picamera
 import picamera.array
 import cv2
 import numpy as np
-import math
-from scipy import stats
+from math import tan
 import RPi.GPIO as GPIO
-from proxsens import move30cm 
-from robotModels import DistConst
 GPIO.setwarnings(False)
 
 LaserSlope=0.002126104
@@ -35,6 +31,8 @@ def getLaserDist():
     dist = abs(y_val - 240)
     print (str(dist))
     theta = LaserSlope*dist+LaserInters
-    tan_theta = math.tan(theta)
+    tan_theta = tan(theta)
     obj_dist =  int(5.0 / tan_theta)
     return obj_dist
+
+getLaserDist()
