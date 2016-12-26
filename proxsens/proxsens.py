@@ -4,6 +4,11 @@ import datetime
 import threading 
 from threading import Thread
 from robotModels import direction 
+import picamera
+import picamera.array
+import numpy as np
+from math import tan
+
 GPIO.setwarnings(False)
 
 con=threading.Condition()
@@ -274,7 +279,7 @@ def getLaserDist():
     dist = abs(y_val - 240)
     print (str(dist))
     theta = LaserSlope*dist+LaserInters
-    tan_theta = math.tan(theta)
+    tan_theta = tan(theta)
     obj_dist =  int(5.0 / tan_theta)
     return obj_dist
 

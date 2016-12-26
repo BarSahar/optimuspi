@@ -1,8 +1,5 @@
-import picamera
-import picamera.array
-import cv2
-import numpy as np
-from math import tan
+
+
 import RPi.GPIO as GPIO
 GPIO.setwarnings(False)
 
