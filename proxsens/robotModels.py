@@ -12,7 +12,7 @@ class DistConst:
         return "Slope is: " + str(self.Slope) + ". Intercept is: " + str(self.Intercept)
 
 class direction(Enum):
-	north=1
-	east=2
-	south=3
-	west=4
+	north=(0,1)
+	east=(1,0)
+	south=(0,-1)
+	west=(-1,0)
