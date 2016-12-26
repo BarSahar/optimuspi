@@ -10,8 +10,8 @@ from proxsens import move30cm
 from robotModels import DistConst
 GPIO.setwarnings(False)
 
-slope=0.002126104
-inters=0.009691016
+LaserSlope=0.002126104
+LaserInters=0.009691016
 
 def getPicture():
     with picamera.PiCamera() as camera:
@@ -22,26 +22,19 @@ def getPicture():
         camera.close()
     return image
 
-
-##TODO: make the function get "image" so taking a picture could be done in "main" to reduce time of laser
-def dotlaster():
+def getLaserDist():
+    GPIO.setmode(GPIO.BCM)
+    R1 = 18 # RELAY PIN	
+    GPIO.setup(R1,GPIO.OUT)
+    GPIO.output(R1, True) # laser on
     image = getPicture()
+    GPIO.output(R1, False) #laser off
     num = (image[...,...,1] > 254)
     xy_val = num.nonzero()
     y_val = np.median(xy_val[0])
     dist = abs(y_val - 240)
     print (str(dist))
-    theta = slope*dist+inters
+    theta = LaserSlope*dist+LaserInters
     tan_theta = math.tan(theta)
     obj_dist =  int(5.0 / tan_theta)
-    print ("the dot is " + str(obj_dist) + "cm  away")
-
-def main():
-	GPIO.setmode(GPIO.BCM)
-	R1 = 18 # RELAY PIN	
-	GPIO.setup(R1,GPIO.OUT)
-	GPIO.output(R1, True) # laser on
-	dotlaster()
-	GPIO.output(R1, False) #laser off
-
-main()
+    return obj_dist
