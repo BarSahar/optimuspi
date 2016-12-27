@@ -55,7 +55,6 @@ def doorcheck():
 		if sens.getProxDist()>60 and sens.getLaserDist()>17:
 			sens.moveForward()
 			updateCposition()
-			count=count+1
 			if ifathome():
 				return False
 		else:
