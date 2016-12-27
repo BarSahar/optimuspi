@@ -3,9 +3,7 @@ import math
 import time
 import sys
 
-class hmc5883l:
-
-
+class compass:
     __scales = {
 	    0.88: [0, 0.73],
         1.30: [1, 0.92],

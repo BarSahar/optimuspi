@@ -25,7 +25,7 @@
     <Compile Include="laser.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="magnet.py">
+    <Compile Include="compass.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="outliner.py">
