@@ -8,7 +8,7 @@ import picamera
 import picamera.array
 import numpy as np
 import compass
-from math import tan,abs
+from math import tan
 
 GPIO.setwarnings(False)
 
