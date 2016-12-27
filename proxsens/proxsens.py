@@ -229,7 +229,6 @@ def moveForward():
             break
         con.release()
 
-
 def fixAngle(destAngle):
     #going left is negative angle    
     #variables
