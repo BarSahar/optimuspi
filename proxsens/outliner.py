@@ -18,6 +18,8 @@ def outline():
 		if sens.getLaserDist()>67 and sens.getProxDist()>60: #door or slit
 			if doorcheck():
 				sens.turnright()
+				sens.moveForward()
+				updateCposition()
 		elif sens.getProxDist()>33 and sens.getProxDist()<37:  #wall too far on the right
 				sens.turnright()
 				sens.moveForward()
