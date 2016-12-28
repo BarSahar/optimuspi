@@ -348,7 +348,7 @@ def getLaserDist():
     xy_val = num.nonzero()
     y_val = np.median(xy_val[0])
     dist = abs(y_val - 240)
-    print (str(dist))
+    #print (str(dist))
     theta = LaserSlope*dist+LaserInters
     tan_theta = tan(theta)
     obj_dist =  int(5.0 / tan_theta)
