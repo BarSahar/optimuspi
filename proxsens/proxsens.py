@@ -328,8 +328,8 @@ def move30cm():
 	con.release()
 
 
-LaserSlope=0.002126104
-LaserInters=0.009691016
+LaserSlope=0.001779
+LaserInters=-0.01581
 
 def getPicture():
     with picamera.PiCamera() as camera:
