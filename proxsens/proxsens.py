@@ -345,7 +345,7 @@ def getLaserDist():
 	GPIO.output(R1, True) # laser on
 	image = getPicture()
 	GPIO.output(R1, False) #laser off
-	num = (image[...,...,1] > 254)
+	num = (image[...,...,1] > 232)
 	xy_val = num.nonzero()
 	if len(xy_val[0])==0:
 		print("Error detecting dot")
