@@ -18,6 +18,8 @@ def outline():
 
 		frontdis=sens.getLaserDist()
 		sidedis=sens.getProxDist()
+		print (frontdis)
+		print (sidedis)
 
 		if frontdis>67 and sidedis>60: #door or slit
 			if doorcheck():
