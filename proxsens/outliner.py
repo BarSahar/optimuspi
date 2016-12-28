@@ -11,30 +11,31 @@ first =True
 def outline():
 	global first
 
-	print (first)
 	while True:
 		if (home==cposition) and not first:
 			return True
 		first=False
 
+		frontdis=sens.getLaserDist()
+		sidedis=sens.getProxDist()
 
-		if sens.getLaserDist()>67 and sens.getProxDist()>60: #door or slit
+		if frontdis>67 and sidedis>60: #door or slit
 			if doorcheck():
 				sens.turnright()
 				sens.moveForward()
 				updateCposition()
-		elif sens.getProxDist()>33 and sens.getProxDist()<37:  #wall too far on the right
+		elif sidedis>33 and sidedis<37:  #wall too far on the right
 				sens.turnright()
 				sens.moveForward()
 				updateCposition()
 				sens.turnleft()
-		elif sens.getProxDist()<13.5: # wall too close on the right
+		elif sidedis<13.5: # wall too close on the right
 				sens.turnleft()
 				sens.moveForward()
 				updateCposition()
 				sens.turnright()
 		else:                         # wall on the right is OK
-			if sens.getLaserDist()>33:
+			if frontdis>33:
 				sens.moveForward()
 				updateCposition()
 			else:
