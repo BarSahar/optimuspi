@@ -10,6 +10,8 @@ first =True
 
 def outline():
 	global first
+
+	print (first)
 	while True:
 		if (home==cposition) and (~first):
 			return True
