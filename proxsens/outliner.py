@@ -13,7 +13,7 @@ def outline():
 
 	print (first)
 	while True:
-		if (home==cposition) and (~first):
+		if (home==cposition) and not first:
 			return True
 		first=False
 
