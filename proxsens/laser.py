@@ -25,7 +25,7 @@ def getLaserDist():
     GPIO.output(R1, False) #laser off
     
 
-    hsv_img = cv2.cvtColor(frame, cv.CV_BGR2HSV)
+    hsv_img = cv2.cvtColor(image, cv.CV_BGR2HSV)
 
     LASER_MIN = np.array([120, 100, 45.1],np.uint8)
     LASER_MAX = np.array([120, 100, 100],np.uint8)
