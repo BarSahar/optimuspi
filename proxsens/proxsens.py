@@ -23,7 +23,6 @@ dir=0
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
-
 counterleft=0
 counterright=0
 counterleft_limit=0
@@ -222,9 +221,9 @@ def moveForward():
     con.acquire()
     while True:
         con.wait()
-        if abs(myCompass.heading()-HeadingAngle)>1:
-            stop()            
-            fixAngle(HeadingAngle)
+        #if abs(myCompass.heading()-HeadingAngle)>1:
+        #    stop()            
+        #    fixAngle(HeadingAngle)
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
             break
         con.release()
@@ -265,6 +264,12 @@ def fixAngle(destAngle):
         else :
             goleft()
         currAngle = myCompass.heading()
+
+    #restore previous counter state
+    counterleft = old_counterleft
+    counterright = old_counterright
+    counterleft_limit = old_counterleft_limit
+    counterright_limit = old_counterright_limit
 
 def turnsens():
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
