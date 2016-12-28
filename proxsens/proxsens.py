@@ -331,8 +331,8 @@ LaserInters=-0.018442568
 def getPicture():
     with picamera.PiCamera() as camera:
         with picamera.array.PiRGBArray(camera) as stream:
-            time.sleep(0.5)
             camera.resolution=(640,480)
+			time.sleep(0.5)
             camera.capture(stream, format='rgb') #take a photo
             image = stream.array
         camera.close()
