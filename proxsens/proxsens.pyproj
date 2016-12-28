@@ -28,6 +28,9 @@
     <Compile Include="compass.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="laser_range_finder.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="outliner.py">
       <SubType>Code</SubType>
     </Compile>
@@ -36,6 +39,9 @@
     </Compile>
     <Compile Include="laserline_old.py" />
     <Compile Include="proxsens.py" />
+    <Compile Include="utils.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
