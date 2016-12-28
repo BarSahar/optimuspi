@@ -11,15 +11,12 @@ import compass
 from math import tan
 
 GPIO.setwarnings(False)
-
 con=threading.Condition()
 stoper=0
-
 myCompass = compass.compass()
 HeadingAngle=0
 cosmos=(direction.north,direction.west,direction.south,direction.east) 
 dir=0
-
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
@@ -27,7 +24,6 @@ counterleft=0
 counterright=0
 counterleft_limit=0
 counterright_limit=0
-
 TRIG_pin = 23
 ECHO_pin = 22
 
@@ -40,12 +36,12 @@ def getProxDist():
     GPIO.output(TRIG_pin, False)
 
     distance1=measureProx()
-    time.sleep(0.1)
+    #time.sleep(0.1)
     distance2=measureProx()
-    time.sleep(0.1)
+    #time.sleep(0.1)
     distance3=measureProx()
-    distance = (distance1 + distance2 + distance3)/3
-    return distance
+    return (distance1 + distance2 + distance3)/3
+     
 
 def measureProx():
     GPIO.setmode(GPIO.BCM)

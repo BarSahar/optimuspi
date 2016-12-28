@@ -67,3 +67,9 @@ def doorcheck():
 		sens.turnright()	
 		sens.turnright()
 		return True
+
+
+def main():
+	outline()
+
+
