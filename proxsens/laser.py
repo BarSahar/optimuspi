@@ -42,14 +42,14 @@ def getLaserDist():
     temp=0
     laserx = 0
     lasery = 0
-    for i in range(src.width):
+    for i in range(480):
         col=cv2.GetCol(src,i)
         if cv2.Sum(col)[0]!=0.0:
             rightmost=i
             if temp==0:
                 leftmost=i
                 temp=1
-    for i in range(src.height):
+    for i in range(640):
         row=cv2.GetRow(src,i)
         if cv2.Sum(row)[0]!=0.0:
             bottommost=i
