@@ -190,7 +190,7 @@ def moveForward():
     global counterleft
     global counterright
     global con
-    counterright_limit
+    global counterright_limit
     global counterleft_limit
     global stoper
     global HeadingAngle
