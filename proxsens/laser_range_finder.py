@@ -130,10 +130,10 @@ class LaserRangeFinder(object):
             save_images_dir = os.path.expanduser(save_images_dir)
             assert os.path.isdir(save_images_dir), 'Invalid directory: %s' % save_images_dir
         
-        if isinstance(off_img, str):
+        if isinstance(off_img, basestring):
             off_img = Image.open(os.path.expanduser(off_img)).convert('RGB')
             
-        if isinstance(on_img, str):
+        if isinstance(on_img, basestring):
             on_img = Image.open(os.path.expanduser(on_img)).convert('RGB')
         
         # Normalize image brightness.
