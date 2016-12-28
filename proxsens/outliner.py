@@ -9,6 +9,7 @@ first =True
 
 
 def outline():
+	global first
 	while True:
 		if (home==cposition) and (~first):
 			return True
@@ -69,7 +70,7 @@ def doorcheck():
 		return True
 
 
-def main():
-	outline()
+#def main():
+#	outline()
 
 
