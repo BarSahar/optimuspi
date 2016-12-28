@@ -32,7 +32,7 @@ def getLaserDist():
     frame_threshed = cv2.inRange(hsv_img, LASER_MIN, LASER_MAX)
 
     #cv.InRangeS(hsv_img,cv.Scalar(5, 50, 50),cv.Scalar(15, 255, 255),frame_threshed)    # Select a range of yellow color
-    src = cv2.fromarray(frame_threshed)
+    src = frame_threshed
     #rect = cv.BoundingRect(frame_threshed, update=0)
 
     leftmost=0
