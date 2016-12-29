@@ -343,7 +343,7 @@ def getLaserDist():
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     GPIO.output(R1, True) # laser on
-    image = p.getPicture()
+    image = getPicture()
     GPIO.output(R1, False) #laser off
     num = (image[...,...,1] > 254)
     xy_val = num.nonzero()
