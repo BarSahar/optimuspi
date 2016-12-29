@@ -355,7 +355,7 @@ def getLaserDist():
     noiseFilterx2 = (xy_val[1][...]<350)
     noiseFiltery1 = (xy_val[0][...]<270)
     noiseFiltery2 = (xy_val[0][...]>50)
-    finalFilter = np.logical_and(noiseFiltery1,noiseFiltery2,noiseFilterx1,noiseFilterx2)
+    finalFilter = np.logical_and(np.logical_and(noiseFilterx1,noiseFilterx2),np.logical_and(noiseFiltery1,noiseFiltery2))
     y_val = np.median(xy_val[0][finalFilter])
     dist = abs(y_val - 240)
     print ("pixel dist is:  " + str(dist))
