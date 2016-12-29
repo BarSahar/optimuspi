@@ -351,8 +351,10 @@ def getLaserDist():
         print("Error detecting dot")
         return 
     #filter all indeces below horizon = reflections on the floor
-    noiseFilter = (xy_val[0][...]<270)
-    y_val = np.median(xy_val[0][noiseFilter])
+    noiseFilter1 = (xy_val[0][...]<270)
+    noiseFilter2 = (xy_val[0][...]>50)
+    finalFilter = np.logical_and(noiseFilter1,noiseFilter2)
+    y_val = np.median(xy_val[0][finalFilter])
     dist = abs(y_val - 240)
     print ("pixel dist is:  " + str(dist))
     theta = LaserSlope*dist+LaserInters
