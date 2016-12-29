@@ -15,8 +15,11 @@ con=threading.Condition()
 stoper=0
 myCompass = compass.compass()
 HeadingAngle=0
-cosmos=(direction.north,direction.west,direction.south,direction.east) 
-dir=0
+
+
+cosmos=(direction.north,direction.east,direction.south,direction.west) 
+dir=1
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)

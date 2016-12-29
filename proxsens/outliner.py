@@ -17,15 +17,16 @@ def outline():
 
 		frontdis=sens.getLaserDist()
 		sidedis=sens.getProxDist()
-		print (frontdis)
-		print (sidedis)
+		print ("Fromt: "+str(frontdis))
+		print ("Side: "+str(sidedis))
+		print("current pos: "+str(cposition))
 
-		if frontdis>67 and sidedis>60: #door or slit
+		if frontdis>65 and sidedis>60: #door or slit
 			if doorcheck():
 				sens.turnright()
 				sens.moveForward()
 				updateCposition()
-		elif sidedis>33 and sidedis<37:  #wall too far on the right
+		elif sidedis>30 and sidedis<45:  #wall too far on the right
 				sens.turnright()
 				sens.moveForward()
 				updateCposition()
@@ -36,7 +37,7 @@ def outline():
 				updateCposition()
 				sens.turnright()
 		else:                         # wall on the right is OK
-			if frontdis>33:
+			if frontdis>30:
 				sens.moveForward()
 				updateCposition()
 			else:
@@ -66,13 +67,13 @@ def doorcheck():
 		else:
 			return False
 
-		sens.turnleft()
-		sens.turnleft()
-		for x in range(4):
-			sens.moveForward()
-		sens.turnright()	
-		sens.turnright()
-		return True
+	sens.turnleft()
+	sens.turnleft()
+	for x in range(4):
+		sens.moveForward()
+	sens.turnright()	
+	sens.turnright()
+	return True
 
 
 #def main():
