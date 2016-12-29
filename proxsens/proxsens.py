@@ -112,7 +112,7 @@ def addright(channel):
 
 def loopgetDist():
 	while True:
-	print (str(getDist()))
+		print (str(getDist()))
 		 
 def turnright():
 	global counterright_limit
