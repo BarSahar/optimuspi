@@ -56,7 +56,7 @@ def ifathome():
 		return True
 	else:
 		return False
-	 
+
 def doorcheck():
 	for x in range(4):
 		if sens.getProxDist()>60 and sens.getLaserDist()>17:
@@ -75,6 +75,7 @@ def doorcheck():
 	sens.turnright()
 	return True
 
+ 
 
 #def main():
 #	outline()
