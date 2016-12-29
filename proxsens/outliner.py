@@ -2,7 +2,6 @@ import proxsens as sens
 import operator as op
 
 
-
 cposition=(0,0)
 home=(0,0)
 first =True
