@@ -328,9 +328,8 @@ def move30cm():
 	con.release()
 
 
-LaserSlope=0.001852056
-LaserInters=-0.018442568
-
+LaserSlope=0.002043
+LaserInters=-0.00257
 
 def getPicture():
 	with picamera.PiCamera() as camera:
@@ -343,6 +342,15 @@ def getPicture():
 	return image
 
 def getLaserDist():
+    dist1 = laserDistHelper()
+    if dist1<200:
+        return dist1
+    else:
+        dist2 = laserDistHelper()
+        dist3 = laserDistHelper()
+        return min(dist1,dist2,dist3)
+
+def laserDistHelper():
     GPIO.setmode(GPIO.BCM)
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
@@ -355,15 +363,18 @@ def getLaserDist():
         print("Error detecting dot")
         return 
     #filter all indeces below horizon = reflections on the floor
-    noiseFilter = (xy_val[0][...]<270)
-    y_val = np.median(xy_val[0][noiseFilter])
+    noiseFilterx1 = (xy_val[1][...]>250)
+    noiseFilterx2 = (xy_val[1][...]<350)
+    noiseFiltery1 = (xy_val[0][...]<270)
+    noiseFiltery2 = (xy_val[0][...]>50)
+    finalFilter = np.logical_and(np.logical_and(noiseFilterx1,noiseFilterx2),np.logical_and(noiseFiltery1,noiseFiltery2))
+    y_val = np.median(xy_val[0][finalFilter])
     dist = abs(y_val - 240)
-    print ("pixel dist is" + str(dist))
+    #print ("pixel dist is" + str(dist))
     theta = LaserSlope*dist+LaserInters
     tan_theta = tan(theta)
     obj_dist =  int(5.0 / tan_theta)
     return obj_dist
-
 
 def main():
 	#turnsens()
