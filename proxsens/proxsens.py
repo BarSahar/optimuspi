@@ -339,24 +339,26 @@ def getPicture():
 	return image
 
 def getLaserDist():
-	GPIO.setmode(GPIO.BCM)
-	R1 = 18 # RELAY PIN	
-	GPIO.setup(R1,GPIO.OUT)
-	GPIO.output(R1, True) # laser on
-	image = getPicture()
-	GPIO.output(R1, False) #laser off
-	num = (image[...,...,1] > 254)
-	xy_val = num.nonzero()
-	if len(xy_val[0])==0:
-		print("Error detecting dot")
-		return 
-	y_val = np.median(xy_val[0])
-	dist = abs(y_val - 240)
-	print (str(dist))
-	theta = LaserSlope*dist+LaserInters
-	tan_theta = tan(theta)
-	obj_dist =  int(5.0 / tan_theta)
-	return obj_dist
+    GPIO.setmode(GPIO.BCM)
+    R1 = 18 # RELAY PIN	
+    GPIO.setup(R1,GPIO.OUT)
+    GPIO.output(R1, True) # laser on
+    image = getPicture()
+    GPIO.output(R1, False) #laser off
+    num = (image[...,...,1] > 254)
+    xy_val = num.nonzero()
+    if len(xy_val[0])==0:
+        print("Error detecting dot")
+        return 
+    #filter all indeces below horizon = reflections on the floor
+    noiseFilter = (xy_val[0][...]<270)
+    y_val = np.median(xy_val[0][noiseFilter])
+    dist = abs(y_val - 240)
+    print ("pixel dist is" + str(dist))
+    theta = LaserSlope*dist+LaserInters
+    tan_theta = tan(theta)
+    obj_dist =  int(5.0 / tan_theta)
+    return obj_dist
 
 
 def main():
