@@ -101,7 +101,7 @@ class LaserRangeFinder(object):
         self.ro = float(kwargs.pop('ro', -0.21))
         
         # Distance between camera center and laser.
-        self.h = float(kwargs.pop('h', 22.5)) # mm
+        self.h = float(kwargs.pop('h', 50)) # mm
         
         # If true, laser pixels that are less bright than the mean brightness minus
         # a factor of the standard deviation will be considered noise and ignored.
@@ -113,7 +113,7 @@ class LaserRangeFinder(object):
         
         self.blur_radius = int(kwargs.pop('blur_radius', 2))
         
-        self.laser_position = kwargs.pop('laser_position', 'bottom')
+        self.laser_position = kwargs.pop('laser_position', 'top')
         
         self.normalize_brightness = kwargs.pop('normalize_brightness', False)
         
