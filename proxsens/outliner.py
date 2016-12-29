@@ -77,6 +77,7 @@ def doorcheck():
 
  
 
+
 #def main():
 #	outline()
 
