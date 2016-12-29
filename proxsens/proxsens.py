@@ -94,10 +94,10 @@ def addleft(channel):
 		GPIO.remove_event_detect(channel)
 
 def addright(channel):
-    global counterright,con
-    counterright+=1
-    #thisAng = myCompass.heading()
-    #print ("right: " + str(counterright))
+	global counterright,con
+	counterright+=1
+	#thisAng = myCompass.heading()
+	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
 	if counterright>=counterright_limit:
 		GPIO.setmode(GPIO.BCM)

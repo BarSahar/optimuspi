@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="coma.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="laser.py">
       <SubType>Code</SubType>
     </Compile>
