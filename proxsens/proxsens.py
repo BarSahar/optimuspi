@@ -324,8 +324,8 @@ def move30cm():
 	con.release()
 
 
-LaserSlope=0.002392
-LaserInters=-0.00736
+LaserSlope=0.002441
+LaserInters=-0.01039
 
 
 def getPicture():
