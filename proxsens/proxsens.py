@@ -324,8 +324,8 @@ def move30cm():
 	con.release()
 
 
-LaserSlope=0.001852056
-LaserInters=-0.018442568
+LaserSlope=0.002392
+LaserInters=-0.00736
 
 
 def getPicture():
@@ -343,7 +343,7 @@ def getLaserDist():
     R1 = 18 # RELAY PIN	
     GPIO.setup(R1,GPIO.OUT)
     GPIO.output(R1, True) # laser on
-    image = getPicture()
+    image = p.getPicture()
     GPIO.output(R1, False) #laser off
     num = (image[...,...,1] > 254)
     xy_val = num.nonzero()
@@ -351,9 +351,11 @@ def getLaserDist():
         print("Error detecting dot")
         return 
     #filter all indeces below horizon = reflections on the floor
-    noiseFilter1 = (xy_val[0][...]<270)
-    noiseFilter2 = (xy_val[0][...]>50)
-    finalFilter = np.logical_and(noiseFilter1,noiseFilter2)
+    noiseFilterx1 = (xy_val[1][...]>250)
+    noiseFilterx2 = (xy_val[1][...]<350)
+    noiseFiltery1 = (xy_val[0][...]<270)
+    noiseFiltery2 = (xy_val[0][...]>50)
+    finalFilter = np.logical_and(noiseFiltery1,noiseFiltery2,noiseFilterx1,noiseFilterx2)
     y_val = np.median(xy_val[0][finalFilter])
     dist = abs(y_val - 240)
     print ("pixel dist is:  " + str(dist))
