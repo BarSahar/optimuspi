@@ -93,22 +93,23 @@ def addleft(channel):
 def addright(channel):
     global counterright,con
     counterright+=1
-    thisAng = myCompass.heading()
+    #thisAng = myCompass.heading()
     #print ("right: " + str(counterright))
-    if (counterright>=counterright_limit) or abs(thisAng-HeadingAngle)>1:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(24,False)
-        GPIO.output(25,False)
-        con.acquire()
-        con.notify()
-        #print ("right finito")
-        #print (datetime.datetime.now()-stoper)
-        con.release()
-        GPIO.remove_event_detect(channel)
+	#or abs(thisAng-HeadingAngle)>1:
+	if counterright>=counterright_limit:
+		GPIO.setmode(GPIO.BCM)
+		GPIO.output(24,False)
+		GPIO.output(25,False)
+		con.acquire()
+		con.notify()
+		#print ("right finito")
+		#print (datetime.datetime.now()-stoper)
+		con.release()
+		GPIO.remove_event_detect(channel)
 
 def loopgetDist():
 	while True:
-		print (getDist())
+	print (str(getDist()))
 		 
 def turnright():
 	global counterright_limit
