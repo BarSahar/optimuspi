@@ -49,7 +49,7 @@ def outline():
 	
 def updateCposition():
 	global cposition
-	cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir]))
+	cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir].value))
 
 def ifathome():
 	if (home==cposition):
