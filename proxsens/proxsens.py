@@ -332,7 +332,7 @@ def getPicture():
 	with picamera.PiCamera() as camera:
 		with picamera.array.PiRGBArray(camera) as stream:
 			camera.resolution=(640,480)
-			time.sleep(0.5)
+			#time.sleep(0.5)
 			camera.capture(stream, format='rgb') #take a photo
 			image = stream.array
 		camera.close()
@@ -354,7 +354,7 @@ def getLaserDist():
     noiseFilter = (xy_val[0][...]<270)
     y_val = np.median(xy_val[0][noiseFilter])
     dist = abs(y_val - 240)
-    print ("pixel dist is" + str(dist))
+    print ("pixel dist is:  " + str(dist))
     theta = LaserSlope*dist+LaserInters
     tan_theta = tan(theta)
     obj_dist =  int(5.0 / tan_theta)
