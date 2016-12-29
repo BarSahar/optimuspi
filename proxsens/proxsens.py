@@ -361,7 +361,7 @@ def laserDistHelper():
     xy_val = num.nonzero()
     if len(xy_val[0])==0:
         print("Error detecting dot")
-        return 
+        return 999
     #filter all indeces below horizon = reflections on the floor
     noiseFilterx1 = (xy_val[1][...]>250)
     noiseFilterx2 = (xy_val[1][...]<350)
