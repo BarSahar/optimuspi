@@ -16,3 +16,8 @@ class direction(Enum):
 	east=(1,0)
 	south=(0,-1)
 	west=(-1,0)
+
+class status(Enum):
+	block=0
+	clear=1
+	uncheck=-1
