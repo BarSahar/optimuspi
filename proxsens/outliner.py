@@ -65,8 +65,8 @@ def outline():
 			if frontdis>30:
 				print("wall on the right is OK")
 				sens.moveForward()
-				updateCposition()
 				markrightpoint(0)
+				updateCposition()
 			else:
 				print("wall on the right is not OK")
 				sens.turnleft()
