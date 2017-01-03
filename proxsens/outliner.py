@@ -42,9 +42,9 @@ def outline():
 		if frontdis>60 and sidedis>60: #door or slit
 			if doorcheck():
 				sens.turnright()
-				sens.moveForward()
-				updateCposition()
-				
+				time.sleep(0.5)
+				sens.moveForward
+				updateCposition
 		elif sidedis>30 and sidedis<45:  #wall too far on the right
 				print("wall too far on the right")
 				sens.turnright()
@@ -66,13 +66,13 @@ def outline():
 				print("wall on the right is OK")
 				sens.moveForward()
 				updateCposition()
-				markrightpoint()
+				markrightpoint(0)
 			else:
 				print("wall on the right is not OK")
 				sens.turnleft()
 				sens.moveForward()
 				updateCposition()
-
+		printlist()
 
 
 	xoffset=0
@@ -137,11 +137,14 @@ def updateParam(point):
 		miny=y
 				 
 # mark right point as block
-def markrightpoint():  
-	rpoint=tuple(map(op.add, cposition,sens.giverightdir()))
-	outlinenodes.append((rpoint[0],rpoint[1],status.block))
-	updateParam(rpoint)
-		
+def markrightpoint(num):  
+	bpoint = cposition	
+	for x in rnage (num+1):
+		temp = tuple(map(op.add, bpoint,sens.giverightdir()))
+		outlinenodes.append((temp[0],temp[1],status.block))
+		bpoint=tuple(map(op.add, bpoint,sens.givebackdir()))
+
+			
 	
 def updateCposition():
 	global cposition
@@ -165,16 +168,24 @@ def doorcheck():
 			if ifathome():
 				return False
 		else:
-			markrightpoint()
+			markrightpoint(x)
 			return False
 
 	sens.turnleft()
+	time.sleep(0.5)
 	sens.turnleft()
 	for x in range(4):
 		sens.moveForward()
+		updateCposition()
 		time.sleep(0.5)
-	sens.turnright()	
+
+	sens.turnleft()	
 	time.sleep(0.5)
-	sens.turnright()
+	sens.turnleft()
+	time.sleep(0.5)
 	return True
 
+
+def printlist():
+	for node in outlinenodes:
+		print( str(node))

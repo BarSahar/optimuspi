@@ -34,6 +34,10 @@ def giverightdir():
 	right=((dir+1)%4)
 	return cosmos[right].value
 
+def givebackdir():
+	right=((dir+2)%4)
+	return cosmos[right].value
+
 
 def getProxDist():
     GPIO.setmode(GPIO.BCM)
