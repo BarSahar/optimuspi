@@ -105,7 +105,7 @@ def outline():
 
 	for node in outlinenodes:
 		grid[outlinenodes[0]][outlinenodes[1]]=outlinenodes[2]
-
+	print('done')
 	return (grid,offsetHome)
 
 	
