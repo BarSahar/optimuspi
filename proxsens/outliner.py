@@ -28,7 +28,7 @@ def outline():
 		frontdis=sens.getLaserDist()
 		sidedis=sens.getProxDist()
 
-		print ("Fromt: "+str(frontdis))
+		print ("Front: "+str(frontdis))
 		print ("Side: "+str(sidedis))
 		print("current pos: "+str(cposition))
 
@@ -39,17 +39,20 @@ def outline():
 				updateCposition()
 				
 		elif sidedis>30 and sidedis<45:  #wall too far on the right
+				print("wall too far on the right")
 				sens.turnright()
 				sens.moveForward()
 				updateCposition()
 				sens.turnleft()
 		elif sidedis<13.5: # wall too close on the right
+				print("wall too close on the right")
 				sens.turnleft()
 				sens.moveForward()
 				updateCposition()
 				sens.turnright()
 		else:                         # wall on the right is OK
 			if frontdis>30:
+				print("wall on the right is OK")
 				sens.moveForward()
 				updateCposition()
 				markrightpoint()
