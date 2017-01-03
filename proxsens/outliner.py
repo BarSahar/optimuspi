@@ -101,11 +101,9 @@ def outline():
 		ysize=maxy
 
 
-	if  minx<0 or miny<0:
-		for node in outlinenodes:
-			node[0]=node[0]+xoffset
-			node[1]=node[1]+yoffset
-		offsetHome=tuple(map(op.add,home,(xoffset,yoffset)))
+
+
+	offsetHome=tuple(map(op.add,home,(xoffset,yoffset)))
 	
 	grid=[]
 
@@ -122,8 +120,9 @@ def outline():
 		for y in range(ysize):
 			grid[x].append(status.uncheck)
 	#remember to check duplicate nodes and take the bloked
+
 	for node in outlinenodes:
-		grid[node[0]][node[1]]=node[2]
+		grid[node[0]+xoffset][node[1]+yoffset]=node[2]
 	print('done')
 	return (grid,offsetHome)
 
