@@ -115,7 +115,7 @@ def outline():
 			grid[x].append(status.uncheck)
 	#remember to check duplicate nodes and take the bloked
 	for node in outlinenodes:
-		grid[outlinenodes[0]][outlinenodes[1]]=outlinenodes[2]
+		grid[node[0].value][node[1].value]=node[2]
 	print('done')
 	return (grid,offsetHome)
 

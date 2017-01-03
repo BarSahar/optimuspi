@@ -21,3 +21,6 @@ class status(Enum):
 	block=0
 	clear=1
 	uncheck=-1
+
+class distanceerror(Exception):
+	pass
