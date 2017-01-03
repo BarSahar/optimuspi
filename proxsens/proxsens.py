@@ -105,10 +105,10 @@ def addleft(channel):
 def addright(channel):
 	global counterright,con
 	counterright+=1
-	#thisAng = myCompass.heading()
+	thisAng = myCompass.heading()
 	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
-	if counterright>=counterright_limit:
+	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>1:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
@@ -223,7 +223,7 @@ def moveForward():
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
 	#stoper=datetime.datetime.now()
-	#HeadingAngle = myCompass.heading()
+	HeadingAngle = myCompass.heading()
 	GPIO.output(A1, False)
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
@@ -231,55 +231,58 @@ def moveForward():
 	con.acquire()
 	while True:
 		con.wait()
-        #if abs(myCompass.heading()-HeadingAngle)>1:
-        #    stop()            
-        #    fixAngle(HeadingAngle)
+		if abs(myCompass.heading()-HeadingAngle)>1:
+			stop()            
+			fixAngle(HeadingAngle)
 		if counterleft>=counterleft_limit and counterright>=counterright_limit:
 			break
 	con.release()
 
 def fixAngle(destAngle):
-    #going left is negative angle    
-    #variables
-    global counterleft
-    global counterright
-    global counterleft_limit
-    global counterright_limit
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+	#going left is negative angle    
+	#variables
+	global counterleft
+	global counterright
+	global counterleft_limit
+	global counterright_limit
+	GPIO.setmode(GPIO.BCM)
+	A1=26
+	A2=27
+	B1=24
+	B2=25
+	GPIO.setup(A1,GPIO.OUT)
+	GPIO.setup(A2,GPIO.OUT)
+	GPIO.setup(B1,GPIO.OUT)
+	GPIO.setup(B2,GPIO.OUT)
 
-    #save previous counter state
-    old_counterleft=counterleft
-    old_counterright=counterright
-    old_counterleft_limit=counterleft_limit
-    old_counterright_limit=counterright_limit
+	#save previous counter state
+	old_counterleft=counterleft
+	old_counterright=counterright
+	old_counterleft_limit=counterleft_limit
+	old_counterright_limit=counterright_limit
 
-    #reset counters
-    counterleft =0
-    counterright =0
-    currAngle = myCompass.heading()
-    #TODO FIX AREA AROUND 0
-    while abs(currAngle-destAngle)>1:
-        counterleft_limit = 1
-        counterright_limit = 1
-        if currAngle-destAngle>0 :
-            goright()
-        else :
-            goleft()
-        currAngle = myCompass.heading()
-
-    #restore previous counter state
-    counterleft = old_counterleft
-    counterright = old_counterright
-    counterleft_limit = old_counterleft_limit
-    counterright_limit = old_counterright_limit
+	#reset counters
+	counterleft =0
+	counterright =0
+	currAngle = myCompass.heading()
+	#TODO FIX AREA AROUND 0
+	while abs(currAngle-destAngle)>1:
+		counterleft_limit = 1
+		counterright_limit = 1
+		print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
+		if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
+			print("need to go left")
+            #goleft()
+		else :
+			print("need to go right")
+			#goright()
+		currAngle = myCompass.heading()
+		input("press key to continue")
+	#restore previous counter state
+	counterleft = old_counterleft
+	counterright = old_counterright
+	counterleft_limit = old_counterleft_limit
+	counterright_limit = old_counterright_limit
 
 def turnsens():
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
