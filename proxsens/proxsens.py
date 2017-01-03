@@ -347,10 +347,10 @@ def getPicture():
 	return image
 
 def getLaserDist():
-    dist1 = laserDistHelper()
-    if dist1<200:
-        return dist1
-    else:
+	dist1 = laserDistHelper()
+	if dist1<200:
+		return dist1
+	else:
 		dist2 = laserDistHelper()
 		dist3 = laserDistHelper()
 		res = min(dist1,dist2,dist3)
