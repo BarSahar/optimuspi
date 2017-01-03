@@ -24,7 +24,7 @@ def outline():
 		if (home==cposition) and not first:
 			break
 		first=False
-		x = raw_input('What is your name?')
+		x =input('What is your name?')
 		frontdis=sens.getLaserDist()
 		sidedis=sens.getProxDist()
 
