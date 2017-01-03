@@ -108,7 +108,7 @@ def addright(channel):
 	thisAng = myCompass.heading()
 	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
-	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>1:
+	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
@@ -231,7 +231,7 @@ def moveForward():
 	con.acquire()
 	while True:
 		con.wait()
-		if abs(myCompass.heading()-HeadingAngle)>1:
+		if abs(myCompass.heading()-HeadingAngle)>4:
 			stop()            
 			fixAngle(HeadingAngle)
 		if counterleft>=counterleft_limit and counterright>=counterright_limit:
@@ -266,7 +266,7 @@ def fixAngle(destAngle):
 	counterright =0
 	currAngle = myCompass.heading()
 	#TODO FIX AREA AROUND 0
-	while abs(currAngle-destAngle)>1:
+	while abs(currAngle-destAngle)>4:
 		counterleft_limit = 1
 		counterright_limit = 1
 		print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
@@ -278,6 +278,7 @@ def fixAngle(destAngle):
 			#goright()
 		currAngle = myCompass.heading()
 		input("press key to continue")
+	print("done!")
 	#restore previous counter state
 	counterleft = old_counterleft
 	counterright = old_counterright
