@@ -12,7 +12,7 @@ maxy=0
 miny=0
 
 outlinenodes=[]
-outlinenodes.append(cposition[0],cposition[1],status.clear)
+outlinenodes.append((cposition[0],cposition[1],status.clear))
 
 
 
@@ -127,14 +127,14 @@ def updateParam(point):
 # mark right point as block
 def markrightpoint():  
 	rpoint=tuple(map(op.add, cposition,sens.giverightdir()))
-	outlinenodes.append(rpoint[0],rpoint[1],status.block)
+	outlinenodes.append((rpoint[0],rpoint[1],status.block))
 	updateParam(rpoint)
 		
 	
 def updateCposition():
 	global cposition
 	cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir].value))
-	outlinenodes.append(cposition[0],cposition[1],status.clear)
+	outlinenodes.append((cposition[0],cposition[1],status.clear))
 	updateParam(cposition)
 
 def ifathome():
