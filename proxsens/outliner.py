@@ -39,7 +39,7 @@ def outline():
 
 
 
-		if frontdis>65 and sidedis>60: #door or slit
+		if frontdis>60 and sidedis>60: #door or slit
 			if doorcheck():
 				sens.turnright()
 				sens.moveForward()
