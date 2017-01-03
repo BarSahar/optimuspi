@@ -6,13 +6,10 @@ from robotModels import status
 cposition=(0,0)
 home=(0,0)
 
-
 maxx=0
 minx=0
 maxy=0
 miny=0
-
-
 
 outlinenodes=[]
 outlinenodes.append(cposition[0],cposition[1],status.clear)
@@ -20,6 +17,7 @@ outlinenodes.append(cposition[0],cposition[1],status.clear)
 
 
 def outline():
+
 	first =True
 
 	while True:
@@ -122,7 +120,8 @@ def updateParam(point):
 	elif y<miny:
 		miny=y
 				 
-def markrightpoint():
+# mark right point as block
+def markrightpoint():  
 	rpoint=tuple(map(op.add, cposition,sens.giverightdir()))
 	outlinenodes.append(rpoint[0],rpoint[1],status.block)
 	updateParam(rpoint)
