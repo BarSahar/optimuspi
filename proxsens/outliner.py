@@ -109,6 +109,14 @@ def outline():
 	
 	grid=[]
 
+	print ('xoff: '+str(xoffset)+'yoff: '+str(yoffset))
+	printlist()
+
+	x =input('Befor Grid')
+	print('')
+
+
+
 	for x in range(xsize):
 		grid.append([])
 		for y in range(ysize):
