@@ -32,7 +32,7 @@ ECHO_pin = 22
 
 def giverightdir():
 	right=((dir+1)%4)
-	return cosmos[right]
+	return cosmos[right].value
 
 
 def getProxDist():
