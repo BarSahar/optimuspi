@@ -139,7 +139,7 @@ def updateParam(point):
 # mark right point as block
 def markrightpoint(num):  
 	bpoint = cposition	
-	for x in rnage (num+1):
+	for x in range (num+1):
 		temp = tuple(map(op.add, bpoint,sens.giverightdir()))
 		outlinenodes.append((temp[0],temp[1],status.block))
 		bpoint=tuple(map(op.add, bpoint,sens.givebackdir()))
