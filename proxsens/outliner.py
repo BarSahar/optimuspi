@@ -43,8 +43,8 @@ def outline():
 			if doorcheck():
 				sens.turnright()
 				time.sleep(0.5)
-				sens.moveForward
-				updateCposition
+				sens.moveForward()
+				updateCposition()
 		elif sidedis>30 and sidedis<45:  #wall too far on the right
 				print("wall too far on the right")
 				sens.turnright()
@@ -61,15 +61,18 @@ def outline():
 				updateCposition()
 				time.sleep(0.5)
 				sens.turnright()
+				markrightpoint(0)
 		else:                         # wall on the right is OK
 			if frontdis>30:
 				print("wall on the right is OK")
-				sens.moveForward()
 				markrightpoint(0)
+				sens.moveForward()
 				updateCposition()
 			else:
-				print("wall on the right is not OK")
+				print("corner")
+				markrightpoint(0)
 				sens.turnleft()
+				markrightpoint(0)
 				sens.moveForward()
 				updateCposition()
 		printlist()
@@ -110,7 +113,7 @@ def outline():
 		grid.append([])
 		for y in range(ysize):
 			grid[x].append(status.uncheck)
-
+	#remember to check duplicate nodes and take the bloked
 	for node in outlinenodes:
 		grid[outlinenodes[0]][outlinenodes[1]]=outlinenodes[2]
 	print('done')
