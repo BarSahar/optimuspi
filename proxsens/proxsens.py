@@ -164,6 +164,7 @@ def turnleft():
 	globalinit()
 	counterright_limit=80
 	counterleft_limit=80
+	goleft()
 	dir=(dir-1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
