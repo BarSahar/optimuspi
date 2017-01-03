@@ -56,8 +56,10 @@ def outline():
 		elif sidedis<13.5: # wall too close on the right
 				print("wall too close on the right")
 				sens.turnleft()
+				time.sleep(0.5)
 				sens.moveForward()
 				updateCposition()
+				time.sleep(0.5)
 				sens.turnright()
 		else:                         # wall on the right is OK
 			if frontdis>30:
