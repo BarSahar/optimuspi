@@ -2,6 +2,7 @@ import proxsens as sens
 import operator as op
 import numpy as np
 from robotModels import status
+import time
 
 cposition=(0,0)
 home=(0,0)
@@ -47,8 +48,10 @@ def outline():
 		elif sidedis>30 and sidedis<45:  #wall too far on the right
 				print("wall too far on the right")
 				sens.turnright()
+				time.sleep(0.5)
 				sens.moveForward()
 				updateCposition()
+				time.sleep(0.5)
 				sens.turnleft()
 		elif sidedis<13.5: # wall too close on the right
 				print("wall too close on the right")
