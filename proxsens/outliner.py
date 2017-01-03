@@ -160,6 +160,7 @@ def doorcheck():
 	for x in range(4):
 		if sens.getProxDist()>60 and sens.getLaserDist()>17:
 			sens.moveForward()
+			time.sleep(0.5)
 			updateCposition()
 			if ifathome():
 				return False
@@ -171,7 +172,9 @@ def doorcheck():
 	sens.turnleft()
 	for x in range(4):
 		sens.moveForward()
+		time.sleep(0.5)
 	sens.turnright()	
+	time.sleep(0.5)
 	sens.turnright()
 	return True
 
