@@ -78,7 +78,7 @@ def outline():
 	xoffset=0
 	yoffset=0
 	
-	offsetHome
+	offsetHome=(0,0)
 
 	xsize=0
 	ysize=0
