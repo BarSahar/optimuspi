@@ -57,6 +57,7 @@ def outline():
 				updateCposition()
 				markrightpoint()
 			else:
+				print("wall on the right is not OK")
 				sens.turnleft()
 				sens.moveForward()
 				updateCposition()
