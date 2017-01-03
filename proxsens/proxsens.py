@@ -351,9 +351,12 @@ def getLaserDist():
     if dist1<200:
         return dist1
     else:
-        dist2 = laserDistHelper()
-        dist3 = laserDistHelper()
-        return min(dist1,dist2,dist3)
+		dist2 = laserDistHelper()
+		dist3 = laserDistHelper()
+		res = min(dist1,dist2,dist3)
+		if res==999:
+			return -1
+		return res;
 
 def laserDistHelper():
     GPIO.setmode(GPIO.BCM)
@@ -365,7 +368,7 @@ def laserDistHelper():
     num = (image[...,...,1] > 254)
     xy_val = num.nonzero()
     if len(xy_val[0])==0:
-        print("Error detecting dot")
+     #   print("Error detecting dot")
         return 999
     #filter all indeces below horizon = reflections on the floor
     noiseFilterx1 = (xy_val[1][...]>250)
