@@ -36,11 +36,14 @@ def getNeighbours(point,graph):
     if temp not in blockpoints and temp not in checkedpoints:
       anslist.append(temp)
       parentlist.append((temp,point))
+
+  markPoints(anslist)
   return anslist
 #	unmark=GiveUncheckPoints(templist)
 #	unblock=GiveUnblockPoints(unmark,graph)
 #	markPoints(unblock)
 #	return unblock
+
 def markPoints(points):
 	for point in points:
 		checkedpoints.append(point)
