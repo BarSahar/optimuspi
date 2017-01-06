@@ -266,7 +266,7 @@ def fixAngle(destAngle):
     counterright =0
     currAngle = myCompass.heading()
 	#TODO FIX AREA AROUND 0
-    while abs(currAngle-destAngle)>4:
+    while abs(currAngle-destAngle)>2:
         counterleft_limit = 1
         counterright_limit = 1
         print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
@@ -277,7 +277,7 @@ def fixAngle(destAngle):
             print("need to go right")
             goright()
         currAngle = myCompass.heading()
-        #input("press key to continue")
+        input("press key to continue")
     print("done!")
 	#restore previous counter state
     counterleft = old_counterleft
