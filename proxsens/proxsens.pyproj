@@ -36,7 +36,7 @@
     </Compile>
     <Compile Include="laserline_old.py" />
     <Compile Include="proxsens.py" />
-    <Compile Include="uncheckPointFinder.py">
+    <Compile Include="unexploredPointFinder.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
