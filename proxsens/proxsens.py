@@ -105,7 +105,7 @@ def addleft(channel):
 def addright(channel):
 	global counterright,con
 	counterright+=1
-	thisAng = myCompass.heading()
+	thisAng = getCompRead()
 	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
 	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
@@ -225,7 +225,7 @@ def moveForward():
 	GPIO.setup(B1,GPIO.OUT)
 	GPIO.setup(B2,GPIO.OUT)
 	#stoper=datetime.datetime.now()
-	HeadingAngle = myCompass.heading()
+	HeadingAngle = getCompRead()
 	GPIO.output(A1, False)
 	GPIO.output(A2, True)
 	GPIO.output(B1, False)
@@ -233,7 +233,7 @@ def moveForward():
 	con.acquire()
 	while True:
 		con.wait()
-		if abs(myCompass.heading()-HeadingAngle)>4:
+		if abs(getCompRead()-HeadingAngle)>4:
 			stop()            
 			fixAngle(HeadingAngle)
 		if counterleft>=counterleft_limit and counterright>=counterright_limit:
@@ -267,8 +267,8 @@ def fixAngle(destAngle):
     #reset counters
     counterleft =0
     counterright =0
-    currAngle = myCompass.heading()
-	#TODO FIX AREA AROUND 0
+    currAngle = getCompRead
+	
     while abs(currAngle-destAngle)>2:
         counterleft_limit = 1
         counterright_limit = 1
@@ -279,7 +279,7 @@ def fixAngle(destAngle):
         else :
             print("need to go right")
             goright()
-        currAngle = myCompass.heading()
+        currAngle = getCompRead
         time.sleep(0.1)
         #input("press key to continue")
     print("done!")
@@ -345,6 +345,20 @@ def move30cm():
 	  break
 	con.release()
 
+#gets median of 5 readings from compass
+# probably doesnt work near 0
+def getCompRead():
+    res = []
+    for i in range(5):
+        try:
+            res.append(myCompass.heading())
+        except IOError as e:
+            pass
+    if len(res)==0:
+        return -1
+    return np.median(res)
+
+    #do 3 readings and do median 
 
 LaserSlope=0.002043
 LaserInters=-0.00257
