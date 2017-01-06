@@ -20,6 +20,10 @@ class direction(Enum):
 class status(Enum):
 	block=0
 	clear=1
+	unexplored=-1
+
+class mark(Enum):
+	checked=1
 	uncheck=-1
 
 class distanceerror(Exception):
