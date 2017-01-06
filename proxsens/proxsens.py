@@ -134,31 +134,32 @@ def turnright():
 	dir=(dir+1)%4
 
 def goright():
-	global counterleft
-	global counterright
-	global con
-	GPIO.setmode(GPIO.BCM)
-	A1=26
-	A2=27
-	B1=24
-	B2=25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
-	GPIO.output(A1, False)
-	GPIO.output(A2, True)
-	GPIO.output(B1, True)
-	GPIO.output(B2, False)
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-	con.acquire()
-	while True:
-		con.wait()
+    global counterleft
+    global counterright
+    global con
+    GPIO.setmode(GPIO.BCM)
+    A1=26
+    A2=27
+    B1=24
+    B2=25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
+    GPIO.output(A1, False)
+    GPIO.output(A2, True)
+    GPIO.output(B1, True)
+    GPIO.output(B2, False)
+    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    con.acquire()
+    while True:
+        con.wait()
 #		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
-		if counterleft>=counterleft_limit  and counterright>=counterright_limit:
-			break
-	con.release()
+        if counterleft>=counterleft_limit  and counterright>=counterright_limit:
+            print ("goright() complete")
+            break
+    con.release()
 
 
 def turnleft():
@@ -173,31 +174,32 @@ def turnleft():
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
 def goleft():
-	global counterleft
-	global counterright
-	global con
-	GPIO.setmode(GPIO.BCM)
-	A1=26
-	A2=27
-	B1=24
-	B2=25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
-	GPIO.output(A1, True)
-	GPIO.output(A2, False)
-	GPIO.output(B1, False)
-	GPIO.output(B2, True)
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-	con.acquire()
-	while True:
-		con.wait()
+    global counterleft
+    global counterright
+    global con
+    GPIO.setmode(GPIO.BCM)
+    A1=26
+    A2=27
+    B1=24
+    B2=25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
+    GPIO.output(A1, True)
+    GPIO.output(A2, False)
+    GPIO.output(B1, False)
+    GPIO.output(B2, True)
+    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    con.acquire()
+    while True:
+        con.wait()
 #		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
-		if counterleft>=counterleft_limit  and counterright>=counterright_limit:
-			break
-	con.release()
+        if counterleft>=counterleft_limit  and counterright>=counterright_limit:
+            print ("goleft() complete")
+            break
+    con.release()
 
 
 def moveForward():
@@ -239,51 +241,53 @@ def moveForward():
 	con.release()
 
 def fixAngle(destAngle):
-	#going left is negative angle    
-	#variables
-	global counterleft
-	global counterright
-	global counterleft_limit
-	global counterright_limit
-	GPIO.setmode(GPIO.BCM)
-	A1=26
-	A2=27
-	B1=24
-	B2=25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
+    #going left is negative angle    
+    #variables
+    global counterleft
+    global counterright
+    global counterleft_limit
+    global counterright_limit
+    GPIO.setmode(GPIO.BCM)
+    A1=26
+    A2=27
+    B1=24
 
-	#save previous counter state
-	old_counterleft=counterleft
-	old_counterright=counterright
-	old_counterleft_limit=counterleft_limit
-	old_counterright_limit=counterright_limit
+    B2=25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
 
-	#reset counters
-	counterleft =0
-	counterright =0
-	currAngle = myCompass.heading()
+    #save previous counter state
+    old_counterleft=counterleft
+    old_counterright=counterright
+    old_counterleft_limit=counterleft_limit
+    old_counterright_limit=counterright_limit
+
+    #reset counters
+    counterleft =0
+    counterright =0
+    currAngle = myCompass.heading()
 	#TODO FIX AREA AROUND 0
-	while abs(currAngle-destAngle)>4:
-		counterleft_limit = 1
-		counterright_limit = 1
-		print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
-		if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
-			print("need to go left")
-            #goleft()
-		else :
-			print("need to go right")
-			#goright()
-		currAngle = myCompass.heading()
-		input("press key to continue")
-	print("done!")
+    while abs(currAngle-destAngle)>2:
+        counterleft_limit = 1
+        counterright_limit = 1
+        print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
+        if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
+            print("need to go left")
+            goleft()
+        else :
+            print("need to go right")
+            goright()
+        currAngle = myCompass.heading()
+        time.sleep(0.1)
+        #input("press key to continue")
+    print("done!")
 	#restore previous counter state
-	counterleft = old_counterleft
-	counterright = old_counterright
-	counterleft_limit = old_counterleft_limit
-	counterright_limit = old_counterright_limit
+    counterleft = old_counterleft
+    counterright = old_counterright
+    counterleft_limit = old_counterleft_limit
+    counterright_limit = old_counterright_limit
 
 def turnsens():
 	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
