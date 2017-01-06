@@ -277,6 +277,7 @@ def fixAngle(destAngle):
             print("need to go right")
             goright()
         currAngle = myCompass.heading()
+        print("done with loop")
         #input("press key to continue")
     print("done!")
 	#restore previous counter state
