@@ -83,7 +83,6 @@ def pathfinder(start,end):
 	temp=end
 
 	while True:
-
 		if temp==start:
 			break
 
