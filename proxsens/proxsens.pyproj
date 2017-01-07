@@ -31,6 +31,9 @@
     <Compile Include="outliner.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="pathFinder.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="robotModels.py">
       <SubType>Code</SubType>
     </Compile>
