@@ -82,10 +82,10 @@ def stop():
     GPIO.setup(A2,GPIO.OUT)
     GPIO.setup(B1,GPIO.OUT)
     GPIO.setup(B2,GPIO.OUT)
-    GPIO.output(A1, 0)
-    GPIO.output(A2, 0)
-    GPIO.output(B1, 0)
-    GPIO.output(B2, 0)
+    GPIO.output(A1, False)
+    GPIO.output(A2, False)
+    GPIO.output(B1, False)
+    GPIO.output(B2, False)
     GPIO.remove_event_detect(21)
     GPIO.remove_event_detect(20)
     return
@@ -127,15 +127,18 @@ def loopgetDist():
 		print (str(getDist()))
 		 
 def turnright():
-	global counterright_limit
-	global counterleft_limit
-	global dir
-	globalinit();
-	counterright_limit=80
-	counterleft_limit=80
-	goright()
-	dir=(dir+1)%4
+    global counterright_limit
+    global counterleft_limit
+    global dir
+    originalAngle = getCompRead()
+    globalinit();
+    counterright_limit=80
+    counterleft_limit=80
+    goright()
+    fixAngle((originalAngle+90)%360) #fine tuning
+    dir=(dir+1)%4
 
+#ONLY USE AFTER SETTING COUNTER LIMITS!!!
 def goright():
     global counterleft
     global counterright
@@ -167,14 +170,16 @@ def goright():
 
 
 def turnleft():
-	global counterright_limit
-	global counterleft_limit
-	global dir
-	globalinit()
-	counterright_limit=80
-	counterleft_limit=80
-	goleft()
-	dir=(dir-1)%4
+    global counterright_limit
+    global counterleft_limit
+    global dir
+    originalAngle = getCompRead()
+    globalinit()
+    counterright_limit=80
+    counterleft_limit=80
+    goleft()
+    fixAngle((originalAngle-90+360)%360) #fine tuning
+    dir=(dir-1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
 def goleft():
@@ -277,20 +282,18 @@ def fixAngle(destAngle):
     counterright =0
     currAngle = getCompRead()
 
-    while abs(currAngle-destAngle)>1:
+    while abs(currAngle-destAngle)>2:
         counterleft_limit = 1
         counterright_limit = 1
         print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
         if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
-            print("need to go left")
+            #print("need to go left")
             goleft()
         else :
-            print("need to go right")
+            #print("need to go right")
             goright()
         currAngle = getCompRead()
         time.sleep(0.1)
-        input("press key to continue")
-    print("done!")
 	#restore previous counter state
     counterleft = old_counterleft
     counterright = old_counterright
