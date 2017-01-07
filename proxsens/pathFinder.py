@@ -49,7 +49,7 @@ def main():
     grid=makegrid(10,10)
     start=(1,1)
     end=(3,1)
-    path,endpoint=bfs(grid,start,grid)
+    path,endpoint=bfs(grid,start,end)
     print("start: "+str(start))
     print("path: "+str(path))
     print("end point:"+str(endpoint))
