@@ -6,7 +6,7 @@ from robotModels import status
 def bfs(graph, start, end):
     # maintain a queue of paths
     queue = collections.deque()
-    visited = collections.dict()
+    visited = dict()
     # push the first path into the queue
     queue.append([start])
     visited[start] = '*'
