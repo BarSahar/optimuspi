@@ -251,7 +251,6 @@ def fixAngle(destAngle):
     A1=26
     A2=27
     B1=24
-
     B2=25
     GPIO.setup(A1,GPIO.OUT)
     GPIO.setup(A2,GPIO.OUT)
@@ -268,8 +267,8 @@ def fixAngle(destAngle):
     counterleft =0
     counterright =0
     currAngle = getCompRead()
-	
-    while abs(currAngle-destAngle)>2:
+
+    while abs(currAngle-destAngle)>1:
         counterleft_limit = 1
         counterright_limit = 1
         print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
