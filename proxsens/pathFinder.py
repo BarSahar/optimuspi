@@ -29,8 +29,6 @@ def bfs(graph, start, end):
                 new_path = list(path)
                 new_path.append(node)
                 queue.append(new_path)
-                print("new path"+str(new_path))
-                input("111")
 
 def makegrid(xsize,ysize):
 	grid=[]
@@ -49,7 +47,7 @@ def main():
     grid=makegrid(10,10)
     start=(1,1)
     end=(3,1)
-    path,endpoint=bfs(grid,start,end)
+    path=bfs(grid,start,end)
     print("start: "+str(start))
     print("path: "+str(path))
     print("end point:"+str(endpoint))
