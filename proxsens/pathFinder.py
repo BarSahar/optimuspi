@@ -22,6 +22,7 @@ def bfs(graph, start, end):
         leftP=(node[0]-1,node[1])
         backP=(node[0],node[1]-1)
         for node in [rightP,frontP,leftP,backP]:
+            print("graph in node"+str(node) +"::"+ graph[node[0]][node[1]])
             if graph[node[0]][node[1]]!=status.block:
                 new_path = list(path)
                 new_path.append(node)
