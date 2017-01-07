@@ -86,7 +86,10 @@ def stop():
     GPIO.output(A2, 0)
     GPIO.output(B1, 0)
     GPIO.output(B2, 0)
+    GPIO.remove_event_detect(21)
+    GPIO.remove_event_detect(20)
     return
+
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
