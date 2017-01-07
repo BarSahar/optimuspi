@@ -153,6 +153,8 @@ def goright():
     GPIO.output(A2, True)
     GPIO.output(B1, True)
     GPIO.output(B2, False)
+    GPIO.remove_event_detect(21)
+    GPIO.remove_event_detect(20)
     GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
     GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     con.acquire()
@@ -192,6 +194,8 @@ def goleft():
     GPIO.output(A2, False)
     GPIO.output(B1, False)
     GPIO.output(B2, True)
+    GPIO.remove_event_detect(21)
+    GPIO.remove_event_detect(20)
     GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
     GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     con.acquire()
@@ -215,6 +219,8 @@ def moveForward():
     counterright_limit=100
     counterleft_limit=100
     GPIO.setmode(GPIO.BCM)
+    GPIO.remove_event_detect(21)
+    GPIO.remove_event_detect(20)
     GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
     GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     A1 = 26
