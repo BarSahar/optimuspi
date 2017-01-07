@@ -6,13 +6,16 @@ from robotModels import status
 def bfs(graph, start, end):
     # maintain a queue of paths
     queue = collections.deque()
+    visited = collections.dict()
     # push the first path into the queue
     queue.append([start])
+    visited[start] = '*'
     while len(queue)>0:
         # get the first path from the queue
         path = queue.popleft()
         # get the last node from the path
         node = path[-1]
+        visited[node] = '*'
         # path found
         if node == end:
             return path
@@ -22,7 +25,7 @@ def bfs(graph, start, end):
         leftP=(node[0]-1,node[1])
         backP=(node[0],node[1]-1)
         for node in [rightP,frontP,leftP,backP]:
-            if graph[node[0]][node[1]]!=status.block:
+            if graph[node[0]][node[1]]!=status.block and node not in visited:
                 new_path = list(path)
                 new_path.append(node)
                 queue.append(new_path)
