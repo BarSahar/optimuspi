@@ -17,10 +17,10 @@ def bfs(graph, start, end):
         if node == end:
             return path
         # enumerate all adjacent nodes, construct a new path and push it into the queue
-        rightP=tuple(map(op.add, point,(1,0)))
-        frontP=tuple(map(op.add, point,(0,1)))
-        leftP=tuple(map(op.add, point,(-1,0)))
-        backP=tuple(map(op.add, point,(0,-1)))
+        rightP=(node[0]+1,node[1])
+        frontP=(node[0],node[1]+1)
+        leftP=(node[0]-1,node[1])
+        backP=(node[0],node[1]-1)
         for node in [rightP,frontP,leftP,backP]:
             if graph[node[0]][node[1]]!=status.block:
                 new_path = list(path)
