@@ -30,6 +30,7 @@ def bfs(graph, start, end):
                 new_path.append(node)
                 queue.append(new_path)
                 print("new path"+str(new_path))
+                input("111")
 
 def makegrid(xsize,ysize):
 	grid=[]
