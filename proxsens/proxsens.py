@@ -160,7 +160,6 @@ def goright():
         con.wait()
 #		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
         if counterleft>=counterleft_limit  and counterright>=counterright_limit:
-            print ("goright() complete")
             break
     con.release()
 
@@ -200,7 +199,6 @@ def goleft():
         con.wait()
 #		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
         if counterleft>=counterleft_limit  and counterright>=counterright_limit:
-            print ("goleft() complete")
             break
     con.release()
 
@@ -240,6 +238,7 @@ def moveForward():
             stop()
             input("start fixAngle("+str(HeadingAngle) +")")
             fixAngle(HeadingAngle)
+            stop()
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
             break
     con.release()
