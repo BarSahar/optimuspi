@@ -24,7 +24,7 @@ def bfs(graph, start, end):
         for node in [rightP,frontP,leftP,backP]:
             if graph[node[0]][node[1]]!=status.block:
                 new_path = list(path)
-                new_path.append(adjacent)
+                new_path.append(node)
                 queue.append(new_path)
 
 def makegrid(xsize,ysize):
