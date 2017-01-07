@@ -50,6 +50,5 @@ def main():
     path=bfs(grid,start,end)
     print("start: "+str(start))
     print("path: "+str(path))
-    print("end point:"+str(endpoint))
 
 main()
