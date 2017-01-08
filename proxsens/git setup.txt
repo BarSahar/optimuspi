@@ -1,0 +1,5 @@
+*find out ip of github (ping github.com) in this case 192.30.253.113
+*create remote name for repository in this case - "from"
+
+git remote add from git://192.30.253.113/BarSahar/optimuspi
+git pull from master
