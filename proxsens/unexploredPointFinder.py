@@ -1,5 +1,5 @@
 import operator as op
-import operator as op
+from robotModels import mark,status
 from enum import Enum  
 
 checkedpoints=[]
