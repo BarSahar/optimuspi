@@ -58,9 +58,9 @@ def pathfinder(start,end):
 		if temp==start:
 			break
 		parentOfTemp=parentlist[temp[0]][temp[1]]
-		path.insert(0,parentOfTemp)
+		path.append(parentOfTemp)
 		temp=parentOfTemp
-	path.pop(0)
+	path.pop()
 	return path
 def makegrid(xsize,ysize):
 	grid=[]
