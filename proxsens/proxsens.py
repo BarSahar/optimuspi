@@ -93,7 +93,7 @@ def stop():
 def addleft(channel):
 	global counterleft,con
 	counterleft+=1
-#    print("left: " + str(counterleft))
+    print("left: " + str(counterleft))
 	if counterleft>=counterleft_limit:
 		GPIO.setmode(GPIO.BCM)
 		GPIO.output(26,False)
