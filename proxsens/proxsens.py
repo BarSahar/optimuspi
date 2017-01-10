@@ -242,6 +242,7 @@ def moveForward():
     con.acquire()
     while True:
         con.wait()
+        print("about to go in IF")
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
             input("start fixAngle("+str(HeadingAngle) +")")
