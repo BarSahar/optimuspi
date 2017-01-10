@@ -127,10 +127,11 @@ def turnright():
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
-    globalinit();
+    globalinit()
     counterright_limit=80
     counterleft_limit=80
     goright()
+    print("finished. now fine tuning")
     fixAngle((originalAngle+90)%360) #fine tuning
     dir=(dir+1)%4
 
