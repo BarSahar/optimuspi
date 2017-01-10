@@ -132,7 +132,7 @@ def turnright():
     counterleft_limit=80
     goright()
     print("finished. now fine tuning")
-    fixAngle((originalAngle+90)%360) #fine tuning
+    #fixAngle((originalAngle+90)%360) #fine tuning
     dir=(dir+1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
