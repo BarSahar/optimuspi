@@ -316,20 +316,13 @@ def globalinit():
 	counterleft_limit=0
 	counterright_limit=0
 
-#gets median of 5 readings from compass
-# probably doesnt work near 0
+#gets safe reading from compass
 def getCompRead():
-    res = []
-    for i in range(5):
+    while True:
         try:
-            res.append(myCompass.heading())
+            return myCompass.heading()
         except IOError as e:
             pass
-    if len(res)==0:
-        return -1
-    return np.median(res)
-
-    #do 3 readings and do median 
 
 LaserSlope=0.002043
 LaserInters=-0.00257
