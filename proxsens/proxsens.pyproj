@@ -42,6 +42,9 @@
     </Compile>
     <Compile Include="laserline_old.py" />
     <Compile Include="proxsens.py" />
+    <Compile Include="UnExploredPoint_Mapper.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="unexploredPointFinder.py">
       <SubType>Code</SubType>
     </Compile>

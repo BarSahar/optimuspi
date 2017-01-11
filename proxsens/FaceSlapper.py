@@ -3,33 +3,34 @@ from robotModels import direction
 
 
 def facesalpper(start,end):
-	ndir=(0,0)
-	sdir=p.cosmos[p.dir]
+
+	point_direction=(0,0)
+	current_direction=p.cosmos[p.dir]
 	
 	if end[0]>start[0]:
-		ndir=direction.east
+		point_direction=direction.east
 	elif end[0]<start[0]:
-		ndir=direction.west
+		point_direction=direction.west
 	elif end[1]>start[1]:
-		ndir=direction.north
+		point_direction=direction.north
 	elif end[1]<start[1]:
-		ndir=direction.south
+		point_direction=direction.south
 
-	if ndir!=(0,0):
-		sindex=p.cosmos.index(ndir)
-		helper=sindex-sdir
-		if helper==0:
-			p.moveForward
-		elif fabs(helper)==2:
+	if point_direction!=(0,0):
+		point_direction_index=p.cosmos.index(ndir)
+		delta=sindex-sdir
+		if delta==0:
+			pass
+		elif fabs(delta)==2:
 			p.turnleft()
 			p.time.sleep(1)
 			p.turnleft()
-		elif fabs(helper)==3:
+		elif fabs(delta)==3:
 			if helper>0:
 				p.turnleft()
 			else:
 				p.turnright()
-		elif helper>0:
+		elif delta>0:
 			p.turnright()
 		else:
 			p.turnleft()
