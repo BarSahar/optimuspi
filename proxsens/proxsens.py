@@ -91,25 +91,25 @@ def stop():
     return
 
 def addleft(channel):
-	global counterleft,con
-	counterleft+=1
-#    print("left: " + str(counterleft))
-	if counterleft>=counterleft_limit:
-		GPIO.setmode(GPIO.BCM)
-		GPIO.output(26,False)
-		GPIO.output(27,False)
-		con.acquire()
-		#print ("left finito")
-		#print (datetime.datetime.now()-stoper)
-		con.notify()
-		con.release()
-		GPIO.remove_event_detect(channel)
+    global counterleft,con
+    counterleft+=1
+    print("left: " + str(counterleft))
+    if counterleft>=counterleft_limit:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.output(26,False)
+        GPIO.output(27,False)
+        con.acquire()
+        #print ("left finito")
+        #print (datetime.datetime.now()-stoper)
+        con.notify()
+        con.release()
+        #GPIO.remove_event_detect(channel)
 
 def addright(channel):
 	global counterright,con
 	counterright+=1
 	thisAng = getCompRead()
-	#print ("right: " + str(counterright))
+	print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
 	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
 		GPIO.setmode(GPIO.BCM)
@@ -120,22 +120,19 @@ def addright(channel):
 		#print ("right finito")
 		#print (datetime.datetime.now()-stoper)
 		con.release()
-		GPIO.remove_event_detect(channel)
-
-def loopgetDist():
-	while True:
-		print (str(getDist()))
+		#GPIO.remove_event_detect(channel)
 		 
 def turnright():
     global counterright_limit
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
-    globalinit();
+    globalinit()
     counterright_limit=80
     counterleft_limit=80
     goright()
-    fixAngle((originalAngle+90)%360) #fine tuning
+    print("finished. now fine tuning")
+    #fixAngle((originalAngle+90)%360) #fine tuning
     dir=(dir+1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -247,7 +244,9 @@ def moveForward():
         con.wait()
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
-            input("start fixAngle("+str(HeadingAngle) +")")
+            print("start fixAngle("+str(HeadingAngle) +")")
+            time.sleep(1)
+            print("now")
             fixAngle(HeadingAngle)
             stop()
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
@@ -317,59 +316,14 @@ def globalinit():
 	counterright=0
 	counterleft_limit=0
 	counterright_limit=0
-def turn360():
-	for x in range(4):
-		turnleft()
-		time.sleep(1)
 
-
-def move30cm():    
-	global counterleft
-	global counterright
-	global con
-	global counterright_limit
-	global counterleft_limit
-	global stoper
-	globalinit()
-	counterright_limit=200
-	counterleft_limit=200
-	GPIO.setmode(GPIO.BCM)
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-	A1 = 26
-	A2 = 27
-	B1 = 24
-	B2 = 25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
-	#stoper=datetime.datetime.now()
-	GPIO.output(A1, False)
-	GPIO.output(A2, True)
-	GPIO.output(B1, False)
-	GPIO.output(B2, True)
-	con.acquire()
-	while True:
-	 con.wait()
-	 if counterleft>=counterleft_limit and counterright>=counterright_limit:
-	  break
-	con.release()
-
-#gets median of 5 readings from compass
-# probably doesnt work near 0
+#gets safe reading from compass
 def getCompRead():
-    res = []
-    for i in range(5):
+    while True:
         try:
-            res.append(myCompass.heading())
+            return myCompass.heading()
         except IOError as e:
             pass
-    if len(res)==0:
-        return -1
-    return np.median(res)
-
-    #do 3 readings and do median 
 
 LaserSlope=0.002043
 LaserInters=-0.00257
