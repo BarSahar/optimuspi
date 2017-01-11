@@ -93,7 +93,7 @@ def stop():
 def addleft(channel):
     global counterleft,con
     counterleft+=1
-    print("left: " + str(counterleft))
+    #print("left: " + str(counterleft))
     if counterleft>=counterleft_limit:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(26,False)
@@ -103,13 +103,13 @@ def addleft(channel):
         #print (datetime.datetime.now()-stoper)
         con.notify()
         con.release()
-        GPIO.remove_event_detect(channel)
+        #GPIO.remove_event_detect(channel)
 
 def addright(channel):
 	global counterright,con
 	counterright+=1
 	thisAng = getCompRead()
-	print ("right: " + str(counterright))
+	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
 	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
 		GPIO.setmode(GPIO.BCM)
@@ -120,7 +120,7 @@ def addright(channel):
 		#print ("right finito")
 		#print (datetime.datetime.now()-stoper)
 		con.release()
-		GPIO.remove_event_detect(channel)
+		#GPIO.remove_event_detect(channel)
 		 
 def turnright():
     global counterright_limit
