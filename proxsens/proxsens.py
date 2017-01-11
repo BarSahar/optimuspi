@@ -245,7 +245,8 @@ def moveForward():
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
             print("start fixAngle("+str(HeadingAngle) +")")
-            time.sleep(3)
+            time.sleep(1)
+            print("now")
             fixAngle(HeadingAngle)
             stop()
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
