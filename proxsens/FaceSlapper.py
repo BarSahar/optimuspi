@@ -4,21 +4,20 @@ from robotModels import direction
 
 def facesalpper(start,end):
 
-	point_direction=(0,0)
-	current_direction=p.cosmos[p.dir]
-	
+	pointToFace=(-1,-1)
+		
 	if end[0]>start[0]:
-		point_direction=direction.east
+		pointToFace=direction.east
 	elif end[0]<start[0]:
-		point_direction=direction.west
+		pointToFace=direction.west
 	elif end[1]>start[1]:
-		point_direction=direction.north
+		pointToFace=direction.north
 	elif end[1]<start[1]:
-		point_direction=direction.south
+		pointToFace=direction.south
 
-	if point_direction!=(0,0):
-		point_direction_index=p.cosmos.index(ndir)
-		delta=sindex-sdir
+	if pointToFace!=(-1,-1):
+		pointToFace_index=p.cosmos.index(pointToFace)
+		delta=pointToFace_index-p.dir
 		if delta==0:
 			pass
 		elif fabs(delta)==2:

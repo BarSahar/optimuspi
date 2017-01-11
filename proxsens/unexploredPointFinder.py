@@ -62,6 +62,8 @@ def pathfinder(start,end):
 		temp=parentOfTemp
 	path.pop()
 	return path
+
+
 def makegrid(xsize,ysize):
 	grid=[]
 	for x in range(xsize):
