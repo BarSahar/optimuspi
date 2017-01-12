@@ -90,6 +90,19 @@ def stop():
     GPIO.remove_event_detect(20)
     return
 
+def showoff(graph):
+  line=""
+  for x in range(len(graph)):
+    for y in range(len(graph[0])):
+      if graph[x][y]==1:
+        line=line+". "
+      elif graph[x][y]==0:
+          line=line+"x "
+      else:
+        line=line+"*"
+    print(line)
+    line=""
+
 def addleft(channel):
     global counterleft,con
     counterleft+=1
