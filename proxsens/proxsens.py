@@ -6,6 +6,7 @@ from threading import Thread
 from robotModels import direction,distanceerror,status
 import picamera
 import picamera.array
+import operator as op
 import numpy as np
 import compass
 from math import tan
@@ -106,7 +107,7 @@ def getProxDist():
      
 
 def measureProx():
-    GPIO.setmode(GPIO.BCM)
+    #GPIO.setmode(GPIO.BCM)
     GPIO.setup(TRIG_pin,GPIO.OUT)
     GPIO.setup(ECHO_pin,GPIO.IN)
     GPIO.output(TRIG_pin, False)
@@ -123,15 +124,15 @@ def measureProx():
     return distance
 
 def stop():
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1 = 26
+    #A2 = 27
+    #B1 = 24
+    #B2 = 25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, False)
     GPIO.output(A2, False)
     GPIO.output(B1, False)
@@ -173,15 +174,15 @@ def goright():
     global counterleft
     global counterright
     global con
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1=26
+    #A2=27
+    #B1=24
+    #B2=25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, False)
     GPIO.output(A2, True)
     GPIO.output(B1, True)
@@ -216,15 +217,15 @@ def goleft():
     global counterleft
     global counterright
     global con
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1=26
+    #A2=27
+    #B1=24
+    #B2=25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, True)
     GPIO.output(A2, False)
     GPIO.output(B1, False)
@@ -253,19 +254,19 @@ def moveForward():
     globalinit()
     counterright_limit=100
     counterleft_limit=100
-    GPIO.setmode(GPIO.BCM)
+    #GPIO.setmode(GPIO.BCM)
     #GPIO.remove_event_detect(21)
     #GPIO.remove_event_detect(20)
     #GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
     #GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #A1 = 26
+    #A2 = 27
+    #B1 = 24
+    #B2 = 25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
 	#stoper=datetime.datetime.now()
     HeadingAngle = getCompRead()
     GPIO.output(A1, False)
@@ -275,6 +276,8 @@ def moveForward():
     con.acquire()
     while True:
         con.wait()
+        print("current angle" + str(getCompRead()))
+
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
 			#print("start fixAngle("+str(HeadingAngle) +")")
@@ -299,21 +302,25 @@ def fixAngle(destAngle):
     global counterright
     global counterleft_limit
     global counterright_limit
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1=26
+    #A2=27
+    #B1=24
+    #B2=25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
 
     #save previous counter state
     old_counterleft=counterleft
     old_counterright=counterright
     old_counterleft_limit=counterleft_limit
     old_counterright_limit=counterright_limit
+    print("counter left : "+str(counterleft))
+    print("counter right : "+str(counterright))
+    print("counter left limit : "+str(counterleft_limit))
+    print("counter right limit : "+str(counterright_limit))
 
     #reset counters
     counterleft =0
@@ -323,7 +330,7 @@ def fixAngle(destAngle):
     while abs(currAngle-destAngle)>2:
         counterleft_limit = 1
         counterright_limit = 1
-        print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
+        #print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
         if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
             #print("need to go left")
             goleft()
@@ -337,6 +344,12 @@ def fixAngle(destAngle):
     counterright = old_counterright
     counterleft_limit = old_counterleft_limit
     counterright_limit = old_counterright_limit
+    print("finished turning")
+    print("counter left : "+str(counterleft))
+    print("counter right : "+str(counterright))
+    print("counter left limit : "+str(counterleft_limit))
+    print("counter right limit : "+str(counterright_limit))
+
 
 def turnsens():
 	#GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
