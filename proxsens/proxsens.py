@@ -31,6 +31,8 @@ dir=1
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
+GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 counterleft=0
 counterright=0
 counterleft_limit=0
@@ -94,8 +96,8 @@ def stop():
     GPIO.output(A2, False)
     GPIO.output(B1, False)
     GPIO.output(B2, False)
-    GPIO.remove_event_detect(21)
-    GPIO.remove_event_detect(20)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
     return
 
 def showoff(graph):
@@ -174,10 +176,10 @@ def goright():
     GPIO.output(A2, True)
     GPIO.output(B1, True)
     GPIO.output(B2, False)
-    GPIO.remove_event_detect(21)
-    GPIO.remove_event_detect(20)
-    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
+    #GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    #GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     con.acquire()
     while True:
         con.wait()
@@ -217,10 +219,10 @@ def goleft():
     GPIO.output(A2, False)
     GPIO.output(B1, False)
     GPIO.output(B2, True)
-    GPIO.remove_event_detect(21)
-    GPIO.remove_event_detect(20)
-    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
+    #GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    #GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     con.acquire()
     while True:
         con.wait()
@@ -242,10 +244,10 @@ def moveForward():
 	counterright_limit=100
 	counterleft_limit=100
 	GPIO.setmode(GPIO.BCM)
-	GPIO.remove_event_detect(21)
-	GPIO.remove_event_detect(20)
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	#GPIO.remove_event_detect(21)
+	#GPIO.remove_event_detect(20)
+	#GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	#GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	A1 = 26
 	A2 = 27
 	B1 = 24
@@ -322,8 +324,8 @@ def fixAngle(destAngle):
     counterright_limit = old_counterright_limit
 
 def turnsens():
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	#GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	#GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	globalinit()
 	global counterright_limit
 	global counterleft_limit
