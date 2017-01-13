@@ -274,6 +274,10 @@ def moveForward():
 			#print("now")
             fixAngle(HeadingAngle)
             print("finished turning")
+            GPIO.output(A1, False)
+            GPIO.output(A2, True)
+            GPIO.output(B1, False)
+            GPIO.output(B2, True)
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
             break
     con.release()
