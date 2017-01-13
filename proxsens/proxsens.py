@@ -32,9 +32,9 @@ dir=1
 def addleft(channel):
     global counterleft,con
     counterleft+=1
-    print("left: " + str(counterleft))
+    #print("left: " + str(counterleft))
     if counterleft>=counterleft_limit:
-        GPIO.setmode(GPIO.BCM)
+        #GPIO.setmode(GPIO.BCM)
         GPIO.output(26,False)
         GPIO.output(27,False)
         con.acquire()
@@ -48,10 +48,10 @@ def addright(channel):
 	global counterright,con
 	counterright+=1
 	thisAng = getCompRead()
-	print ("right: " + str(counterright))
+	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
 	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
-		GPIO.setmode(GPIO.BCM)
+		#GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
 		con.acquire()
@@ -91,7 +91,7 @@ def givebackdir():
 
 
 def getProxDist():
-    GPIO.setmode(GPIO.BCM)
+    #GPIO.setmode(GPIO.BCM)
     TRIG = 23
     ECHO = 22
     GPIO.setup(TRIG_pin,GPIO.OUT)
@@ -276,22 +276,21 @@ def moveForward():
     con.acquire()
     while True:
         con.wait()
-        print("current angle" + str(getCompRead()))
 
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
-			#print("start fixAngle("+str(HeadingAngle) +")")
+            print("stop and start fixAngle("+str(HeadingAngle) +")")
 			#time.sleep(1)
 			#print("now")
             fixAngle(HeadingAngle)
             print("finished turning")
             print("continue on")
-            time.sleep(3)
+            time.sleep(1)
             GPIO.output(A1, False)
             GPIO.output(A2, True)
             GPIO.output(B1, False)
             GPIO.output(B2, True)
-        if counterleft>=counterleft_limit and counterright>=counterright_limit:
+        elif counterleft>=counterleft_limit and counterright>=counterright_limit:
             break
     con.release()
     updateCposition()
@@ -413,7 +412,7 @@ def getLaserDist():
 
 
 def laserDistHelper():
-	GPIO.setmode(GPIO.BCM)
+	#GPIO.setmode(GPIO.BCM)
 	R1 = 18 # RELAY PIN	
 	GPIO.setup(R1,GPIO.OUT)
 	GPIO.output(R1, True) # laser on
