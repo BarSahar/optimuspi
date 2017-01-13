@@ -63,6 +63,10 @@ def addright(channel):
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
+A1 = 26
+A2 = 27
+B1 = 24
+B2 = 25
 GPIO.setup(A1,GPIO.OUT)
 GPIO.setup(A2,GPIO.OUT)
 GPIO.setup(B1,GPIO.OUT)
