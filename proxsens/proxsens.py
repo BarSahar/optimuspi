@@ -28,6 +28,38 @@ def updateCposition():
 cosmos=(direction.north,direction.east,direction.south,direction.west) 
 dir=1
 
+def addleft(channel):
+    global counterleft,con
+    counterleft+=1
+    print("left: " + str(counterleft))
+    if counterleft>=counterleft_limit:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.output(26,False)
+        GPIO.output(27,False)
+        con.acquire()
+        #print ("left finito")
+        #print (datetime.datetime.now()-stoper)
+        con.notify()
+        con.release()
+        #GPIO.remove_event_detect(channel)
+
+def addright(channel):
+	global counterright,con
+	counterright+=1
+	thisAng = getCompRead()
+	print ("right: " + str(counterright))
+	#or abs(thisAng-HeadingAngle)>1:
+	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
+		GPIO.setmode(GPIO.BCM)
+		GPIO.output(24,False)
+		GPIO.output(25,False)
+		con.acquire()
+		con.notify()
+		#print ("right finito")
+		#print (datetime.datetime.now()-stoper)
+		con.release()
+		#GPIO.remove_event_detect(channel)
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
@@ -113,37 +145,7 @@ def showoff(graph):
     print(line)
     line=""
 
-def addleft(channel):
-    global counterleft,con
-    counterleft+=1
-    print("left: " + str(counterleft))
-    if counterleft>=counterleft_limit:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(26,False)
-        GPIO.output(27,False)
-        con.acquire()
-        #print ("left finito")
-        #print (datetime.datetime.now()-stoper)
-        con.notify()
-        con.release()
-        #GPIO.remove_event_detect(channel)
 
-def addright(channel):
-	global counterright,con
-	counterright+=1
-	thisAng = getCompRead()
-	print ("right: " + str(counterright))
-	#or abs(thisAng-HeadingAngle)>1:
-	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
-		GPIO.setmode(GPIO.BCM)
-		GPIO.output(24,False)
-		GPIO.output(25,False)
-		con.acquire()
-		con.notify()
-		#print ("right finito")
-		#print (datetime.datetime.now()-stoper)
-		con.release()
-		#GPIO.remove_event_detect(channel)
 		 
 def turnright():
     global counterright_limit
