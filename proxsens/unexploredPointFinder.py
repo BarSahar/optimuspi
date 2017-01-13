@@ -23,6 +23,7 @@ def uncheckFinder(start,graph):
     return (path,point)
   else:
     return ((-1,-1),(-1,-1)) 
+
 def matrixinit(xsize,ysize):
   global parentlist
   global checkedpoints
@@ -64,6 +65,8 @@ def pathfinder(start,end):
 	return path
 
 
+#Test
+
 def makegrid(xsize,ysize):
 	grid=[]
 	for x in range(xsize):
@@ -87,4 +90,4 @@ def main():
 	print("path: "+str(path))
 	print("end point:"+str(endpoint))
 
-main()
+#main()

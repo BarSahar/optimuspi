@@ -159,7 +159,7 @@ def markrightpoint(num):
 	
 def updateCposition():
 	global cposition
-	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
+#	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
 	cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir].value))
 	outlinenodes.append((cposition[0],cposition[1],status.clear))
 	updateParam(cposition)

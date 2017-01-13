@@ -3,7 +3,7 @@ import time
 import datetime
 import threading 
 from threading import Thread
-from robotModels import direction,distanceerror
+from robotModels import direction,distanceerror,status
 import picamera
 import picamera.array
 import numpy as np
@@ -15,6 +15,14 @@ con=threading.Condition()
 stoper=0
 myCompass = compass.compass()
 HeadingAngle=0
+
+cposition=(0,0)
+def updateCposition():
+	global cposition
+#	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
+	cposition=tuple(map(op.add, cposition,cosmos[dir].value))
+	outlinenodes.append((cposition[0],cposition[1],status.clear))
+	updateParam(cposition)
 
 
 cosmos=(direction.north,direction.east,direction.south,direction.west) 
@@ -94,9 +102,9 @@ def showoff(graph):
   line=""
   for x in range(len(graph)):
     for y in range(len(graph[0])):
-      if graph[x][y]==1:
+      if graph[x][y]==status.clear:
         line=line+". "
-      elif graph[x][y]==0:
+      elif graph[x][y]==status.block:
           line=line+"x "
       else:
         line=line+"*"
@@ -264,7 +272,8 @@ def moveForward():
             stop()
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
             break
-    con.release()
+	con.release()
+	updateCposition()
 
 def fixAngle(destAngle):
     #going left is negative angle    
