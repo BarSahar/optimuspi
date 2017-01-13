@@ -274,6 +274,7 @@ def moveForward():
 			#print("now")
             fixAngle(HeadingAngle)
             print("finished turning")
+            input("continue on")
             GPIO.output(A1, False)
             GPIO.output(A2, True)
             GPIO.output(B1, False)
