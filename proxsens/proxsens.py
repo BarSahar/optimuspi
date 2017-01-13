@@ -267,7 +267,7 @@ def moveForward():
     #GPIO.setup(A2,GPIO.OUT)
     #GPIO.setup(B1,GPIO.OUT)
     #GPIO.setup(B2,GPIO.OUT)
-	#stoper=datetime.datetime.now()
+    #stoper=datetime.datetime.now()
     HeadingAngle = getCompRead()
     GPIO.output(A1, False)
     GPIO.output(A2, True)
@@ -280,7 +280,7 @@ def moveForward():
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
             print("stop and start fixAngle("+str(HeadingAngle) +")")
-			#time.sleep(1)
+            time.sleep(3)
 			#print("now")
             fixAngle(HeadingAngle)
             print("finished turning")
