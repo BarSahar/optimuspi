@@ -350,6 +350,7 @@ def fixAngle(destAngle):
     print("counter right : "+str(counterright))
     print("counter left limit : "+str(counterleft_limit))
     print("counter right limit : "+str(counterright_limit))
+    time.sleep(5)
 
 
 def turnsens():
