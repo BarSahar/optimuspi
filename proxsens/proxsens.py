@@ -63,6 +63,10 @@ def addright(channel):
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
+GPIO.setup(A1,GPIO.OUT)
+GPIO.setup(A2,GPIO.OUT)
+GPIO.setup(B1,GPIO.OUT)
+GPIO.setup(B2,GPIO.OUT)
 GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
 GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 counterleft=0
