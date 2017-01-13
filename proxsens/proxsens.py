@@ -323,8 +323,6 @@ def fixAngle(destAngle):
     print("counter right limit : "+str(counterright_limit))
 
     #reset counters
-    counterleft =0
-    counterright =0
     currAngle = getCompRead()
     
     while abs(currAngle-destAngle)>2:
