@@ -31,7 +31,7 @@ dir=1
 def addleft(channel):
     global counterleft,con
     counterleft+=1
-    print("left: " + str(counterleft))
+    #print("left: " + str(counterleft))
     if counterleft>=counterleft_limit:
         GPIO.setmode(GPIO.BCM)
         GPIO.output(26,False)
@@ -47,7 +47,7 @@ def addright(channel):
 	global counterright,con
 	counterright+=1
 	thisAng = getCompRead()
-	print ("right: " + str(counterright))
+	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
 	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
 		GPIO.setmode(GPIO.BCM)
@@ -235,49 +235,49 @@ def goleft():
 
 
 def moveForward():
-	global counterleft
-	global counterright
-	global con
-	global counterright_limit
-	global counterleft_limit
-	global stoper
-	global HeadingAngle
-	globalinit()
-	counterright_limit=100
-	counterleft_limit=100
-	GPIO.setmode(GPIO.BCM)
-	#GPIO.remove_event_detect(21)
-	#GPIO.remove_event_detect(20)
-	#GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	#GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-	A1 = 26
-	A2 = 27
-	B1 = 24
-	B2 = 25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
+    global counterleft
+    global counterright
+    global con
+    global counterright_limit
+    global counterleft_limit
+    global stoper
+    global HeadingAngle
+    globalinit()
+    counterright_limit=100
+    counterleft_limit=100
+    GPIO.setmode(GPIO.BCM)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
+    #GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    #GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    A1 = 26
+    A2 = 27
+    B1 = 24
+    B2 = 25
+    GPIO.setup(A1,GPIO.OUT)
+    GPIO.setup(A2,GPIO.OUT)
+    GPIO.setup(B1,GPIO.OUT)
+    GPIO.setup(B2,GPIO.OUT)
 	#stoper=datetime.datetime.now()
-	HeadingAngle = getCompRead()
-	GPIO.output(A1, False)
-	GPIO.output(A2, True)
-	GPIO.output(B1, False)
-	GPIO.output(B2, True)
-	con.acquire()
-	while True:
-		con.wait()
-		if abs(getCompRead()-HeadingAngle)>4:
-			stop()
-			print("start fixAngle("+str(HeadingAngle) +")")
-			time.sleep(1)
-			print("now")
-			fixAngle(HeadingAngle)
-			stop()
-		if counterleft>=counterleft_limit and counterright>=counterright_limit:
-			break
-	con.release()
-	updateCposition()
+    HeadingAngle = getCompRead()
+    GPIO.output(A1, False)
+    GPIO.output(A2, True)
+    GPIO.output(B1, False)
+    GPIO.output(B2, True)
+    con.acquire()
+    while True:
+        con.wait()
+        if abs(getCompRead()-HeadingAngle)>4:
+            stop()
+			#print("start fixAngle("+str(HeadingAngle) +")")
+			#time.sleep(1)
+			#print("now")
+            fixAngle(HeadingAngle)
+            print("finished turning")
+        if counterleft>=counterleft_limit and counterright>=counterright_limit:
+            break
+    con.release()
+    updateCposition()
 
 def fixAngle(destAngle):
     #going left is negative angle    
@@ -306,7 +306,7 @@ def fixAngle(destAngle):
     counterleft =0
     counterright =0
     currAngle = getCompRead()
-
+    
     while abs(currAngle-destAngle)>2:
         counterleft_limit = 1
         counterright_limit = 1
