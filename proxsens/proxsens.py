@@ -280,7 +280,7 @@ def moveForward():
         if abs(getCompRead()-HeadingAngle)>4:
             stop()
             print("stop and start fixAngle("+str(HeadingAngle) +")")
-            time.sleep(3)
+            time.sleep(1)
 			#print("now")
             fixAngle(HeadingAngle)
             print("finished turning")
@@ -349,7 +349,6 @@ def fixAngle(destAngle):
     print("counter right : "+str(counterright))
     print("counter left limit : "+str(counterleft_limit))
     print("counter right limit : "+str(counterright_limit))
-    time.sleep(5)
 
 
 def turnsens():
