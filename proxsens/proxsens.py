@@ -15,7 +15,7 @@ GPIO.setwarnings(False)
 con=threading.Condition()
 stoper=0
 myCompass = compass.compass()
-HeadingAngle=0
+HeadingAngle=-1
 
 cposition=(0,0)
 def updateCposition():
@@ -50,7 +50,7 @@ def addright(channel):
 	thisAng = getCompRead()
 	#print ("right: " + str(counterright))
 	#or abs(thisAng-HeadingAngle)>1:
-	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
+	if counterright>=counterright_limit or (abs(thisAng-HeadingAngle)>4 and HeadingAngle!=-1):
 		#GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
@@ -294,6 +294,7 @@ def moveForward():
         elif counterleft>=counterleft_limit and counterright>=counterright_limit:
             break
     con.release()
+    HeadingAngle = -1
     updateCposition()
 
 def fixAngle(destAngle):
