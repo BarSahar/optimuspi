@@ -22,11 +22,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="compass2.py" />
     <Compile Include="FaceSlapper.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="i2c.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="laser.py">
