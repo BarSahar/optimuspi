@@ -166,9 +166,9 @@ def turnright():
     counterright_limit=80
     counterleft_limit=80
     goright()
-    print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
+    #print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle+90)%360) #fine tuning
-    print("ending angle: " + str(originalAngle))
+    #print("ending angle: " + str(originalAngle))
     dir=(dir+1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -212,9 +212,9 @@ def turnleft():
     counterright_limit=80
     counterleft_limit=80
     goleft()
-    print("finished. now fine tuning to: "+ str(((originalAngle-90+360)%360)))
+    #print("finished. now fine tuning to: "+ str(((originalAngle-90+360)%360)))
     fixAngle(((originalAngle-90+360)%360)) #fine tuning
-    print("ending angle: " + str(originalAngle))
+    #print("ending angle: " + str(originalAngle))
     dir=(dir-1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -330,7 +330,9 @@ def fixAngle(destAngle):
 
     #reset counters
     currAngle = getCompRead()
-    print("fixAngle, destAngle: "+ str(destAngle) + "currAngle: " +str(currAngle))
+    print("fixAngle::")
+    print("destAngle: "+ str(destAngle))
+    print("currAngle: " +str(currAngle))
     while abs(currAngle-destAngle)>2:
         counterleft =0
         counterright =0
