@@ -155,18 +155,20 @@ def showoff(graph):
     line=""
 
 
-		 
+
 def turnright():
     global counterright_limit
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
+    print("starting angle: " + str(originalAngle))
     globalinit()
     counterright_limit=80
     counterleft_limit=80
     goright()
-    print("finished. now fine tuning")
+    print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle+90)%360) #fine tuning
+    print("ending angle: " + str(originalAngle))
     dir=(dir+1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -205,12 +207,14 @@ def turnleft():
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
+    print("starting angle: " + str(originalAngle))
     globalinit()
     counterright_limit=80
     counterleft_limit=80
     goleft()
-    print("finished. now fine tuning")
+    print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle-90+360)%360) #fine tuning
+    print("ending angle: " + str(originalAngle))
     dir=(dir-1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
