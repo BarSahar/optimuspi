@@ -332,7 +332,7 @@ def fixAngle(destAngle):
 
     #reset counters
     currAngle = getCompRead()
-    print("fixAngle, destAngle: "+ str(destAngle) + "currAngle: " +currAngle)
+    print("fixAngle, destAngle: "+ str(destAngle) + "currAngle: " +str(currAngle))
     while abs(currAngle-destAngle)>2:
         counterleft =0
         counterright =0
