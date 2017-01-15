@@ -337,7 +337,7 @@ def fixAngle(destAngle):
         counterleft_limit = 1
         counterright_limit = 1
         #print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
-        if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
+        if (currAngle-destAngle>0 and currAngle-destAngle<90)  or currAngle-destAngle<-90:
             #print("need to go left")
             goleft()
         else :
