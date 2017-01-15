@@ -345,8 +345,9 @@ def fixAngle(destAngle):
         else :
             #print("need to go right")
             goright()
+        time.sleep(0.1)        
         currAngle = getCompRead()
-        time.sleep(0.1)
+        
 	#restore previous counter state
     counterleft = old_counterleft
     counterright = old_counterright
