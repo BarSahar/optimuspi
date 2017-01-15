@@ -214,8 +214,8 @@ def turnleft():
     counterleft_limit=80
     goleft()
     originalAngle = getCompRead()
-    print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
-    fixAngle((originalAngle-90+360)%360) #fine tuning
+    print("finished. now fine tuning to: "+ str(((originalAngle-90+360)%360)))
+    fixAngle(((originalAngle-90+360)%360)) #fine tuning
     print("ending angle: " + str(originalAngle))
     dir=(dir-1)%4
 
