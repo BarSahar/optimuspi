@@ -166,6 +166,7 @@ def turnright():
     counterright_limit=80
     counterleft_limit=80
     goright()
+    originalAngle = getCompRead()
     print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle+90)%360) #fine tuning
     print("ending angle: " + str(originalAngle))
@@ -212,6 +213,7 @@ def turnleft():
     counterright_limit=80
     counterleft_limit=80
     goleft()
+    originalAngle = getCompRead()
     print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle-90+360)%360) #fine tuning
     print("ending angle: " + str(originalAngle))
