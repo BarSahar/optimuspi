@@ -325,14 +325,14 @@ def fixAngle(destAngle):
     old_counterright=counterright
     old_counterleft_limit=counterleft_limit
     old_counterright_limit=counterright_limit
-    print("counter left : "+str(counterleft))
-    print("counter right : "+str(counterright))
-    print("counter left limit : "+str(counterleft_limit))
-    print("counter right limit : "+str(counterright_limit))
+    #print("counter left : "+str(counterleft))
+    #print("counter right : "+str(counterright))
+    #print("counter left limit : "+str(counterleft_limit))
+    #print("counter right limit : "+str(counterright_limit))
 
     #reset counters
     currAngle = getCompRead()
-    
+    print("fixAngle, destAngle: "+ str(destAngle) + "currAngle: " +currAngle)
     while abs(currAngle-destAngle)>2:
         counterleft =0
         counterright =0
@@ -352,11 +352,11 @@ def fixAngle(destAngle):
     counterright = old_counterright
     counterleft_limit = old_counterleft_limit
     counterright_limit = old_counterright_limit
-    print("finished turning")
-    print("counter left : "+str(counterleft))
-    print("counter right : "+str(counterright))
-    print("counter left limit : "+str(counterleft_limit))
-    print("counter right limit : "+str(counterright_limit))
+    print("finished turning. Angle is: "+ str(currAngle))
+    #print("counter left : "+str(counterleft))
+    #print("counter right : "+str(counterright))
+    #print("counter left limit : "+str(counterleft_limit))
+    #print("counter right limit : "+str(counterright_limit))
 
 
 def turnsens():
