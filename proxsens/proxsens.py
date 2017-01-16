@@ -14,7 +14,7 @@ from math import tan
 GPIO.setwarnings(False)
 con=threading.Condition()
 stoper=0
-myCompass = compass.compass()
+myCompass = compass.compass(declination=(4,35))
 HeadingAngle=-1
 
 cposition=(0,0)
