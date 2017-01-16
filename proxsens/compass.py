@@ -22,7 +22,8 @@ class compass:
         (degrees, minutes) = declination
         self.__declDegrees = degrees
         self.__declMinutes = minutes
-        self.__declination = (degrees + minutes / 60) * math.pi / 180
+        #self.__declination = (degrees + minutes / 60) * math.pi / 180
+        self.__declination = (degrees + minutes / 60)
 
         (reg, self.__scale) = self.__scales[gauss]
         self.bus.write_byte_data(self.address, 0x00, 0x70) # 8 Average, 15 Hz, normal measurement
