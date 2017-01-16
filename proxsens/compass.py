@@ -22,8 +22,7 @@ class compass:
         (degrees, minutes) = declination
         self.__declDegrees = degrees
         self.__declMinutes = minutes
-        #self.__declination = (degrees + minutes / 60) * math.pi / 180
-        self.__declination = (degrees + minutes / 60)
+        self.__declination = (degrees + minutes / 60) * math.pi / 180
 
         (reg, self.__scale) = self.__scales[gauss]
         self.bus.write_byte_data(self.address, 0x00, 0x70) # 8 Average, 15 Hz, normal measurement
@@ -55,7 +54,7 @@ class compass:
     def heading(self):
         (x, y, z) = self.axes()
         headingRad = math.atan2(y, x)
-        #headingRad += self.__declination
+        headingRad += self.__declination
 
         # Correct for reversed heading
         if headingRad < 0:
