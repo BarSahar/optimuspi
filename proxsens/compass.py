@@ -54,7 +54,7 @@ class compass:
     def heading(self):
         (x, y, z) = self.axes()
         headingRad = math.atan2(y, x)
-        headingRad += self.__declination
+        #headingRad += self.__declination
 
         # Correct for reversed heading
         if headingRad < 0:
