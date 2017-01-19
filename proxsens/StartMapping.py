@@ -8,6 +8,7 @@ import time
 
 def mapStart():
 	grid=[]
+	home=(-1,-1)
 	try:
 		grid=np.load('Grid')
 		home=np.load('Home')
