@@ -46,10 +46,9 @@ def addleft(channel):
 def addright(channel):
 	global counterright,con
 	counterright+=1
-	thisAng = getCompRead()
 	#print ("right: " + str(counterright))
-	#or abs(thisAng-HeadingAngle)>1:
-	if counterright>=counterright_limit or (abs(thisAng-HeadingAngle)>4 and HeadingAngle!=-1):
+	#if counterright>=counterright_limit or (abs(thisAng-HeadingAngle)>4 and HeadingAngle!=-1):
+	if counterright>=counterright_limit:
 		#GPIO.setmode(GPIO.BCM)
 		GPIO.output(24,False)
 		GPIO.output(25,False)
@@ -274,7 +273,7 @@ def moveForward():
     #GPIO.setup(B1,GPIO.OUT)
     #GPIO.setup(B2,GPIO.OUT)
     #stoper=datetime.datetime.now()
-    #HeadingAngle = getCompRead()
+    HeadingAngle = getCompRead()
     GPIO.output(A1, False)
     GPIO.output(A2, True)
     GPIO.output(B1, False)
@@ -283,23 +282,25 @@ def moveForward():
     print("start")   
     while True:
         con.wait()
-        if (abs(getCompRead()-HeadingAngle)>4 and HeadingAngle!=-1 ):
-            stop()
-            print("stop and start fixAngle("+str(HeadingAngle) +")")
-            time.sleep(1)
-			#print("now")
-            fixAngle(HeadingAngle)
-            print("finished turning")
-            print("continue on")
-            time.sleep(1)
-            GPIO.output(A1, False)
-            GPIO.output(A2, True)
-            GPIO.output(B1, False)
-            GPIO.output(B2, True)
-        elif counterleft>=counterleft_limit and counterright>=counterright_limit:
+#        if (abs(getCompRead()-HeadingAngle)>4 and HeadingAngle!=-1 ):
+   #         stop()
+  #          print("stop and start fixAngle("+str(HeadingAngle) +")")
+ #           time.sleep(1)
+#			#print("now")
+ #           fixAngle(HeadingAngle)
+ #           print("finished turning")
+ #           print("continue on")
+ #           time.sleep(1)
+ #           GPIO.output(A1, False)
+ #           GPIO.output(A2, True)
+ #           GPIO.output(B1, False)
+ #           GPIO.output(B2, True)
+        if counterleft>=counterleft_limit and counterright>=counterright_limit:
             print("stop")
             break
     con.release()
+    time.sleep(0.5)
+    fixAngle(HeadingAngle)
     HeadingAngle = -1
     updateCposition()
 
