@@ -102,18 +102,15 @@ def outline():
 	
 	grid=[]
 
-	print ('xoff: '+str(xoffset)+'yoff: '+str(yoffset))
-	printlist()
-
-	x =input('Befor Grid')
-	print('')
-
+	print ('xoff: '+str(xoffset)+' yoff: '+str(yoffset))
+	print ('xsize'+str(xsize)+' ysize: '+str(ysize))
+	
 
 
 	for x in range(xsize):
 		grid.append([])
 		for y in range(ysize):
-			grid[x].append(status.uncheck)
+			grid[x].append(status.unexplored)
 	#remember to check duplicate nodes and take the bloked
 
 	for node in outlinenodes:
