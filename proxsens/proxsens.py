@@ -279,15 +279,15 @@ def fixAngle(destAngle):
 
     #reset counters
     currAngle = getCompRead()
-    print("fixAngle::")
-    print("destAngle: "+ str(destAngle))
-    print("currAngle: " +str(currAngle))
+#    print("fixAngle::")
+#    print("destAngle: "+ str(destAngle))
+#    print("currAngle: " +str(currAngle))
     while abs(currAngle-destAngle)>2:
         counterleft =0
         counterright =0
         counterleft_limit = 1
         counterright_limit = 1
-        print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
+#        print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
         if (currAngle-destAngle>0 and currAngle-destAngle<90)  or currAngle-destAngle<-90:
             goleft()
         else :
