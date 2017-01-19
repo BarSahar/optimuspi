@@ -63,9 +63,9 @@ if __name__ == "__main__":
 
         time.sleep(0.1)
 
-    print "minx: ", minx
-    print "miny: ", miny
-    print "maxx: ", maxx
-    print "maxy: ", maxy
-    print "x offset: ", (maxx + minx) / 2
-    print "y offset: ", (maxy + miny) / 2
+    print ("minx: " + str(minx))
+    print ("miny: " + str(miny))
+    print ("maxx: " + str(maxx))
+    print ("maxy: " + str(maxy))
+    print ("x offset: " + str((maxx + minx) / 2))
+    print ("y offset: " + str((maxy + miny) / 2))
