@@ -6,6 +6,7 @@ from threading import Thread
 from robotModels import direction,distanceerror,status
 import picamera
 import picamera.array
+import operator as op
 import numpy as np
 import compass
 from math import tan
@@ -13,24 +14,64 @@ from math import tan
 GPIO.setwarnings(False)
 con=threading.Condition()
 stoper=0
-myCompass = compass.compass()
-HeadingAngle=0
+myCompass = compass.compass(declination=(4,35))
+HeadingAngle=-1
 
 cposition=(0,0)
 def updateCposition():
 	global cposition
 #	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
 	cposition=tuple(map(op.add, cposition,cosmos[dir].value))
-	outlinenodes.append((cposition[0],cposition[1],status.clear))
-	updateParam(cposition)
 
 
 cosmos=(direction.north,direction.east,direction.south,direction.west) 
 dir=1
 
+def addleft(channel):
+    global counterleft,con
+    counterleft+=1
+    #print("left: " + str(counterleft))
+    #print(str(getCompRead()))
+    if counterleft>=counterleft_limit:
+        #GPIO.setmode(GPIO.BCM)
+        GPIO.output(26,False)
+        GPIO.output(27,False)
+        con.acquire()
+        #print ("left finito")
+        #print (datetime.datetime.now()-stoper)
+        con.notify()
+        con.release()
+        #GPIO.remove_event_detect(channel)
+
+def addright(channel):
+	global counterright,con
+	counterright+=1
+	#print ("right: " + str(counterright))
+	#if counterright>=counterright_limit or (abs(thisAng-HeadingAngle)>4 and HeadingAngle!=-1):
+	if counterright>=counterright_limit:
+		#GPIO.setmode(GPIO.BCM)
+		GPIO.output(24,False)
+		GPIO.output(25,False)
+		con.acquire()
+		con.notify()
+		#print ("right finito")
+		#print (datetime.datetime.now()-stoper)
+		con.release()
+		#GPIO.remove_event_detect(channel)
+
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(21,GPIO.IN)
 GPIO.setup(20,GPIO.IN)
+A1 = 26
+A2 = 27
+B1 = 24
+B2 = 25
+GPIO.setup(A1,GPIO.OUT)
+GPIO.setup(A2,GPIO.OUT)
+GPIO.setup(B1,GPIO.OUT)
+GPIO.setup(B2,GPIO.OUT)
+GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 counterleft=0
 counterright=0
 counterleft_limit=0
@@ -48,7 +89,7 @@ def givebackdir():
 
 
 def getProxDist():
-    GPIO.setmode(GPIO.BCM)
+    #GPIO.setmode(GPIO.BCM)
     TRIG = 23
     ECHO = 22
     GPIO.setup(TRIG_pin,GPIO.OUT)
@@ -56,15 +97,13 @@ def getProxDist():
     GPIO.output(TRIG_pin, False)
 
     distance1=measureProx()
-    #time.sleep(0.1)
     distance2=measureProx()
-    #time.sleep(0.1)
     distance3=measureProx()
     return (distance1 + distance2 + distance3)/3
      
 
 def measureProx():
-    GPIO.setmode(GPIO.BCM)
+    #GPIO.setmode(GPIO.BCM)
     GPIO.setup(TRIG_pin,GPIO.OUT)
     GPIO.setup(ECHO_pin,GPIO.IN)
     GPIO.output(TRIG_pin, False)
@@ -81,21 +120,21 @@ def measureProx():
     return distance
 
 def stop():
-    GPIO.setmode(GPIO.BCM)
-    A1 = 26
-    A2 = 27
-    B1 = 24
-    B2 = 25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1 = 26
+    #A2 = 27
+    #B1 = 24
+    #B2 = 25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, False)
     GPIO.output(A2, False)
-    GPIO.output(B1, False)
-    GPIO.output(B2, False)
-    GPIO.remove_event_detect(21)
-    GPIO.remove_event_detect(20)
+    GPIO.output(B1, True)
+    GPIO.output(B2, True)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
     return
 
 def showoff(graph):
@@ -111,49 +150,17 @@ def showoff(graph):
     print(line)
     line=""
 
-def addleft(channel):
-    global counterleft,con
-    counterleft+=1
-    print("left: " + str(counterleft))
-    if counterleft>=counterleft_limit:
-        GPIO.setmode(GPIO.BCM)
-        GPIO.output(26,False)
-        GPIO.output(27,False)
-        con.acquire()
-        #print ("left finito")
-        #print (datetime.datetime.now()-stoper)
-        con.notify()
-        con.release()
-        #GPIO.remove_event_detect(channel)
-
-def addright(channel):
-	global counterright,con
-	counterright+=1
-	thisAng = getCompRead()
-	print ("right: " + str(counterright))
-	#or abs(thisAng-HeadingAngle)>1:
-	if counterright>=counterright_limit or abs(thisAng-HeadingAngle)>4:
-		GPIO.setmode(GPIO.BCM)
-		GPIO.output(24,False)
-		GPIO.output(25,False)
-		con.acquire()
-		con.notify()
-		#print ("right finito")
-		#print (datetime.datetime.now()-stoper)
-		con.release()
-		#GPIO.remove_event_detect(channel)
-		 
 def turnright():
     global counterright_limit
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
     globalinit()
-    counterright_limit=80
-    counterleft_limit=80
+    counterright_limit=50
+    counterleft_limit=50
     goright()
-    print("finished. now fine tuning")
-    #fixAngle((originalAngle+90)%360) #fine tuning
+    time.sleep(0.5)
+    fixAngle((originalAngle+90)%360) #fine tuning
     dir=(dir+1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -161,27 +168,26 @@ def goright():
     global counterleft
     global counterright
     global con
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1=26
+    #A2=27
+    #B1=24
+    #B2=25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, False)
     GPIO.output(A2, True)
     GPIO.output(B1, True)
     GPIO.output(B2, False)
-    GPIO.remove_event_detect(21)
-    GPIO.remove_event_detect(20)
-    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
+    #GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    #GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     con.acquire()
     while True:
         con.wait()
-#		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
         if counterleft>=counterleft_limit  and counterright>=counterright_limit:
             break
     con.release()
@@ -193,10 +199,11 @@ def turnleft():
     global dir
     originalAngle = getCompRead()
     globalinit()
-    counterright_limit=80
-    counterleft_limit=80
+    counterright_limit=50
+    counterleft_limit=50
     goleft()
-    fixAngle((originalAngle-90+360)%360) #fine tuning
+    time.sleep(0.5)
+    fixAngle(((originalAngle-90+360)%360)) #fine tuning
     dir=(dir-1)%4
 
 #ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -204,76 +211,57 @@ def goleft():
     global counterleft
     global counterright
     global con
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
+    #GPIO.setmode(GPIO.BCM)
+    #A1=26
+    #A2=27
+    #B1=24
+    #B2=25
+    #GPIO.setup(A1,GPIO.OUT)
+    #GPIO.setup(A2,GPIO.OUT)
+    #GPIO.setup(B1,GPIO.OUT)
+    #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, True)
     GPIO.output(A2, False)
     GPIO.output(B1, False)
     GPIO.output(B2, True)
-    GPIO.remove_event_detect(21)
-    GPIO.remove_event_detect(20)
-    GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-    GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+    #GPIO.remove_event_detect(21)
+    #GPIO.remove_event_detect(20)
+    #GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+    #GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     con.acquire()
     while True:
         con.wait()
-#		print "counters in turn: left "+str(counterleft)+" right"+str(counterright)
         if counterleft>=counterleft_limit  and counterright>=counterright_limit:
             break
     con.release()
 
 
 def moveForward():
-	global counterleft
-	global counterright
-	global con
-	global counterright_limit
-	global counterleft_limit
-	global stoper
-	global HeadingAngle
-	globalinit()
-	counterright_limit=100
-	counterleft_limit=100
-	GPIO.setmode(GPIO.BCM)
-	GPIO.remove_event_detect(21)
-	GPIO.remove_event_detect(20)
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
-	A1 = 26
-	A2 = 27
-	B1 = 24
-	B2 = 25
-	GPIO.setup(A1,GPIO.OUT)
-	GPIO.setup(A2,GPIO.OUT)
-	GPIO.setup(B1,GPIO.OUT)
-	GPIO.setup(B2,GPIO.OUT)
-	#stoper=datetime.datetime.now()
-	HeadingAngle = getCompRead()
-	GPIO.output(A1, False)
-	GPIO.output(A2, True)
-	GPIO.output(B1, False)
-	GPIO.output(B2, True)
-	con.acquire()
-	while True:
-		con.wait()
-		if abs(getCompRead()-HeadingAngle)>4:
-			stop()
-			print("start fixAngle("+str(HeadingAngle) +")")
-			time.sleep(1)
-			print("now")
-			fixAngle(HeadingAngle)
-			stop()
-		if counterleft>=counterleft_limit and counterright>=counterright_limit:
-			break
-	con.release()
-	updateCposition()
+    global counterleft
+    global counterright
+    global con
+    global counterright_limit
+    global counterleft_limit
+    global stoper
+    global HeadingAngle
+    globalinit()
+    counterright_limit=50
+    counterleft_limit=50
+    HeadingAngle = getCompRead()
+    GPIO.output(A1, False)
+    GPIO.output(A2, True)
+    GPIO.output(B1, False)
+    GPIO.output(B2, True)
+    con.acquire()
+    while True:
+        con.wait()
+        if counterleft>=counterleft_limit and counterright>=counterright_limit:
+            break
+    con.release()
+    time.sleep(0.5)
+    fixAngle(HeadingAngle)
+    HeadingAngle = -1
+    updateCposition()
 
 def fixAngle(destAngle):
     #going left is negative angle    
@@ -282,15 +270,6 @@ def fixAngle(destAngle):
     global counterright
     global counterleft_limit
     global counterright_limit
-    GPIO.setmode(GPIO.BCM)
-    A1=26
-    A2=27
-    B1=24
-    B2=25
-    GPIO.setup(A1,GPIO.OUT)
-    GPIO.setup(A2,GPIO.OUT)
-    GPIO.setup(B1,GPIO.OUT)
-    GPIO.setup(B2,GPIO.OUT)
 
     #save previous counter state
     old_counterleft=counterleft
@@ -299,31 +278,33 @@ def fixAngle(destAngle):
     old_counterright_limit=counterright_limit
 
     #reset counters
-    counterleft =0
-    counterright =0
     currAngle = getCompRead()
-
+    print("fixAngle::")
+    print("destAngle: "+ str(destAngle))
+    print("currAngle: " +str(currAngle))
     while abs(currAngle-destAngle)>2:
+        counterleft =0
+        counterright =0
         counterleft_limit = 1
         counterright_limit = 1
         print("current: "+str(currAngle) + ". heading to: " + str(destAngle))
-        if (currAngle-destAngle>0 and currAngle-destAngle<45)  or currAngle-destAngle<-45:
-            #print("need to go left")
+        if (currAngle-destAngle>0 and currAngle-destAngle<90)  or currAngle-destAngle<-90:
             goleft()
         else :
-            #print("need to go right")
             goright()
+        time.sleep(0.1)        
         currAngle = getCompRead()
-        time.sleep(0.1)
+        
 	#restore previous counter state
     counterleft = old_counterleft
     counterright = old_counterright
     counterleft_limit = old_counterleft_limit
     counterright_limit = old_counterright_limit
 
+
 def turnsens():
-	GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
-	GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
+	#GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
+	#GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
 	globalinit()
 	global counterright_limit
 	global counterleft_limit
@@ -381,7 +362,7 @@ def getLaserDist():
 
 
 def laserDistHelper():
-	GPIO.setmode(GPIO.BCM)
+	#GPIO.setmode(GPIO.BCM)
 	R1 = 18 # RELAY PIN	
 	GPIO.setup(R1,GPIO.OUT)
 	GPIO.output(R1, True) # laser on

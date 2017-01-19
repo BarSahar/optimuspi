@@ -46,8 +46,10 @@ class compass:
     def axes(self):
         data = self.bus.read_i2c_block_data(self.address, 0x00)
         #print map(hex, data)
-        x = self.__convert(data, 3)
-        y = self.__convert(data, 7)
+        xoffset = -269
+        yoffset = -40
+        x = self.__convert(data, 3)-xoffset*self.__scale
+        y = self.__convert(data, 7)-yoffset*self.__scale
         z = self.__convert(data, 5)
         return (x,y,z)
 
