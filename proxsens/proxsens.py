@@ -279,7 +279,7 @@ def moveForward():
     GPIO.output(B1, False)
     GPIO.output(B2, True)
     con.acquire()
-    print("start")   
+    print("starting. angle:"+ str(HeadingAngle))   
     while True:
         con.wait()
 #        if (abs(getCompRead()-HeadingAngle)>4 and HeadingAngle!=-1 ):
@@ -296,10 +296,10 @@ def moveForward():
  #           GPIO.output(B1, False)
  #           GPIO.output(B2, True)
         if counterleft>=counterleft_limit and counterright>=counterright_limit:
-            print("stop")
             break
     con.release()
     time.sleep(0.5)
+    print("stopping. now angle is:"+ str(getCompRead()))   
     fixAngle(HeadingAngle)
     HeadingAngle = -1
     updateCposition()
