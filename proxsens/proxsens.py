@@ -22,8 +22,6 @@ def updateCposition():
 	global cposition
 #	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
 	cposition=tuple(map(op.add, cposition,cosmos[dir].value))
-	outlinenodes.append((cposition[0],cposition[1],status.clear))
-	updateParam(cposition)
 
 
 cosmos=(direction.north,direction.east,direction.south,direction.west) 
