@@ -146,7 +146,7 @@ def showoff(graph):
       elif graph[x][y]==status.block:
           line=line+"x "
       else:
-        line=line+"*"
+        line=line+"* "
     print(line)
     line=""
 
