@@ -64,7 +64,7 @@ def pathfinder(start,end):
 	path.pop()
 	return path
 
-
+'''
 #Test
 
 def makegrid(xsize,ysize):
@@ -91,3 +91,5 @@ def main():
 	print("end point:"+str(endpoint))
 
 #main()
+
+'''

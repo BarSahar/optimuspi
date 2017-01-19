@@ -18,14 +18,15 @@ def facesalpper(start,end):
 	if pointToFace!=(-1,-1):
 		pointToFace_index=p.cosmos.index(pointToFace)
 		delta=pointToFace_index-p.dir
+
 		if delta==0:
-			pass
+			return
 		elif fabs(delta)==2:
 			p.turnleft()
 			p.time.sleep(1)
 			p.turnleft()
 		elif fabs(delta)==3:
-			if helper>0:
+			if delta>0:
 				p.turnleft()
 			else:
 				p.turnright()

@@ -5,10 +5,6 @@ import proxsens as sens
 import numpy as np
 import FaceSlapper as slap
 import time
-
-
-
-
 def mapStart():
 	grid,home=ot.outline()
 	np.save('Grid',grid)

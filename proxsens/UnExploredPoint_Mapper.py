@@ -5,14 +5,16 @@ import math
 
 
 def unexploredpoint(position,graph):
-
+	#robot facing
 	direction=p.cosmos[p.dir].value
 	front_distance=p.getLaserDist()
 	point=position
 	if front_distance<30:
-		point=temp =tuple(map(op.add,position,direction))
+		point=tuple(map(op.add,point,direction))
 		graph[point[0]][point[1]]=status.block
+		return False
 	else:
 		for x in range(math.floor(front_distance/15)):
 			point=tuple(map(op.add,point,direction))
 			graph[point[0]][point[1]]=status.clear
+			return True
