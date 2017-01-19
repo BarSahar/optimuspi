@@ -133,8 +133,8 @@ def stop():
     #GPIO.setup(B2,GPIO.OUT)
     GPIO.output(A1, False)
     GPIO.output(A2, False)
-    GPIO.output(B1, False)
-    GPIO.output(B2, False)
+    GPIO.output(B1, True)
+    GPIO.output(B2, True)
     #GPIO.remove_event_detect(21)
     #GPIO.remove_event_detect(20)
     return
