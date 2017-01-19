@@ -31,7 +31,7 @@ def addleft(channel):
     global counterleft,con
     counterleft+=1
     #print("left: " + str(counterleft))
-    print(str(getCompRead()))
+    #print(str(getCompRead()))
     if counterleft>=counterleft_limit:
         #GPIO.setmode(GPIO.BCM)
         GPIO.output(26,False)
