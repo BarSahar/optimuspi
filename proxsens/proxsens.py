@@ -258,8 +258,8 @@ def moveForward():
     global stoper
     global HeadingAngle
     globalinit()
-    counterright_limit=100
-    counterleft_limit=100
+    counterright_limit=50
+    counterleft_limit=50
     #GPIO.setmode(GPIO.BCM)
     #GPIO.remove_event_detect(21)
     #GPIO.remove_event_detect(20)
