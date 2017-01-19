@@ -166,6 +166,7 @@ def turnright():
     counterright_limit=50
     counterleft_limit=50
     goright()
+    time.sleep(1)
     #print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle+90)%360) #fine tuning
     #print("ending angle: " + str(originalAngle))
@@ -212,7 +213,7 @@ def turnleft():
     counterright_limit=50
     counterleft_limit=50
     goleft()
-    #time.sleep(0.5)
+    time.sleep(1)
     #print("finished. now fine tuning to: "+ str(((originalAngle-90+360)%360)))
     fixAngle(((originalAngle-90+360)%360)) #fine tuning
     #print("ending angle: " + str(originalAngle))
