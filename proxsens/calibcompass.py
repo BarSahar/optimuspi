@@ -30,8 +30,6 @@ def read_word_2c(adr):
 
 def write_byte(adr, value):
     bus.write_byte_data(address, adr, value)
-
-compassValuesList = []
     
 if __name__ == "__main__":
     write_byte(0, 0b01110000) # Set to 8 samples @ 15Hz
@@ -39,34 +37,35 @@ if __name__ == "__main__":
     write_byte(2, 0b00000000) # Continuous sampling
 
     scale = 0.92
-   
+    
+    minx = 0
+    maxx = 0
+    miny = 0
+    maxy = 0
+
     for i in range(0,500):
         x_out = read_word_2c(3)
         y_out = read_word_2c(7)
         z_out = read_word_2c(5)
         
-        x_out_scaled = x_out * scale
-        y_out_scaled = y_out * scale
-
-        bearing  = math.atan2(y_out, x_out) 
-        if (bearing < 0):
-            bearing += 2 * math.pi
-        bearing = math.degrees(bearing)
         
-        print (str(x_out), str(y_out), str(x_out_scaled), str(y_out_scaled), str(bearing))
+        if x_out < minx:
+            minx=x_out
         
-        compassValues = {}
-        compassValues[ "X" ] = x_out
-        compassValues[ "Y" ] = x_out
-        compassValues[ "X_scaled" ] = x_out_scaled
-        compassValues[ "Y_scaled" ] = y_out_scaled
-        compassValues[ "Bearing" ] = bearing
-        compassValuesList.append( compassValues )
+        if y_out < miny:
+            miny=y_out
+        
+        if x_out > maxx:
+            maxx=x_out
+        
+        if y_out > maxy:
+            maxy=y_out
 
         time.sleep(0.1)
 
-    outputFilename = "Compass_values_{0}.csv".format( int( time.time() ) )
-    with open( outputFilename, "w" ) as csvFile:
-        dictWriter = csv.DictWriter ( csvFile,[ "X", "Y", "X_scaled", "Y_scaled", "Bearing"] )
-        dictWriter.writeheader()
-        dictWriter.writerows( compassValuesList )
+    print "minx: ", minx
+    print "miny: ", miny
+    print "maxx: ", maxx
+    print "maxy: ", maxy
+    print "x offset: ", (maxx + minx) / 2
+    print "y offset: ", (maxy + miny) / 2
