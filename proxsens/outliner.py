@@ -25,19 +25,14 @@ def outline():
 		if (home==cposition) and not first:
 			break
 		first=False
-		x =input('Befor')
-		print('')
-
 		frontdis=sens.getLaserDist()
 		sidedis=sens.getProxDist()
 
 		print ("Front: "+str(frontdis))
 		print ("Side: "+str(sidedis))
 		print("current pos: "+str(cposition))
-		x =input('After')
-		print('')
-
-
+	
+		time.sleep(2)
 
 		if frontdis>60 and sidedis>60: #door or slit
 			if doorcheck():
