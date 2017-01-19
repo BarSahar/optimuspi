@@ -33,6 +33,7 @@ def addleft(channel):
     global counterleft,con
     counterleft+=1
     #print("left: " + str(counterleft))
+    print(str(getCompRead()))
     if counterleft>=counterleft_limit:
         #GPIO.setmode(GPIO.BCM)
         GPIO.output(26,False)
@@ -275,16 +276,16 @@ def moveForward():
     #GPIO.setup(B1,GPIO.OUT)
     #GPIO.setup(B2,GPIO.OUT)
     #stoper=datetime.datetime.now()
-    HeadingAngle = getCompRead()
+    #HeadingAngle = getCompRead()
     GPIO.output(A1, False)
     GPIO.output(A2, True)
     GPIO.output(B1, False)
     GPIO.output(B2, True)
     con.acquire()
+    print("start")   
     while True:
         con.wait()
-
-        if abs(getCompRead()-HeadingAngle)>4:
+        if (abs(getCompRead()-HeadingAngle)>4 and HeadingAngle!=-1 ):
             stop()
             print("stop and start fixAngle("+str(HeadingAngle) +")")
             time.sleep(1)
@@ -298,6 +299,7 @@ def moveForward():
             GPIO.output(B1, False)
             GPIO.output(B2, True)
         elif counterleft>=counterleft_limit and counterright>=counterright_limit:
+            print("stop")
             break
     con.release()
     HeadingAngle = -1
