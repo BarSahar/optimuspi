@@ -16,7 +16,9 @@ def facesalpper(start,end):
 		pointToFace=direction.south
 
 	if pointToFace!=(-1,-1):
+
 		pointToFace_index=p.cosmos.index(pointToFace)
+
 		delta=pointToFace_index-p.dir
 
 		if delta==0:
