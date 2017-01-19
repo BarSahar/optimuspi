@@ -7,6 +7,7 @@ import FaceSlapper as slap
 import time
 
 def mapStart():
+	grid=[]
 	try:
 		grid=np.load('Grid')
 		home=np.load('Home')
