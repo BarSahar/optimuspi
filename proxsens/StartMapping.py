@@ -8,6 +8,10 @@ import time
 
 def mapStart():
 	grid,home=ot.outline()
+	input("done with outline,Ready to see?")
+	sens.showoff(grid)
+
+
 	np.save('Grid',grid)
 	np.save('Home',home)
 	sens.cposition=home
