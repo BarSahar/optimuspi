@@ -161,10 +161,10 @@ def turnright():
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
-    print("starting angle: " + str(originalAngle))
+    #print("starting angle: " + str(originalAngle))
     globalinit()
-    counterright_limit=80
-    counterleft_limit=80
+    counterright_limit=50
+    counterleft_limit=50
     goright()
     #print("finished. now fine tuning to: "+ str((originalAngle-90+360)%360))
     fixAngle((originalAngle+90)%360) #fine tuning
@@ -207,12 +207,12 @@ def turnleft():
     global counterleft_limit
     global dir
     originalAngle = getCompRead()
-    print("starting angle: " + str(originalAngle))
+    #print("starting angle: " + str(originalAngle))
     globalinit()
-    counterright_limit=80
-    counterleft_limit=80
+    counterright_limit=50
+    counterleft_limit=50
     goleft()
-    time.sleep(0.5)
+    #time.sleep(0.5)
     #print("finished. now fine tuning to: "+ str(((originalAngle-90+360)%360)))
     fixAngle(((originalAngle-90+360)%360)) #fine tuning
     #print("ending angle: " + str(originalAngle))
