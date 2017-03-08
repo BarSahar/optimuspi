@@ -23,6 +23,7 @@ def outline():
 
 	while True:
 		if (home==cposition) and not first:
+			markrightpoint(0)
 			break
 		first=False
 		frontdis=sens.getLaserDist()

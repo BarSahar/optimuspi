@@ -28,6 +28,8 @@
     <Compile Include="FaceSlapper.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="fuelgauge.py" />
+    <Compile Include="ipFinder.py" />
     <Compile Include="laser.py">
       <SubType>Code</SubType>
     </Compile>
