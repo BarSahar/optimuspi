@@ -151,12 +151,11 @@ def markrightpoint(num):
 			
 	
 def updateCposition():
-	global cposition
+    global cposition
 #	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
-	cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir].value))
-    cposition = tuple(map(op.add, cposition, cosmos[dir].value))
-	outlinenodes.append((cposition[0],cposition[1],status.clear))
-	updateParam(cposition)
+    cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir].value))
+    outlinenodes.append((cposition[0],cposition[1],status.clear))
+    updateParam(cposition)
 
 def ifathome():
 	if (home==cposition):
