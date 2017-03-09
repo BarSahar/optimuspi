@@ -36,11 +36,21 @@ def outline():
         time.sleep(2)
 
         if frontdis>60 and sidedis>60: #door or slit
-            if doorcheck():
-                sens.turnright()
-                time.sleep(0.5)
-                sens.moveForward()
-                updateCposition()
+            #TODO change this if we choose to do door or slit
+            print("wall too far on the right")
+            sens.turnright()
+            time.sleep(0.5)
+            sens.moveForward()
+            #updateCposition()
+            time.sleep(0.5)
+            sens.turnleft()
+
+            #door or slit old
+            #if doorcheck():
+            #    sens.turnright()
+            #    time.sleep(0.5)
+            #    sens.moveForward()
+            #    updateCposition()
         elif sidedis>30 and sidedis<45:  #wall too far on the right
                 print("wall too far on the right")
                 sens.turnright()
