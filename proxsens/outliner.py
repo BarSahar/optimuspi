@@ -30,7 +30,7 @@ def outline():
 
         print ("Front: "+str(frontdis))
         print ("Side: "+str(sidedis))
-        print("current pos: "+str(cposition))
+        print ("current pos: "+str(cposition))
 
         #input()
         time.sleep(2)
@@ -46,7 +46,7 @@ def outline():
                 sens.turnright()
                 time.sleep(0.5)
                 sens.moveForward()
-                updateCposition()
+                #updateCposition()
                 time.sleep(0.5)
                 sens.turnleft()
         elif sidedis<13.5: # wall too close on the right
@@ -54,10 +54,10 @@ def outline():
                 sens.turnleft()
                 time.sleep(0.5)
                 sens.moveForward()
-                updateCposition()
+                #updateCposition()
                 time.sleep(0.5)
                 sens.turnright()
-                markrightpoint(0)
+                #markrightpoint(0)
         else:                         # wall on the right is OK
             if frontdis>30:
                 print("wall on the right is OK")
@@ -154,6 +154,7 @@ def updateCposition():
 	global cposition
 #	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
 	cposition=tuple(map(op.add, cposition,sens.cosmos[sens.dir].value))
+    cposition = tuple(map(op.add, cposition, cosmos[dir].value))
 	outlinenodes.append((cposition[0],cposition[1],status.clear))
 	updateParam(cposition)
 

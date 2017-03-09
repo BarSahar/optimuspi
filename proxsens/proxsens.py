@@ -224,7 +224,7 @@ def goleft():
     con.release()
 
 
-def moveForward():
+def moveForwardMicro():
     global counterleft
     global counterright
     global con
@@ -249,7 +249,12 @@ def moveForward():
     time.sleep(0.5)
     fixAngle(HeadingAngle)
     HeadingAngle = -1
+
+def moveForward():
+    moveForwardMicro()
     updateCposition()
+
+
 
 
 def fixAngle(destAngle):
