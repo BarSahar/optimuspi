@@ -39,22 +39,11 @@ counterright_limit = 0
 TRIG_pin = 23
 ECHO_pin = 22
 
-angles = [1, 2, 3, 4]
 cosmos = (direction.north, direction.east, direction.south, direction.west)
 dir = 1
 
 
 # endregion
-
-
-
-def setAngles():
-    global angles
-    angles[dir] = getCompRead()
-    angles[(dir + 1) % 4] = (getCompRead() + 90) % 360
-    angles[(dir + 2) % 4] = (getCompRead() + 180) % 360
-    angles[(dir + 3) % 4] = (getCompRead() + 270) % 360
-
 
 def updateCposition():
     global cposition
@@ -177,19 +166,6 @@ def turnright():
     global counterright_limit
     global counterleft_limit
     global dir
-    globalinit()
-    counterright_limit = 50
-    counterleft_limit = 50
-    goright()
-    time.sleep(0.5)
-    dir = (dir + 1) % 4
-    fixAngle(angles[dir])  # fine tuning
-
-
-def turnright_old():
-    global counterright_limit
-    global counterleft_limit
-    global dir
     originalAngle = getCompRead()
     globalinit()
     counterright_limit = 50
@@ -218,19 +194,6 @@ def goright():
 
 
 def turnleft():
-	global counterright_limit
-	global counterleft_limit
-	global dir
-	globalinit()
-	counterright_limit = 50
-	counterleft_limit = 50
-	goleft()
-	time.sleep(0.5)
-	dir = (dir - 1) % 4
-	fixAngle(angles[dir])  # fine tuning
-
-
-def turnleft_old():
     global counterright_limit
     global counterleft_limit
     global dir

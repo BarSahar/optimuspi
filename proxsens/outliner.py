@@ -18,9 +18,6 @@ outlinenodes.append((cposition[0],cposition[1],status.clear))
 
 
 def outline():
-    sens.dir = 1
-    sens.setAngles()
-
     first =True
 
     while True:
