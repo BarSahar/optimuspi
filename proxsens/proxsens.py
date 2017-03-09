@@ -332,7 +332,7 @@ def getLaserDist():
     i = 0
     dist1 = laserDistHelper()
     if dist1 < 200:
-        return dist1
+        return dist1-4
     else:
         dist2 = laserDistHelper()
         dist3 = laserDistHelper()
@@ -345,7 +345,7 @@ def getLaserDist():
     if res == 999:
         raise distanceerror()
     else:
-        return res
+        return res-4
 
 
 def laserDistHelper():
