@@ -345,7 +345,7 @@ def getLaserDist():
             if res < 999:
                 break
     if res == 999:
-        raise distanceerror()
+        return 50
     else:
         return res - 4
 
