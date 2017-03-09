@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8398c187-a053-4be6-b9ef-f287dbc1eba0" name="Default" comment="hfg">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/proxsens.py" afterPath="$PROJECT_DIR$/proxsens/proxsens.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,19 +54,31 @@
       <file leaf-file-name="fuelgauge.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/fuelgauge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
+            <state relative-caret-position="1440">
               <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="710">
+            <state relative-caret-position="770">
               <caret line="347" column="20" lean-forward="false" selection-start-line="347" selection-start-column="20" selection-end-line="347" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kkk.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proxsens/kkk.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="767">
+              <caret line="438" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -112,6 +123,7 @@
         <option value="$PROJECT_DIR$/proxsens/fuelgauge.py" />
         <option value="C:/AffiliMob/TapticaIntegration/specialBanner_V1.1.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
+        <option value="$PROJECT_DIR$/proxsens/kkk.py" />
       </list>
     </option>
   </component>
@@ -358,7 +370,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20795757" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -402,6 +414,52 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://C:/AffiliMob/TapticaIntegration/specialBanner_V1.1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24040">
+          <caret line="2233" column="16" lean-forward="false" selection-start-line="2233" selection-start-column="4" selection-end-line="2233" selection-end-column="16" />
+          <folding>
+            <element signature="e#3480#4250#0" expanded="false" />
+            <element signature="e#4278#5380#0" expanded="false" />
+            <element signature="e#5412#6461#0" expanded="false" />
+            <element signature="e#6567#7473#0" expanded="false" />
+            <element signature="e#7597#9224#0" expanded="false" />
+            <element signature="e#9250#19988#0" expanded="false" />
+            <element signature="e#20060#20468#0" expanded="false" />
+            <element signature="e#20492#22486#0" expanded="false" />
+            <element signature="e#22559#25209#0" expanded="false" />
+            <element signature="e#25237#27646#0" expanded="false" />
+            <element signature="e#57611#58840#0" expanded="false" />
+            <element signature="e#58910#61204#0" expanded="false" />
+            <element signature="e#61315#108939#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/AffiliMob/TapticaIntegration/specialBanner_V1.2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/fuelgauge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/AffiliMob/TapticaIntegration/specialBanner_V1.1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24040">
@@ -663,7 +721,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/fuelgauge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
+        <state relative-caret-position="1440">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
@@ -671,9 +729,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="710">
+        <state relative-caret-position="770">
           <caret line="347" column="20" lean-forward="false" selection-start-line="347" selection-start-column="20" selection-end-line="347" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/kkk.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="767">
+          <caret line="438" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="438" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

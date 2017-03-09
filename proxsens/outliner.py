@@ -33,6 +33,7 @@ def outline():
 		print ("Side: "+str(sidedis))
 		print("current pos: "+str(cposition))
 	
+		input()
 		time.sleep(2)
 
 		if frontdis>60 and sidedis>60: #door or slit
