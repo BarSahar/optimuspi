@@ -217,18 +217,16 @@ def goright():
 
 
 def turnleft():
-    global counterright_limit
-    global counterleft_limit
-
-
-global dir
-globalinit()
-counterright_limit = 50
-counterleft_limit = 50
-goleft()
-time.sleep(0.5)
-dir = (dir - 1) % 4
-fixAngle(angles[dir])  # fine tuning
+	global counterright_limit
+	global counterleft_limit
+	global dir
+	globalinit()
+	counterright_limit = 50
+	counterleft_limit = 50
+	goleft()
+	time.sleep(0.5)
+	dir = (dir - 1) % 4
+	fixAngle(angles[dir])  # fine tuning
 
 
 def turnleft_old():
