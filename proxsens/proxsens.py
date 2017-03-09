@@ -162,6 +162,15 @@ def showoff(graph):
         print(line)
         line = ""
 
+def globalinit():
+    global counterleft
+    global counterright
+    global counterright_limit
+    global counterleft_limit
+    counterleft = 0
+    counterright = 0
+    counterleft_limit = 0
+    counterright_limit = 0
 
 def turnright():
     global counterright_limit
@@ -328,17 +337,6 @@ def turnsens():
     global counterleft_limit
     counterleft_limit = 1000
     counterright_limit = 1000
-
-
-def globalinit():
-    global counterleft
-    global counterright
-    global counterright_limit
-    global counterleft_limit
-    counterleft = 0
-    counterright = 0
-    counterleft_limit = 0
-    counterright_limit = 0
 
 
 # gets safe reading from compass
