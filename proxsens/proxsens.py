@@ -39,9 +39,12 @@ TRIG_pin = 23
 ECHO_pin = 22
 
 angles = [1, 2, 3, 4]
+cosmos = (direction.north, direction.east, direction.south, direction.west)
+dir = 1
 
 
 # endregion
+
 
 
 def setAngles():
@@ -56,10 +59,6 @@ def updateCposition():
     global cposition
     #	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
     cposition = tuple(map(op.add, cposition, cosmos[dir].value))
-
-
-cosmos = (direction.north, direction.east, direction.south, direction.west)
-dir = 1
 
 
 def addleft(channel):
