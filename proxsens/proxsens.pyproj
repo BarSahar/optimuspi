@@ -26,6 +26,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Adafruit_I2C.py" />
+    <Compile Include="adafruit_platform.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="calibcompass.py">
       <SubType>Code</SubType>
     </Compile>
