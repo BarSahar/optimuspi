@@ -29,6 +29,9 @@
     <Compile Include="calibcompass.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="compTest.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="FaceSlapper.py">
       <SubType>Code</SubType>
     </Compile>
