@@ -22,6 +22,10 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Adafruit_GPIO.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Adafruit_I2C.py" />
     <Compile Include="calibcompass.py">
       <SubType>Code</SubType>
     </Compile>
