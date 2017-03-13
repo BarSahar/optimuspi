@@ -140,7 +140,7 @@ class LSM9DS0(object):
 
         # Setup I2C if not already given
         if I2C is None:
-            import adafruitSmbus
+            import adafruitSmbus as AdaI2C
             I2C = AdaI2C
 
         # Each feature is given a call name. Although The magnetometer and
