@@ -185,7 +185,6 @@ class LSM9DS0(object):
 
         x, y, z = self.readMag()
         headingRad = math.atan2(x, y)
-        headingRad += self.__declination
 
         # Correct for reversed heading
         if headingRad < 0:
