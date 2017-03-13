@@ -52,12 +52,12 @@ class compass:
         yoffset = -29
         x = self.__convert(data, 3)-xoffset*self.__scale
         y = self.__convert(data, 7)-yoffset*self.__scale
-        z = self.__convert(data, 5)
+        z = self.__convert(data, 5)-xoffset*self.__scale
         return (x,y,z)
 
     def heading(self):
         (x, y, z) = self.axes()
-        headingRad = math.atan2(y, x)
+        headingRad = math.atan2(x, y)
         headingRad += self.__declination
 
         # Correct for reversed heading
