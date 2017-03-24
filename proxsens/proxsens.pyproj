@@ -49,6 +49,9 @@
     <Compile Include="compass.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="module1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="outliner.py">
       <SubType>Code</SubType>
     </Compile>
