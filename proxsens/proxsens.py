@@ -9,6 +9,7 @@ import picamera.array
 import operator as op
 import numpy as np
 import compass
+import compTest
 from math import tan
 
 
@@ -16,7 +17,8 @@ from math import tan
 GPIO.setwarnings(False)
 con = threading.Condition()
 stoper = ""
-myCompass = compass.compass(declination=(4, 35))
+#myCompass = compass.compass(declination=(4, 35))
+myCompass = compTest.LSM9DS0()
 HeadingAngle = -1
 
 cposition = (0, 0)
