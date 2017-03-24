@@ -181,15 +181,19 @@ class LSM9DS0(object):
 
         return reading
 
+
     def heading(self):
 
         x, y, z = self.readMag()
-        headingRad = math.atan2(x, y)
+        # offsets
+        x_offset = -234
+        y_offset = 759
+
+        headingRad = math.atan2(x - x_offset, y - y_offset)
 
         # Correct for reversed heading
         if headingRad < 0:
             headingRad += 2 * math.pi
-
         # Check for wrap and compensate
         elif headingRad > 2 * math.pi:
             headingRad -= 2 * math.pi
@@ -197,7 +201,7 @@ class LSM9DS0(object):
         # Convert to degrees from radians
         headingDeg = headingRad * 180 / math.pi
         return headingDeg
-
+        
     def readSensor(self, i2c_device, xyz_lh):
         """Returns (x, y, z) tuple from the given sensor's registers
         """
