@@ -6,6 +6,7 @@
 
 import smbus
 import time
+import math
 
 # Get I2C bus
 bus = smbus.SMBus(1)
