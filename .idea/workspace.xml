@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8398c187-a053-4be6-b9ef-f287dbc1eba0" name="Default" comment="hfg">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/calibcompass.py" afterPath="$PROJECT_DIR$/proxsens/calibcompass.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/ipFinder.py" afterPath="$PROJECT_DIR$/proxsens/ipFinder.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/proxsens.py" afterPath="$PROJECT_DIR$/proxsens/proxsens.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -472,7 +469,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="1942" height="1042" extended-state="7" />
+    <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13740054" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
