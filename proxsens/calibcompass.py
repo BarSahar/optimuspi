@@ -1,4 +1,5 @@
 import compTest
+import compass
 import proxsens as p
 import time
 import math
@@ -6,7 +7,8 @@ import csv
 
 if __name__ == "__main__":
 
-    myCompass = compTest.LSM9DS0()
+    #myCompass = compTest.LSM9DS0()
+	myCompass = compass.compass(declination=(4, 35))
 
     minx = 0
     maxx = 0
@@ -15,7 +17,9 @@ if __name__ == "__main__":
 
     for i in range(0,1000):
         p.moveTicks(1)
-        axes = myCompass.readMag()
+        #axes = myCompass.readMag()
+		axes = myCompass.axes()
+
         x_out = axes[0]
         y_out = axes[1]
         
