@@ -278,7 +278,7 @@ def fixAngle(destAngle):
     #    print("fixAngle::")
     #    print("destAngle: "+ str(destAngle))
     #    print("currAngle: " +str(currAngle))
-    while abs(currAngle - destAngle) > 2:
+    while abs(currAngle - destAngle) > 1:
         counterleft = 0
         counterright = 0
         counterleft_limit = 1
