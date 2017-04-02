@@ -257,7 +257,7 @@ def moveForwardMicro():
             break
     con.release()
     time.sleep(0.1)
-    # fixAngle(HeadingAngle)
+    fixAngle(HeadingAngle)
     HeadingAngle = -1
 
 def moveForward():
