@@ -25,34 +25,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1903">
               <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
-                <marker date="1491146156702" expanded="true" signature="7978:8056" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="7978:8102" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8169:8476" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8209:8459" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8267:8436" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8498:8912" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8593:8842" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8736:8842" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="8937:9969" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="9215:9345" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="9843:9938" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="9983:10281" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="9988:10185" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10220:10252" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10308:10514" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10345:10514" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10535:10716" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10560:10716" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10733:10859" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10756:10859" ph="..." />
-                <marker date="1491146156702" expanded="true" signature="10783:10840" ph="..." />
               </folding>
             </state>
           </provider>
@@ -68,7 +47,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="560">
@@ -487,7 +466,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9584" y="-16" width="4232" height="2557" extended-state="6" />
+    <frame x="9584" y="-16" width="4232" height="2557" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14219512" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1014,37 +993,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1903">
-          <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-            <marker date="1491146156702" expanded="true" signature="7978:8056" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="7978:8102" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8169:8476" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8209:8459" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8267:8436" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8498:8912" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8593:8842" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8736:8842" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="8937:9969" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="9215:9345" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="9843:9938" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="9983:10281" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="9988:10185" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10220:10252" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10308:10514" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10345:10514" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10535:10716" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10560:10716" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10733:10859" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10756:10859" ph="..." />
-            <marker date="1491146156702" expanded="true" signature="10783:10840" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
@@ -1058,6 +1006,16 @@
         <state relative-caret-position="560">
           <caret line="19" column="11" lean-forward="false" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1903">
+          <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

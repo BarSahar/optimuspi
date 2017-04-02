@@ -427,7 +427,7 @@ def moveBunch():
 
 def moveTicks(num):
     for x in range(num):
-        moveForwardMicro();
+        counterleft = 0
         counterright = 0
         counterleft_limit = 1
         counterright_limit = 1
