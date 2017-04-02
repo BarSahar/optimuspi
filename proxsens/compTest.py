@@ -191,7 +191,7 @@ class LSM9DS0(object):
         y_offset = 766
 
         #headingRad = math.atan2((x - x_offset)*(0.48/1000), (y - y_offset)*(0.48/1000))
-		headingRad = math.atan2((y - y_offset)*(0.48/1000), (x - x_offset)*(0.48/1000))
+        headingRad = math.atan2((y - y_offset) * (0.48 / 1000), (x - x_offset) * (0.48 / 1000))
 
         # Correct for reversed heading
         if headingRad < 0:
