@@ -16,8 +16,8 @@ if __name__ == "__main__":
 
     for i in range(0,1000):
         p.moveTicks(1)
-        #axes = myCompass.readMag()
-		axes = myCompass.axes()
+        # axes = myCompass.readMag()
+        axes = myCompass.axes()
 
         x_out = axes[0]
         y_out = axes[1]
