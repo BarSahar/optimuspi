@@ -19,7 +19,7 @@
         <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1240">
-              <caret line="154" column="44" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="44" />
+              <caret line="154" column="44" lean-forward="false" selection-start-line="154" selection-start-column="44" selection-end-line="154" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -457,7 +457,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9584" y="-16" width="4232" height="2557" extended-state="6" />
+    <frame x="9584" y="-16" width="4232" height="2557" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1404878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -964,7 +964,7 @@
     <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1240">
-          <caret line="154" column="44" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="44" />
+          <caret line="154" column="44" lean-forward="false" selection-start-line="154" selection-start-column="44" selection-end-line="154" selection-end-column="44" />
           <folding />
         </state>
       </provider>
