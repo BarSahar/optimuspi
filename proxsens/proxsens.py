@@ -236,7 +236,7 @@ def moveForwardMicro():
     global HeadingAngle
     globalinit()
     counterright_limit = 50
-    counterleft_limit = 45
+    counterleft_limit = 44
     HeadingAngle = getCompRead()
     print("HeadingAngle: " + str(HeadingAngle))
     GPIO.output(A1, False)
