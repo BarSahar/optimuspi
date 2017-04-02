@@ -403,14 +403,14 @@ def main():
 
 # main()
 def tickAngle():
-	tick = 0
+    tick = 0
     while True:
         counterleft = 0
         counterright = 0
         counterleft_limit = 1
         counterright_limit = 1
-		tick = 0
-        #print("angle is " + str(getCompRead()))
-		print("tick: "+str(tick++))
+        tick = 0
+        # print("angle is " + str(getCompRead()))
+        print("tick: " + str(tick + +))
         goright()
         time.sleep(0.1)
