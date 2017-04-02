@@ -20,8 +20,8 @@ from math import tan
 GPIO.setwarnings(False)
 con = threading.Condition()
 stoper = ""
-#myCompass = compass.compass(declination=(4, 35))
-myCompass = compTest.LSM9DS0()
+myCompass = compass.compass(declination=(4, 35))
+#myCompass = compTest.LSM9DS0()
 HeadingAngle = -1
 
 cposition = (0, 0)
@@ -320,9 +320,9 @@ def getCompRead():
     while True:
         try:
             one=myCompass.heading()
-            time.sleep(0.1)
+            time.sleep(0.01)
             two=myCompass.heading()
-            time.sleep(0.1)
+            time.sleep(0.01)
             three=myCompass.heading()
 
             return (one+two+three)/3
