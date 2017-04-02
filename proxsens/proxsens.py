@@ -408,10 +408,10 @@ def moveBunch():
     tick = 0
     for x in range(20):
         moveForwardMicro()
-        print("step: " + str(tick)+" out of 20")
-        tick = tick+1
+        print("step: " + str(tick) + " out of 20")
+        tick = tick + 1
         time.sleep(0.5)
-		print(34*"-")
+        print(34 * "-")
 
 def moveTicks(num):
     for x in range(num):
