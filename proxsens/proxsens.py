@@ -277,7 +277,7 @@ def fixAngle(destAngle):
     # reset counters
     currAngle = getCompRead()
     print("currAngle: " + str(currAngle))
-    print("Delta: currAngle - destAngle")
+    print("Delta: " + str(abs(currAngle - destAngle)))
     #    print("fixAngle::")
     #    print("destAngle: "+ str(destAngle))
     #    print("currAngle: " +str(currAngle))
