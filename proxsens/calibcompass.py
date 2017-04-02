@@ -1,5 +1,5 @@
 import compTest
-
+import proxsens as p
 import time
 import math
 import csv
@@ -13,12 +13,11 @@ if __name__ == "__main__":
     miny = 0
     maxy = 0
 
-    for i in range(0,500):
+    for i in range(0,1000):
+		moveTicks(1)
         axes = myCompass.readMag()
-        x_offset = -200
-        y_offset = 766+293
-        x_out = axes[0] - x_offset
-        y_out = axes[1] - y_offset
+        x_out = axes[0]
+        y_out = axes[1]
         
         if x_out < minx:
             minx=x_out
