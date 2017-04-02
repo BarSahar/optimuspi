@@ -20,8 +20,8 @@ from math import tan
 GPIO.setwarnings(False)
 con = threading.Condition()
 stoper = ""
-myCompass = compass.compass(declination=(4, 35))
-#myCompass = compTest.LSM9DS0()
+# myCompass = compass.compass(declination=(4, 35))
+myCompass = compTest.LSM9DS0()
 HeadingAngle = -1
 
 cposition = (0, 0)
@@ -168,17 +168,18 @@ def globalinit():
     counterright_limit = 0
 
 def turnright():
-    global counterright_limit
-    global counterleft_limit
-    global dir
-    originalAngle = getCompRead()
-    globalinit()
-    counterright_limit = 50
-    counterleft_limit = 50
-    goright()
-    time.sleep(0.5)
-    fixAngle((originalAngle + 90) % 360)  # fine tuning
-    dir = (dir + 1) % 4
+    # global counterright_limit
+    # global counterleft_limit
+    # global dir
+    # originalAngle = getCompRead()
+    # globalinit()
+    # counterright_limit = 50
+    # counterleft_limit = 50
+    # goright()
+    # time.sleep(0.5)
+    # fixAngle((originalAngle + 90) % 360)  # fine tuning
+    # dir = (dir + 1) % 4
+    moveTicksL(90, "R")
 
 
 # ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -199,17 +200,20 @@ def goright():
 
 
 def turnleft():
-    global counterright_limit
-    global counterleft_limit
-    global dir
-    originalAngle = getCompRead()
-    globalinit()
-    counterright_limit = 50
-    counterleft_limit = 50
-    goleft()
-    time.sleep(0.5)
-    fixAngle(((originalAngle - 90 + 360) % 360))  # fine tuning
-    dir = (dir - 1) % 4
+    # global counterright_limit
+    # global counterleft_limit
+    # global dir
+    # originalAngle = getCompRead()
+    # globalinit()
+    # counterright_limit = 50
+    # counterleft_limit = 50
+    # goleft()
+    # time.sleep(0.5)
+    # fixAngle(((originalAngle - 90 + 360) % 360))  # fine tuning
+    # dir = (dir - 1) % 4
+
+    moveTicksL(90, "L")
+
 
 
 # ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -425,13 +429,16 @@ def moveBunch():
         print(34 * "-")
         #x=input()
 
-def moveTicks(num):
+def moveTicksL(num,dir):
     for x in range(num):
         counterleft = 0
         counterright = 0
         counterleft_limit = 1
         counterright_limit = 1
-        goright()
+        if dir =="r":
+            goright()
+        else:
+            goleft()
         time.sleep(0.1)
 
 

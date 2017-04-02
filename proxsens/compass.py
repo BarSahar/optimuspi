@@ -48,8 +48,8 @@ class compass:
         #print map(hex, data)
         #xoffset = -269
         #yoffset = -40
-        xoffset = -234
-        yoffset = -29
+        xoffset = -37
+        yoffset = 15
         x = self.__convert(data, 3)-xoffset*self.__scale
         y = self.__convert(data, 7)-yoffset*self.__scale
         z = self.__convert(data, 5)-xoffset*self.__scale
