@@ -433,3 +433,14 @@ def moveTicks(num):
         counterright_limit = 1
         goright()
         time.sleep(0.1)
+
+
+def newplan():
+    for x in range(4):
+        for x in range(5):
+            moveForwardMicro()
+            time.sleep(1)
+        turnleft()
+
+
+
