@@ -28,8 +28,8 @@
       <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1823">
-              <caret line="415" column="8" lean-forward="false" selection-start-line="415" selection-start-column="8" selection-end-line="415" selection-end-column="8" />
+            <state relative-caret-position="1743">
+              <caret line="413" column="20" lean-forward="false" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -973,8 +973,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1823">
-          <caret line="415" column="8" lean-forward="false" selection-start-line="415" selection-start-column="8" selection-end-line="415" selection-end-column="8" />
+        <state relative-caret-position="1743">
+          <caret line="413" column="20" lean-forward="false" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>

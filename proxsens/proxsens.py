@@ -411,6 +411,6 @@ def tickAngle():
         counterright_limit = 1
         # print("angle is " + str(getCompRead()))
         print("tick: " + str(tick))
-		tick+ = 1
+        tick = tick+1
         goright()
         time.sleep(0.1)
