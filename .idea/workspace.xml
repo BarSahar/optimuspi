@@ -15,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="compTest.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="743">
@@ -32,6 +32,27 @@
               <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
+                <marker date="1491146156702" expanded="true" signature="7978:8056" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="7978:8102" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8169:8476" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8209:8459" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8267:8436" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8498:8912" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8593:8842" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8736:8842" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="8937:9969" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="9215:9345" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="9843:9938" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="9983:10281" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="9988:10185" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10220:10252" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10308:10514" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10345:10514" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10535:10716" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10560:10716" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10733:10859" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10756:10859" ph="..." />
+                <marker date="1491146156702" expanded="true" signature="10783:10840" ph="..." />
               </folding>
             </state>
           </provider>
@@ -47,14 +68,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="360">
+              <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -139,9 +158,9 @@
         <option value="$PROJECT_DIR$/proxsens/ipFinder.py" />
         <option value="$PROJECT_DIR$/proxsens/finalComp.py" />
         <option value="$PROJECT_DIR$/proxsens/pyb.py" />
-        <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
         <option value="$PROJECT_DIR$/proxsens/compTest.py" />
+        <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
       </list>
     </option>
   </component>
@@ -979,16 +998,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="920">
-          <caret line="27" column="18" lean-forward="false" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/adafruitSmbus.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="459">
@@ -1011,6 +1020,27 @@
           <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+            <marker date="1491146156702" expanded="true" signature="7978:8056" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="7978:8102" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8169:8476" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8209:8459" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8267:8436" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8498:8912" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8593:8842" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8736:8842" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="8937:9969" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="9215:9345" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="9843:9938" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="9983:10281" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="9988:10185" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10220:10252" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10308:10514" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10345:10514" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10535:10716" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10560:10716" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10733:10859" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10756:10859" ph="..." />
+            <marker date="1491146156702" expanded="true" signature="10783:10840" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1019,6 +1049,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
           <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="14" column="4" lean-forward="false" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding />
         </state>
       </provider>

@@ -8,8 +8,7 @@ import csv
 if __name__ == "__main__":
 
     #myCompass = compTest.LSM9DS0()
-	myCompass = compass.compass(declination=(4, 35))
-
+    myCompass = compass.compass(declination=(4, 35))
     minx = 0
     maxx = 0
     miny = 0
