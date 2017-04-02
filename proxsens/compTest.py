@@ -190,8 +190,8 @@ class LSM9DS0(object):
         #x_offset = -220+24
         #y_offset = 766+293
 
-        x_offset = -214.5
-        y_offset = 902
+        x_offset = -200
+        y_offset = 100
 
         #headingRad = math.atan2((x - x_offset)*(0.48/1000), (y - y_offset)*(0.48/1000))
         headingRad = math.atan2((y - y_offset) * (0.48 / 1000), (x - x_offset) * (0.48 / 1000))
