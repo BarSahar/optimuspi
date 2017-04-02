@@ -13,6 +13,7 @@ def mapStart():
     try:
         grid = np.load('Grid.npy')
         home = np.load('Home.npy')
+        home-tuple(home)
     except:
         grid, home = ot.outline()
         np.save('home2', grid)
@@ -21,7 +22,6 @@ def mapStart():
     finally:
         sens.showoff(grid)
         sens.cposition = home
-        sens.showoff(grid)
         while True:
             path, endPoint = finder.uncheckFinder(sens.cposition, grid)
             print(str(path))
