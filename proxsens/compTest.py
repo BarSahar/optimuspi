@@ -152,7 +152,7 @@ class LSM9DS0(object):
         self.gyro = I2C.get_i2c_device(gyro_address, busnum)
 
         # Magnetometer initialisation
-		self.mag.write8(LSM9DS0_CTRL_REG4_XM, 0b00000100)
+       # self.mag.write8(LSM9DS0_CTRL_REG4_XM, 0b00000100)
         self.mag.write8(LSM9DS0_CTRL_REG5_XM, 0b11110000)  # Temperature sensor enabled, high res mag, 50Hz
         self.mag.write8(LSM9DS0_CTRL_REG6_XM, 0b01100000)  # +/- 12 gauss
         self.mag.write8(LSM9DS0_CTRL_REG7_XM, 0b00000000)  # Normal mode, continuous-conversion mode

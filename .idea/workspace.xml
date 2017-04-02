@@ -15,47 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="ipFinder.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxsens/ipFinder.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2520">
-              <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="720">
-              <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="compTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2284">
-              <caret line="214" column="46" lean-forward="true" selection-start-line="214" selection-start-column="46" selection-end-line="214" selection-end-column="46" />
+            <state relative-caret-position="1240">
+              <caret line="154" column="44" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -66,7 +30,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="670">
               <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="26" />
-              <folding />
+              <folding>
+                <marker date="1491125467407" expanded="true" signature="2311:5928" ph="..." />
+                <marker date="1491125467407" expanded="true" signature="5957:6899" ph="..." />
+                <marker date="1491125467407" expanded="true" signature="5978:6499" ph="..." />
+                <marker date="1491125467407" expanded="true" signature="6775:6899" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,11 +127,11 @@
         <option value="C:/AffiliMob/TapticaIntegration/specialBanner_V1.4.py" />
         <option value="$PROJECT_DIR$/proxsens/ipscanner.py" />
         <option value="$PROJECT_DIR$/proxsens/ipFinder.py" />
-        <option value="$PROJECT_DIR$/proxsens/compTest.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
         <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
         <option value="$PROJECT_DIR$/proxsens/finalComp.py" />
         <option value="$PROJECT_DIR$/proxsens/pyb.py" />
+        <option value="$PROJECT_DIR$/proxsens/compTest.py" />
       </list>
     </option>
   </component>
@@ -975,7 +944,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="670">
           <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="26" />
-          <folding />
+          <folding>
+            <marker date="1491125467407" expanded="true" signature="2311:5928" ph="..." />
+            <marker date="1491125467407" expanded="true" signature="5957:6899" ph="..." />
+            <marker date="1491125467407" expanded="true" signature="5978:6499" ph="..." />
+            <marker date="1491125467407" expanded="true" signature="6775:6899" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -989,8 +963,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2284">
-          <caret line="214" column="46" lean-forward="true" selection-start-line="214" selection-start-column="46" selection-end-line="214" selection-end-column="46" />
+        <state relative-caret-position="1240">
+          <caret line="154" column="44" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="44" />
           <folding />
         </state>
       </provider>
