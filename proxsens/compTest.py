@@ -187,8 +187,8 @@ class LSM9DS0(object):
 
         x, y, z = self.readMag()
         # offsets
-        x_offset = -220
-        y_offset = 766
+        x_offset = -220+24
+        y_offset = 766+293
 
         #headingRad = math.atan2((x - x_offset)*(0.48/1000), (y - y_offset)*(0.48/1000))
         headingRad = math.atan2((y - y_offset) * (0.48 / 1000), (x - x_offset) * (0.48 / 1000))
