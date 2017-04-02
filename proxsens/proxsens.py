@@ -299,6 +299,7 @@ def fixAngle(destAngle):
     counterright = old_counterright
     counterleft_limit = old_counterleft_limit
     counterright_limit = old_counterright_limit
+    print("angle after fix: " + str(getCompRead()))
 
 
 def turnsens():
