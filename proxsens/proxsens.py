@@ -236,7 +236,7 @@ def moveForwardMicro():
     global HeadingAngle
     globalinit()
     counterright_limit = 25
-    counterleft_limit = 25
+    counterleft_limit = 20
     HeadingAngle = getCompRead()
     print("HeadingAngle: " + str(HeadingAngle))
     GPIO.output(A1, False)
@@ -418,9 +418,9 @@ def moveBunch():
         moveForwardMicro()
         print("step: " + str(tick) + " out of 20")
         tick = tick + 1
-        time.sleep(0.1)
+        time.sleep(0.5)
         print(34 * "-")
-        x=input()
+        #x=input()
 
 def moveTicks(num):
     for x in range(num):
