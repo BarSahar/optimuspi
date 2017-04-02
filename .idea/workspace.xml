@@ -15,17 +15,17 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="compTest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="743">
-              <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+              <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1903">
@@ -55,28 +55,6 @@
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="finalComp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxsens/finalComp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4200">
-              <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="26" />
-              <folding>
-                <marker date="1491125467407" expanded="true" signature="2311:5928" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxsens/pyb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9960">
-              <caret line="249" column="42" lean-forward="false" selection-start-line="249" selection-start-column="42" selection-end-line="249" selection-end-column="42" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -162,8 +140,8 @@
         <option value="$PROJECT_DIR$/proxsens/finalComp.py" />
         <option value="$PROJECT_DIR$/proxsens/pyb.py" />
         <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
-        <option value="$PROJECT_DIR$/proxsens/compTest.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
+        <option value="$PROJECT_DIR$/proxsens/compTest.py" />
       </list>
     </option>
   </component>
@@ -1027,14 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="743">
-          <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1903">
@@ -1042,6 +1012,14 @@
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
