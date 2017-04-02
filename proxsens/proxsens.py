@@ -403,6 +403,7 @@ def main():
 
 # main()
 def tickAngle():
+	tick = 0
     while True:
         counterleft = 0
         counterright = 0
