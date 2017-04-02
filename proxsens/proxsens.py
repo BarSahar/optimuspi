@@ -12,6 +12,9 @@ import compass
 import compTest
 from math import tan
 
+# mypwm=GPIO.PWN(17,10)
+# mypwn.start(50)
+
 
 # region Globals
 GPIO.setwarnings(False)
@@ -236,7 +239,7 @@ def moveForwardMicro():
     global HeadingAngle
     globalinit()
     counterright_limit = 50
-    counterleft_limit = 44
+    counterleft_limit = 50
     HeadingAngle = getCompRead()
     print("HeadingAngle: " + str(HeadingAngle))
     GPIO.output(A1, False)
