@@ -435,7 +435,7 @@ def moveTicksL(num,dir):
         counterright = 0
         counterleft_limit = 1
         counterright_limit = 1
-        if dir =="r":
+        if dir =="R":
             goright()
         else:
             goleft()
