@@ -22,11 +22,11 @@ def facesalpper(start, end):
 
         if delta == 0:
             return
-        elif fabs(delta) == 2:
+        elif abs(delta) == 2:
             p.turnleft()
             p.time.sleep(1)
             p.turnleft()
-        elif fabs(delta) == 3:
+        elif abs(delta) == 3:
             if delta > 0:
                 p.turnleft()
             else:
