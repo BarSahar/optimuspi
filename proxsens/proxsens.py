@@ -414,3 +414,12 @@ def tickAngle():
         tick = tick+1
         goright()
         time.sleep(0.1)
+
+def moveTicks(num):
+    for x in range(num):
+        counterleft = 0
+        counterright = 0
+        counterleft_limit = 1
+        counterright_limit = 1
+        goright()
+        time.sleep(0.1)
