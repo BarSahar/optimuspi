@@ -11,7 +11,7 @@ def mapStart():
     grid = []
     home = (-1, -1)
     try:
-        grid = np.load('home2.npy')
+        grid = np.load('Home2.npy')
         home = np.load('Home.npy')
         home=tuple(home)
     except:
