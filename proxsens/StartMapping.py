@@ -15,7 +15,7 @@ def mapStart():
         home = np.load('Home.npy')
     except:
         grid, home = ot.outline()
-        np.save('Grid', grid)
+        np.save('home2', grid)
         np.save('Home', home)
 
     finally:
@@ -24,6 +24,9 @@ def mapStart():
         sens.showoff(grid)
         while True:
             path, endPoint = finder.uncheckFinder(sens.cposition, grid)
+            print(str(path))
+            print(str(endPoint))
+            xx=input()
             if path == (-1, -1):
                 print("didnt find any path")
                 break

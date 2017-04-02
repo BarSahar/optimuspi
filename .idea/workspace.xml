@@ -25,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="435">
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StartMapping.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StartMapping.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+            <state relative-caret-position="840">
+              <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -148,8 +148,8 @@
         <option value="$PROJECT_DIR$/proxsens/pyb.py" />
         <option value="$PROJECT_DIR$/proxsens/compTest.py" />
         <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
-        <option value="$PROJECT_DIR$/proxsens/StartMapping.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
+        <option value="$PROJECT_DIR$/proxsens/StartMapping.py" />
       </list>
     </option>
   </component>
@@ -1004,14 +1004,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="743">
@@ -1027,6 +1019,14 @@
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="840">
+          <caret line="27" column="32" lean-forward="true" selection-start-line="27" selection-start-column="32" selection-end-line="27" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
