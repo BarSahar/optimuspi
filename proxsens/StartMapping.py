@@ -17,11 +17,12 @@ def mapStart():
         grid, home = ot.outline()
         np.save('Grid', grid)
         np.save('Home', home)
+
     finally:
         sens.showoff(grid)
         sens.cposition = home
         sens.showoff(grid)
-
+        x = input()
         while True:
             path, endPoint = finder.uncheckFinder(sens.cposition, grid)
             if path == (-1, -1):
