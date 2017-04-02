@@ -11,12 +11,12 @@ def mapStart():
     grid = []
     home = (-1, -1)
     try:
-        grid = np.load('Grid.npy')
+        grid = np.load('home2.npy')
         home = np.load('Home.npy')
-        home-tuple(home)
+        home=tuple(home)
     except:
         grid, home = ot.outline()
-        np.save('home2', grid)
+        np.save('Grid', grid)
         np.save('Home', home)
 
     finally:
