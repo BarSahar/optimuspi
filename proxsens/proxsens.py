@@ -159,8 +159,8 @@ def showoff(graph):
 
 
 def fill(graph):
-    for x in range(2, 13):
-        for y in range(2, 9):
+    for x in range(2, 9):
+        for y in range(2, 13):
             graph[x][y] = status.clear
     graph[5][5] = status.unexplored
     np.save('Home2.npy',graph)
