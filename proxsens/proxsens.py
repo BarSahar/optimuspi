@@ -238,6 +238,7 @@ def moveForwardMicro():
     counterright_limit = 50
     counterleft_limit = 50
     HeadingAngle = getCompRead()
+	print(str("HeadingAngle: "+HeadingAngle))
     GPIO.output(A1, False)
     GPIO.output(A2, True)
     GPIO.output(B1, False)
@@ -275,6 +276,7 @@ def fixAngle(destAngle):
 
     # reset counters
     currAngle = getCompRead()
+	print("currAngle: "+str(currAngle))
     #    print("fixAngle::")
     #    print("destAngle: "+ str(destAngle))
     #    print("currAngle: " +str(currAngle))
@@ -409,6 +411,7 @@ def moveBunch():
         print("step: " + str(tick)+" out of 20")
         tick = tick+1
         time.sleep(0.5)
+		print(34*"-")
 
 def moveTicks(num):
     for x in range(num):
