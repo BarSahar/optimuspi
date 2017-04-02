@@ -235,8 +235,8 @@ def moveForwardMicro():
     global stoper
     global HeadingAngle
     globalinit()
-    counterright_limit = 50
-    counterleft_limit = 50
+    counterright_limit = 25
+    counterleft_limit = 25
     HeadingAngle = getCompRead()
     print("HeadingAngle: " + str(HeadingAngle))
     GPIO.output(A1, False)
@@ -249,8 +249,8 @@ def moveForwardMicro():
         if counterleft >= counterleft_limit and counterright >= counterright_limit:
             break
     con.release()
-    time.sleep(0.5)
-    fixAngle(HeadingAngle)
+    time.sleep(0.1)
+    #fixAngle(HeadingAngle)
     HeadingAngle = -1
 
 def moveForward():
@@ -418,7 +418,7 @@ def moveBunch():
         moveForwardMicro()
         print("step: " + str(tick) + " out of 20")
         tick = tick + 1
-        time.sleep(0.5)
+        time.sleep(0.1)
         print(34 * "-")
         x=input()
 
