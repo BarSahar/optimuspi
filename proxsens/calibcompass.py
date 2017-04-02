@@ -15,8 +15,10 @@ if __name__ == "__main__":
 
     for i in range(0,500):
         axes = myCompass.readMag()
-        x_out = axes[0]
-        y_out = axes[1]
+        x_offset = -220
+        y_offset = 766
+        x_out = axes[0] - x_offset
+        y_out = axes[1] - y_offset
         
         if x_out < minx:
             minx=x_out

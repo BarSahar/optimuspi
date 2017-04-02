@@ -25,13 +25,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1423">
               <caret line="413" column="20" lean-forward="false" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="800">
+              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,11 +151,11 @@
         <option value="C:/AffiliMob/TapticaIntegration/specialBanner_V1.4.py" />
         <option value="$PROJECT_DIR$/proxsens/ipscanner.py" />
         <option value="$PROJECT_DIR$/proxsens/ipFinder.py" />
-        <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
         <option value="$PROJECT_DIR$/proxsens/finalComp.py" />
         <option value="$PROJECT_DIR$/proxsens/pyb.py" />
         <option value="$PROJECT_DIR$/proxsens/compTest.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
+        <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
       </list>
     </option>
   </component>
@@ -469,7 +481,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9584" y="-16" width="4232" height="2557" extended-state="6" />
+    <frame x="9584" y="-16" width="4232" height="2557" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1404878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -922,16 +934,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="18" column="23" lean-forward="false" selection-start-line="18" selection-start-column="23" selection-end-line="18" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/ipFinder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2520">
@@ -977,6 +979,16 @@
           <caret line="413" column="20" lean-forward="false" selection-start-line="413" selection-start-column="20" selection-end-line="413" selection-end-column="20" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
