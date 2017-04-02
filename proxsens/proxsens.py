@@ -402,22 +402,17 @@ def main():
         pass
 
 # main()
-def tickAngle():
+def moveBunch():
     tick = 0
-    while True:
-        counterleft = 0
-        counterright = 0
-        counterleft_limit = 1
-        counterright_limit = 1
-        # print("angle is " + str(getCompRead()))
-        print("tick: " + str(tick))
+    for x in range(20):
+        moveForwardMicro()
+        print("step: " + str(tick)+" out of 20")
         tick = tick+1
-        goright()
         time.sleep(0.1)
 
 def moveTicks(num):
     for x in range(num):
-        counterleft = 0
+        moveForwardMicro();
         counterright = 0
         counterleft_limit = 1
         counterright_limit = 1
