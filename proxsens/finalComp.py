@@ -103,45 +103,28 @@ def twos_comp(val, bits=8):
 
 
 class LSM9DS0():
-    def __init__(self, i2c=None, spi=None, g_sens=None, a_sens=None, m_sens=None, g_addr=0x6B, xm_addr=0x1D):
+    def __init__(self, i2c=None, spi=None, g_sens=None, a_sens=None, m_sens=12, g_addr=0x6B, xm_addr=0x1D):
         if not (i2c or spi):
             raise Exception("must have an i2c or spi object")
 
+		#   i2c = pyb.I2C(2, mode=pyb.I2C.MASTER, baudrate=100000)
+		#   lsm9ds0 = LSM9DS0(i2c=i2c, g_sens=500, a_sens=4, m_sens=12)
+
         self.i2c = i2c
         self.spi = spi
+
         self.g_addr = g_addr
         self.xm_addr = xm_addr
-        if self.spi:
-            self.g_addr.high()
-            self.xm_addr.high()
-
-        # init gyro
-        self.write_reg(G, CTRL_REG1_G, 0b00001111)
-        self.write_reg(G, CTRL_REG2_G, 0b00000000)
-        self.write_reg(G, CTRL_REG3_G, 0b10001000)
-        self.write_reg(G, CTRL_REG4_G, 0b00000000)
-        self.write_reg(G, CTRL_REG5_G, 0b00000000)
-        self.gyro = LSM9DS0.Gyro(self, sens=g_sens)
-
-        # init accel
-        self.write_reg(XM, CTRL_REG0_XM, 0b00000000)
-        self.write_reg(XM, CTRL_REG1_XM, 0b01010111)
-        self.write_reg(XM, CTRL_REG2_XM, 0b00000000)
-        self.write_reg(XM, CTRL_REG3_XM, 0b00000100)
-        self.accel = LSM9DS0.Accel(self, sens=a_sens)
-
+     
         # init mag
         self.write_reg(XM, CTRL_REG4_XM, 0b00000100)
         self.write_reg(XM, CTRL_REG5_XM, 0b10010100)
         self.write_reg(XM, CTRL_REG6_XM, 0b00000000)
         self.write_reg(XM, CTRL_REG7_XM, 0b00000000)
+
         self.mag = LSM9DS0.Mag(self, sens=m_sens)
 
-    def who_am_i(self):
-        return (
-            self.read_reg(G, WHO_AM_I_G),
-            self.read_reg(XM, WHO_AM_I_XM),
-        )
+
 
     def read_reg(self, slave, reg, data=1):
         n_bytes = data if type(data) == int else len(data)
@@ -152,16 +135,6 @@ class LSM9DS0():
                 addr=self.g_addr if not slave else self.xm_addr,
                 memaddr=reg | 0x80 if n_bytes > 1 else reg,
             )
-        elif self.spi:
-            pin = self.g_addr if not slave else self.xm_addr
-            pin.low()
-            if n_bytes > 1:
-                self.spi.send(0xC0 | reg)
-            else:
-                self.spi.send(0x80 | reg)
-            r = self.spi.recv(data)
-            pin.high()
-            return r
 
     def write_reg(self, slave, reg, data=0):
         if self.i2c:
@@ -170,11 +143,7 @@ class LSM9DS0():
                 addr=self.g_addr if not slave else self.xm_addr,
                 memaddr=reg,
             )
-        elif self.spi:
-            pin = self.g_addr if not slave else self.xm_addr
-            pin.low()
-            self.spi.send(bytes([reg, data]))
-            pin.high()
+
 
     def update_reg(self, slave, reg, value, mask):
         reg_val = self.read_reg(slave, reg)[0]
@@ -223,28 +192,7 @@ class LSM9DS0():
                                     self.sens_reg[1])
             self.sens = sens
 
-    class Gyro(SensorInterface):
-        sens_bits = {
-            245: (0b00, 8.75 / 1000),
-            500: (0b01, 17.50 / 1000),
-            2000: (0b10, 70.00 / 1000),
-        }
-        sens_reg = (CTRL_REG4_G, 0b00110000, 4)
-        slave = G
-        out_regs = (OUT_X_L_G, OUT_Y_L_G, OUT_Z_L_G)
-
-    class Accel(SensorInterface):
-        sens_bits = {
-            2: (0b000, 0.061 / 1000),
-            4: (0b001, 0.122 / 1000),
-            6: (0b010, 0.183 / 1000),
-            8: (0b011, 0.244 / 1000),
-            16: (0b100, 0.732 / 1000),
-        }
-        sens_reg = (CTRL_REG2_XM, 0b00111000, 3)
-        slave = XM
-        out_regs = (OUT_X_L_A, OUT_Y_L_A, OUT_Z_L_A)
-
+ 
     class Mag(SensorInterface):
         sens_bits = {
             2: (0b00, 0.08 / 1000),
@@ -255,6 +203,7 @@ class LSM9DS0():
         sens_reg = (CTRL_REG6_XM, 0b01100000, 5)
         slave = XM
         out_regs = (OUT_X_L_M, OUT_Y_L_M, OUT_Z_L_M)
+
 
 
 if __name__ == "__main__":
@@ -277,6 +226,7 @@ if __name__ == "__main__":
     # SDA(2) - SDA
     # SCL(2) - SCL
     i2c = pyb.I2C(2, mode=pyb.I2C.MASTER, baudrate=100000)
+
     lsm9ds0 = LSM9DS0(i2c=i2c, g_sens=500, a_sens=4, m_sens=12)
 
     g_id, xm_id = lsm9ds0.who_am_i()

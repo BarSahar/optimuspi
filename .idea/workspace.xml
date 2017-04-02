@@ -51,21 +51,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compTest.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+            <state relative-caret-position="2284">
+              <caret line="214" column="46" lean-forward="true" selection-start-line="214" selection-start-column="46" selection-end-line="214" selection-end-column="46" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="finalComp.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="finalComp.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/finalComp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="838">
-              <caret line="278" column="17" lean-forward="false" selection-start-line="278" selection-start-column="15" selection-end-line="278" selection-end-column="17" />
+            <state relative-caret-position="670">
+              <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pyb.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxsens/pyb.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9360">
+              <caret line="249" column="42" lean-forward="true" selection-start-line="249" selection-start-column="42" selection-end-line="249" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -82,7 +92,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getTaptOffers</find>
       <find>createthe</find>
       <find>offersNeedtoDelete</find>
       <find>glispaPreFix</find>
@@ -112,6 +121,7 @@
       <find>compass</find>
       <find>myCompass</find>
       <find>readmag</find>
+      <find>i2c</find>
     </findStrings>
     <replaceStrings>
       <replace>offersNeedtoStop</replace>
@@ -152,14 +162,15 @@
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
         <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
         <option value="$PROJECT_DIR$/proxsens/finalComp.py" />
+        <option value="$PROJECT_DIR$/proxsens/pyb.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-16" />
+    <option name="x" value="9584" />
     <option name="y" value="-16" />
-    <option name="width" value="3872" />
-    <option name="height" value="2092" />
+    <option name="width" value="4232" />
+    <option name="height" value="2557" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -210,7 +221,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -231,25 +242,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.ipFinder">
-    <configuration default="false" name="tapticaIntegration_V4.1" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="C:/AffiliMob/TapticaIntegration" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Pi" />
-      <option name="SCRIPT_NAME" value="C:/AffiliMob/TapticaIntegration/tapticaIntegration_V4.1.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.pyb">
     <configuration default="false" name="tapticaIntegration_V4.2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,6 +310,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Pi" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proxsens/ipFinder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="pyb" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/proxsens" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Pi" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/proxsens/pyb.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -419,19 +430,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.tapticaIntegration_V4.1" />
-      <item index="1" class="java.lang.String" itemvalue="Python.tapticaIntegration_V4.2" />
-      <item index="2" class="java.lang.String" itemvalue="Python.specialBanner_V1.4" />
-      <item index="3" class="java.lang.String" itemvalue="Python.ipscanner" />
-      <item index="4" class="java.lang.String" itemvalue="Python.ipFinder" />
+      <item index="0" class="java.lang.String" itemvalue="Python.tapticaIntegration_V4.2" />
+      <item index="1" class="java.lang.String" itemvalue="Python.specialBanner_V1.4" />
+      <item index="2" class="java.lang.String" itemvalue="Python.ipscanner" />
+      <item index="3" class="java.lang.String" itemvalue="Python.ipFinder" />
+      <item index="4" class="java.lang.String" itemvalue="Python.pyb" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.ipFinder" />
-        <item index="1" class="java.lang.String" itemvalue="Python.ipscanner" />
-        <item index="2" class="java.lang.String" itemvalue="Python.specialBanner_V1.4" />
-        <item index="3" class="java.lang.String" itemvalue="Python.tapticaIntegration_V4.2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.tapticaIntegration_V4.1" />
+        <item index="0" class="java.lang.String" itemvalue="Python.pyb" />
+        <item index="1" class="java.lang.String" itemvalue="Python.ipFinder" />
+        <item index="2" class="java.lang.String" itemvalue="Python.ipscanner" />
+        <item index="3" class="java.lang.String" itemvalue="Python.specialBanner_V1.4" />
+        <item index="4" class="java.lang.String" itemvalue="Python.tapticaIntegration_V4.2" />
       </list>
     </recent_temporary>
     <configuration default="true" type="tests" factoryName="Attests">
@@ -477,13 +488,13 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
+    <frame x="9584" y="-16" width="4232" height="2557" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1406417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1404878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934132" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22230268" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22212149" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986738" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -572,7 +583,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/AffiliMob/TapticaIntegration/specialBanner_V1.1.py" />
     <entry file="file://C:/AffiliMob/TapticaIntegration/specialBanner_V1.2.py" />
     <entry file="file://$PROJECT_DIR$/proxsens/compass.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -961,18 +971,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
+    <entry file="file://$PROJECT_DIR$/proxsens/finalComp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="183" column="0" lean-forward="false" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
+        <state relative-caret-position="670">
+          <caret line="105" column="26" lean-forward="false" selection-start-line="105" selection-start-column="23" selection-end-line="105" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/finalComp.py">
+    <entry file="file://$PROJECT_DIR$/proxsens/pyb.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="278" column="17" lean-forward="false" selection-start-line="278" selection-start-column="15" selection-end-line="278" selection-end-column="17" />
+        <state relative-caret-position="9360">
+          <caret line="249" column="42" lean-forward="true" selection-start-line="249" selection-start-column="42" selection-end-line="249" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/compTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2284">
+          <caret line="214" column="46" lean-forward="true" selection-start-line="214" selection-start-column="46" selection-end-line="214" selection-end-column="46" />
           <folding />
         </state>
       </provider>
