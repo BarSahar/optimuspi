@@ -179,7 +179,7 @@ def turnright():
     # time.sleep(0.5)
     # fixAngle((originalAngle + 90) % 360)  # fine tuning
     # dir = (dir + 1) % 4
-    moveTicksL(90, "R")
+    moveTicksL(100, "R")
 
 
 # ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -212,7 +212,7 @@ def turnleft():
     # fixAngle(((originalAngle - 90 + 360) % 360))  # fine tuning
     # dir = (dir - 1) % 4
 
-    moveTicksL(90, "L")
+    moveTicksL(100, "L")
 
 
 
@@ -257,7 +257,7 @@ def moveForwardMicro():
             break
     con.release()
     time.sleep(0.1)
-    fixAngle(HeadingAngle)
+    # fixAngle(HeadingAngle)
     HeadingAngle = -1
 
 def moveForward():
