@@ -20,7 +20,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="932">
               <caret line="195" column="23" lean-forward="false" selection-start-line="195" selection-start-column="23" selection-end-line="195" selection-end-column="23" />
-              <folding />
+              <folding>
+                <marker date="1491128302991" expanded="true" signature="4768:9012" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="6984:7615" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="7670:7987" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="7767:7956" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="8012:8124" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="8148:8262" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="8288:8406" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="8427:8554" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="8560:8786" ph="..." />
+                <marker date="1491128302991" expanded="true" signature="8809:9012" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -40,8 +51,8 @@
       <file leaf-file-name="calibcompass.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="800">
-              <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+            <state relative-caret-position="640">
+              <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -481,7 +492,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="9584" y="-16" width="4232" height="2557" extended-state="7" />
+    <frame x="9584" y="-16" width="4232" height="2557" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1404878" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -969,7 +980,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="932">
           <caret line="195" column="23" lean-forward="false" selection-start-line="195" selection-start-column="23" selection-end-line="195" selection-end-column="23" />
-          <folding />
+          <folding>
+            <marker date="1491128302991" expanded="true" signature="4768:9012" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="6984:7615" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="7670:7987" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="7767:7956" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="8012:8124" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="8148:8262" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="8288:8406" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="8427:8554" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="8560:8786" ph="..." />
+            <marker date="1491128302991" expanded="true" signature="8809:9012" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -985,8 +1007,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/calibcompass.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="20" column="4" lean-forward="false" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="4" />
+        <state relative-caret-position="640">
+          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

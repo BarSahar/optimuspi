@@ -14,7 +14,7 @@ if __name__ == "__main__":
     maxy = 0
 
     for i in range(0,1000):
-		moveTicks(1)
+        p.moveTicks(1)
         axes = myCompass.readMag()
         x_out = axes[0]
         y_out = axes[1]
