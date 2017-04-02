@@ -277,6 +277,7 @@ def fixAngle(destAngle):
     # reset counters
     currAngle = getCompRead()
     print("currAngle: " + str(currAngle))
+    print("Delta: currAngle - destAngle")
     #    print("fixAngle::")
     #    print("destAngle: "+ str(destAngle))
     #    print("currAngle: " +str(currAngle))
@@ -314,7 +315,13 @@ def turnsens():
 def getCompRead():
     while True:
         try:
-            return myCompass.heading()
+            one=myCompass.heading()
+            time.sleep(0.1)
+            two=myCompass.heading()
+            time.sleep(0.1)
+            three=myCompass.heading()
+
+            return (one+two+three)/3
         except IOError as e:
             pass
 
@@ -412,6 +419,7 @@ def moveBunch():
         tick = tick + 1
         time.sleep(0.5)
         print(34 * "-")
+        x=input()
 
 def moveTicks(num):
     for x in range(num):
