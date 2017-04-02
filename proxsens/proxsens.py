@@ -170,7 +170,7 @@ def globalinit():
 def turnright():
     # global counterright_limit
     # global counterleft_limit
-    # global dir
+    global dir
     # originalAngle = getCompRead()
     # globalinit()
     # counterright_limit = 50
@@ -178,7 +178,7 @@ def turnright():
     # goright()
     # time.sleep(0.5)
     # fixAngle((originalAngle + 90) % 360)  # fine tuning
-    # dir = (dir + 1) % 4
+    dir = (dir + 1) % 4
     moveTicksL(100, "R")
 
 
@@ -202,7 +202,7 @@ def goright():
 def turnleft():
     # global counterright_limit
     # global counterleft_limit
-    # global dir
+    global dir
     # originalAngle = getCompRead()
     # globalinit()
     # counterright_limit = 50
@@ -210,7 +210,7 @@ def turnleft():
     # goleft()
     # time.sleep(0.5)
     # fixAngle(((originalAngle - 90 + 360) % 360))  # fine tuning
-    # dir = (dir - 1) % 4
+    dir = (dir - 1) % 4
 
     moveTicksL(100, "L")
 
