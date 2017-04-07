@@ -60,11 +60,10 @@
       <file leaf-file-name="unexploredPointFinder.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/unexploredPointFinder.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
-                <marker date="1491567682771" expanded="true" signature="151:854" ph="..." />
               </folding>
             </state>
           </provider>
@@ -870,11 +869,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/unexploredPointFinder.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="560">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="9" column="18" lean-forward="false" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-            <marker date="1491567682771" expanded="true" signature="151:854" ph="..." />
           </folding>
         </state>
       </provider>

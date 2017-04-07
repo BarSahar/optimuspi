@@ -14,7 +14,7 @@ def uncheckFinder(start, graph):
     q = getNeighbours(start, graph)
     flag = False
     point = (-2, -2)
-    while q:s
+    while q:
         point = q.pop(0)
         if graph[point[0]][point[1]] == status.unexplored:
             flag = True
