@@ -7,14 +7,14 @@ parentlist = []
 
 
 def uncheckFinder(start, graph):
-    global checkpoints, parentlist
+    global checkedpoints, parentlist
     matrixinit(len(graph), len(graph[0]))
     checkedpoints[start[0]][start[1]] = mark.checked
     q = []
     q = getNeighbours(start, graph)
     flag = False
     point = (-2, -2)
-    while q:
+    while q:s
         point = q.pop(0)
         if graph[point[0]][point[1]] == status.unexplored:
             flag = True
