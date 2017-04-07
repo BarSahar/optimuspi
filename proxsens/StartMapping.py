@@ -44,6 +44,7 @@ def mapStart():
 
         np.save('Grid', grid)
         np.save('Home', home)
+		goToPoint(home)
 
 
 def goToPoint(target):
