@@ -25,11 +25,12 @@ def mapStart():
     finally:
         sens.showoff(grid)
         sens.cposition = home
+		#TODO delete this
+		grid[5][5] = status.unexplored
         while True:
             path, endPoint = finder.uncheckFinder(sens.cposition, grid)
             print(str(path))
             print(str(endPoint))
-            xx=input()
             if path == (-1, -1):
                 print("didnt find any path")
                 break
