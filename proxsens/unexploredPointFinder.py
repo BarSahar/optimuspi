@@ -7,6 +7,7 @@ parentlist = []
 
 
 def uncheckFinder(start, graph):
+    global checkpoints, parentlist
     matrixinit(len(graph), len(graph[0]))
     checkedpoints[start[0]][start[1]] = mark.checked
     q = []
@@ -23,8 +24,12 @@ def uncheckFinder(start, graph):
         print("start: "+str(start))
         print("point: "+str(point))
         path = pathfinder(start, point)
+        checkedpoints = []
+        parentlist = []
         return (path, point)
     else:
+        checkedpoints = []
+        parentlist = []
         return ((-1, -1), (-1, -1))
 
 
