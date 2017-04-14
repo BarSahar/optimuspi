@@ -31,12 +31,15 @@ def createScript(ip):
 
 
 def login(path):
+    print("In Login(")
     try:
         userName = path[path.index("?") + 6:path.index("&")]
         password = path[path.index("&") + 6:]
     except:
         return False
 
+    print("user: "+userName)
+    print("pass: "+password)
     if userName in USERS_DICT:
         if password == USERS_DICT[userName]:
             return True
@@ -58,7 +61,7 @@ class myHandler(BaseHTTPRequestHandler):
                 msg = "ok"
             else:
                 msg = "notok"
-            js={"res":msg}
+            js = {"res": msg}
             self.send_response(200)
             self.end_headers()
             json.dump(js, self.wfile)
