@@ -63,7 +63,7 @@ class myHandler(BaseHTTPRequestHandler):
                 msg = "notok"
             js = {"res": msg}
             self.send_response(200)
-            json.dump(js, self.wfile)
+            self.wfile.write(json.dumps(js))
             return
 
         try:
