@@ -58,9 +58,10 @@ class myHandler(BaseHTTPRequestHandler):
                 msg = "ok"
             else:
                 msg = "notok"
+            js={"res":msg}
             self.send_response(200)
             self.end_headers()
-            self.wfile.write(msg)
+            json.dump(js, self.wfile)
             return
 
         try:
