@@ -79,9 +79,9 @@ class myHandler(BaseHTTPRequestHandler):
             return
         elif "/Login" in self.path:
             if login(self.path, self.client_address[0]) is True:
-                msg = "ok" + str(USERS_IP)
+                msg = "ok" 
             else:
-                msg = "notok" + str(USERS_IP)
+                msg = "notok" 
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
