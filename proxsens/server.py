@@ -3,10 +3,6 @@ from os import curdir, sep
 import os
 import traceback
 
-from uritools import urisplit
-
-from urllib.parse import urlparse
-
 PORT_NUMBER = 8080
 
 USERS_DICT = {"admin": "admin"}
