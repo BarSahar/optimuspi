@@ -89,12 +89,16 @@ class myHandler(BaseHTTPRequestHandler):
             return
         elif "Left" in self.path:
             moveLeft()
+            self.wfile.write("ok".encode())
             return
         elif "Right" in self.path:
             moveRight()
+            self.wfile.write("ok".encode())
             return
         elif "Forward" in self.path:
             moveForward()
+            self.wfile.write("ok".encode())
+            return
 
         try:
             # Check the file extension required and
