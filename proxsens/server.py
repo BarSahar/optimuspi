@@ -1,17 +1,16 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from os import curdir, sep
 import os
-import cgi
-import json
-import subprocess
 import traceback
-import datetime
-import requests
-import time
+
+from uritools import urisplit
+
+from urllib.parse import urlparse
 
 PORT_NUMBER = 8080
 
 USERS_DICT = {"admin": "admin"}
+USERS_IP = []
 
 
 def createScript(ip):
@@ -30,16 +29,16 @@ def createScript(ip):
         print(traceback.format_exc())
 
 
-def login(path):
-    print("In Login(")
+def login(path, ip):
+    print("In Login()")
     try:
         userName = path[path.index("?") + 6:path.index("&")]
         password = path[path.index("&") + 6:]
     except:
         return False
 
-    print("user: "+userName)
-    print("pass: "+password)
+    print("user: " + userName)
+    print("pass: " + password)
     if userName in USERS_DICT:
         if password == USERS_DICT[userName]:
             return True
@@ -50,20 +49,22 @@ def login(path):
 
 
 class myHandler(BaseHTTPRequestHandler):
-    # Handler for the GET requests
+    global USERS_IP
+
     def do_GET(self):
         print("Path-->" + str(self.path))
 
         if "/main" in self.path:
             createScript(self.client_address[0])
         elif "/Login" in self.path:
-            if login(self.path) is True:
-                msg = "ok"
+            if login(self.path, self.client_address[0]) is True:
+                msg = "ok" + str(USERS_IP)
             else:
-                msg = "notok"
-            js = {"res": msg}
+                msg = "notok" + str(USERS_IP)
             self.send_response(200)
-            self.wfile.write(json.dumps(js))
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
             return
 
         try:
@@ -113,11 +114,13 @@ class myHandler(BaseHTTPRequestHandler):
                 bytes = str.encode(str(resStr))
                 self.wfile.write(bytes)
                 f.close()
+
             return
 
 
         except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
+
 
 
 try:
