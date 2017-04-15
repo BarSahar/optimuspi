@@ -4,7 +4,7 @@ import os
 import traceback
 from threading import Thread
 
-from proxsens import proxsens as p
+import proxsens as p
 
 PORT_NUMBER = 8080
 
