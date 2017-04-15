@@ -2,17 +2,20 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from os import curdir, sep
 import os
 import traceback
+from threading import Thread
+
+from proxsens import proxsens as p
 
 PORT_NUMBER = 8080
 
 USERS_DICT = {"admin": "admin"}
 USERS_IP = []
+THREADS = []
 
 
-def createScript(ip):
+def createScript():
     try:
-        gotBlocked = ' #!/bin/bash \n clear \n raspivid -n -t 0 -rot 0 -w 960 -h 720 -fps 30 -b 6000000 -o - | gst-launch-1.0 -e -vvvv fdsrc ! h264parse ! rtph264pay pt=96 config-interval=5 ! udpsink host=' + str(
-            ip) + ' port=5000'
+        gotBlocked = 'raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001'
         filePath = str(os.path.dirname(os.path.abspath(__file__))) + "/" + "data.sh"
         with open(filePath, 'w') as outfile:
             outfile.write(gotBlocked)
@@ -26,6 +29,7 @@ def createScript(ip):
 
 
 def login(path, ip):
+    global USERS_IP
     print("In Login()")
     try:
         userName = path[path.index("?") + 6:path.index("&")]
@@ -37,6 +41,7 @@ def login(path, ip):
     print("pass: " + password)
     if userName in USERS_DICT:
         if password == USERS_DICT[userName]:
+            USERS_IP.append(ip)
             return True
         else:
             return False
@@ -44,14 +49,34 @@ def login(path, ip):
         return False
 
 
+def moveLeft():
+    p.turnleft()
+
+
+def moveRight():
+    p.turnright()
+
+
+def moveForward():
+    p.moveForward()
+
+
+def stopCamera():
+    for t in THREADS:
+        if t.getName() == "Camera":
+            pass
+
+
 class myHandler(BaseHTTPRequestHandler):
-    global USERS_IP
+    global THREADS
 
     def do_GET(self):
         print("Path-->" + str(self.path))
 
         if "/main" in self.path:
-            createScript(self.client_address[0])
+            t = Thread(target=createScript(), name="Camera")
+            THREADS.append(t)
+            return
         elif "/Login" in self.path:
             if login(self.path, self.client_address[0]) is True:
                 msg = "ok" + str(USERS_IP)
@@ -62,6 +87,14 @@ class myHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(msg.encode())
             return
+        elif "Left" in self.path:
+            moveLeft()
+            return
+        elif "Right" in self.path:
+            moveRight()
+            return
+        elif "Forward" in self.path:
+            moveForward()
 
         try:
             # Check the file extension required and
@@ -116,7 +149,6 @@ class myHandler(BaseHTTPRequestHandler):
 
         except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
-
 
 
 try:
