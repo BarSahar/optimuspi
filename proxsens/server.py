@@ -81,7 +81,7 @@ class myHandler(BaseHTTPRequestHandler):
             if login(self.path, self.client_address[0]) is True:
                 msg = "ok" 
             else:
-                msg = "notok" 
+                msg = "no" 
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
