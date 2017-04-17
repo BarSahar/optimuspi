@@ -52,7 +52,11 @@ def login(path, ip):
 def getMap():
     stringMap=""
     map=np.load('Grid.npy')
-    return str(map)
+    for x in range(len(map)):
+        for y in range(len(map[0])):
+            print(str(map[x][y]))
+
+    return "map"
 
 def moveLeft():
     p.turnleft()
