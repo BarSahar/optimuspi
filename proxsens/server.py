@@ -3,7 +3,7 @@ from os import curdir, sep
 import os
 import traceback
 from threading import Thread
-
+import numpy as np
 import proxsens as p
 
 PORT_NUMBER = 8080
@@ -48,6 +48,11 @@ def login(path, ip):
     else:
         return False
 
+
+def getMap():
+    stringMap=""
+    map=np.load('Grid.npy')
+    return map
 
 def moveLeft():
     p.turnleft()
@@ -99,6 +104,14 @@ class myHandler(BaseHTTPRequestHandler):
             moveForward()
             self.wfile.write("ok".encode())
             return
+        elif "Map" in self.path:
+            map=getMap()
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(map.encode())
+            return
+
 
         try:
             # Check the file extension required and
