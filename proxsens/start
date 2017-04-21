@@ -1,0 +1,3 @@
+#!/bin/bash
+name=`echo $1 | sed 's/\./-/g'`
+(tmux kill-session -t $name 2>/dev/null ; tmux new -s $name "python3 $1") || echo 'Failed starting!'

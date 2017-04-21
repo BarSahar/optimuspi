@@ -432,7 +432,12 @@ def main():
     print(str(getProxDist()))
     # move30cm()
     # loopgetDist()
+    i=0
     while True:
-        pass
+        print("Hello World : "+str(i))
+        i+=1
+        time.sleep(2)
 
-# main()
+
+
+main()
