@@ -5,6 +5,7 @@ import traceback
 from threading import Thread
 import numpy as np
 import proxsens as p
+import base64
 
 PORT_NUMBER = 8080
 
