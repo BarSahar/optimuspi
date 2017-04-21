@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="laserline_old.py" />
     <Compile Include="proxsens.py" />
+    <Compile Include="server.py" />
     <Compile Include="StartMapping.py">
       <SubType>Code</SubType>
     </Compile>

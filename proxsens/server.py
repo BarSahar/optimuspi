@@ -57,11 +57,11 @@ def getMap():
         for y in range(len(map[0])):
             tempStr=''
             if map[x][y]==p.status.unexplored:
-                tempStr="-1"
-            elif map[x][y]==p.status.block:
                 tempStr="0"
-            else:
+            elif map[x][y]==p.status.block:
                 tempStr="1"
+            else:
+                tempStr="2"
             stringMap+=tempStr
         stringMap+=":"
     print(stringMap)
