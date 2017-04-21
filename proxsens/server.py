@@ -64,6 +64,7 @@ def getMap():
                 tempStr="1"
             stringMap+=tempStr
         stringMap+=":"
+    print(stringMap)
     return stringMap
 
 def moveLeft():
