@@ -125,7 +125,15 @@ class myHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(map.encode())
             return
-        elif "Pics" in self.path:
+        elif "getPicInfo" in self.path:
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            filePath = str(os.getcwd())+'/patrolPics'
+            num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
+            self.wfile.write(str(num_files.encode()))
+            return
+        elif "getPics" in self.path:
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
