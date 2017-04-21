@@ -126,18 +126,20 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write(map.encode())
             return
         elif "getPicInfo" in self.path:
+            import os.path
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             filePath = str(os.getcwd())+'/patrolPics'
             num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
-            self.wfile.write(str(num_files.encode()))
+            self.wfile.write(str(num_files).encode())
             return
-        elif "getPics" in self.path:
+        elif "getPic" in self.path:
+            import os.path
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            filePath = 'stupid-man.jpg'
+            filePath = str(os.getcwd()) + '/patrolPics/pic' + str(str.split("pic")[1])
             imageFile = open(filePath, "rb")
             imageBase64Str = str(base64.b64encode(imageFile.read()))[2:-1]
             self.wfile.write(imageBase64Str.encode())
