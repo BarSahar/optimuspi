@@ -126,7 +126,7 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write(map.encode())
             return
         elif "Pics" in self.path:
-            filePath = 'cam.jpg'
+            filePath = 'stupid-man.jpg'
             imageFile = open(filePath, "rb")
             imageBase64Str = str(base64.b64encode(imageFile.read()))[2:-1]
             self.send_response(200)
