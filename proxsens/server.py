@@ -140,9 +140,10 @@ class myHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             filePath = str(os.getcwd()) + '/patrolPics/pic' + str(str.split("pic")[1])
-            imageFile = open(filePath, "rb")
-            imageBase64Str = str(base64.b64encode(imageFile.read()))[2:-1]
-            self.wfile.write(imageBase64Str.encode())
+            #imageFile = open(filePath, "rb")
+            #imageBase64Str = str(base64.b64encode(imageFile.read()))[2:-1]
+            #self.wfile.write(imageBase64Str.encode())
+            self.wfile.write(filePath.encode())
             return
 
 
