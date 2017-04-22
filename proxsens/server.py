@@ -131,10 +131,8 @@ class myHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             filePath = str(os.getcwd())+'/patrolPics'
-            #os.path.realpath(__file__)
-            #num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
-            #self.wfile.write(str(num_files).encode())
-            self.wfile.write(filePath .encode())
+            num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
+            self.wfile.write((str(num_files)+'3').encode())
             return
         elif "getPic" in self.path:
             import os.path
