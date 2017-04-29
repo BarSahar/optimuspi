@@ -50,9 +50,10 @@ def mapStart():
 def goToPoint(target):
     if len(grid) == 0:
         return
-
+    prevStat = grid[target[0]][target[1]]
     grid[target[0]][target[1]] = status.unexplored
     path, endPoint = finder.uncheckFinder(sens.cposition, grid)
+    grid[target[0]][target[1]] = prevStat
     print(str(path))
     print(str(endPoint))
     if path == (-1, -1):
