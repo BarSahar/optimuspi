@@ -398,7 +398,7 @@ def laserDistHelper():
                                  np.logical_and(noiseFiltery1, noiseFiltery2))
     y_val = np.median(xy_val[0][finalFilter])
     dist = abs(y_val - 240)
-    # print ("pixel dist is" + str(dist))
+    print ("pixel dist is" + str(dist))
     theta = LaserSlope * dist + LaserInters
     try:
         tan_theta = tan(theta)
