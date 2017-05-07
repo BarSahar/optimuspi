@@ -4,7 +4,7 @@ import os
 import traceback
 from threading import Thread
 import numpy as np
-import proxsens as p
+# import proxsens as p
 import base64
 
 PORT_NUMBER = 8080
@@ -86,6 +86,39 @@ def stopCamera():
             pass
 
 
+def savePoints(path):
+    try:
+        pointsList = []
+        pointString = path[path.index("?") + 1:]
+
+        while ":" in pointString:
+            pointString = pointString[pointString.index(":") + 1:]
+            x = int(pointString[0])
+            y = int(pointString[1])
+            pointsList.append((x, y))
+
+        np.save("points", pointsList)
+        return True
+    except:
+        return False
+
+
+def getPoint():
+    try:
+        points = np.load("points.npy")
+        msg=""
+        for item in points:
+            msg=msg+":"+str(item[0])+str(item[1])
+        return msg
+    except:
+        return "False"
+
+
+
+
+
+
+
 class myHandler(BaseHTTPRequestHandler):
     global THREADS
 
@@ -125,6 +158,18 @@ class myHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(map.encode())
             return
+        elif "savpoints" in self.path:
+            msg= "true" if savePoints(self.path) is True else "false"
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
+        elif "getpoints" in self.path:
+            msg=getPoint()
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
         elif "getPicInfo" in self.path:
             import os.path
             self.send_response(200)
