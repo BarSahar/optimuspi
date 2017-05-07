@@ -4,8 +4,9 @@ import os
 import traceback
 from threading import Thread
 import numpy as np
-# import proxsens as p
+import proxsens as p
 import base64
+import StartMapping as smap
 
 PORT_NUMBER = 8080
 
@@ -115,6 +116,22 @@ def getPoint():
 
 
 
+import picamera
+
+
+def startPatrol():
+    points = np.load("points.npy")
+    counter = 0
+    for point in points:
+        point = tuple(point)
+        smap.goToPoint(point)
+        for x in range(4):
+            with picamera.PiCamera() as camera:
+                camera.resolution = (1024, 768)
+                camera.capture('/patrolPics/pic{}.jpg'.format(str(counter)))
+            p.turnleft()
+            counter += 1
+
 
 
 
@@ -164,20 +181,26 @@ class myHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write(msg.encode())
+            return
         elif "getpoints" in self.path:
             msg=getPoint()
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write(msg.encode())
+            return
+        elif "patrol" in self.path:
+            startPatrol()
+            return
         elif "getPicInfo" in self.path:
             import os.path
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            filePath = str(os.getcwd())+'/patrolPics'
-            num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
-            self.wfile.write((str(num_files)+'3').encode())
+            #filePath = str(os.getcwd())+'/patrolPics'
+            #num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
+            points = np.load("points.npy")
+            self.wfile.write((str(len(points)*4)+'3').encode())
             return
         elif "getPic" in self.path:
             import os.path
