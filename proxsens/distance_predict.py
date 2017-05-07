@@ -2,6 +2,8 @@ import pandas as pd
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.ensemble import RandomForestRegressor
+import matplotlib.pyplot as plt
+
 
 
 def polyGetDidt(pixelDist):
@@ -14,6 +16,13 @@ def polyGetDidt(pixelDist):
     poly_req.fit(x_poly, y)
     lin_reg2 = LinearRegression()
     lin_reg2.fit(x_poly, y)
+
+    plt.scatter(x, y, color='red')
+    plt.plot(x,  lin_reg2.predict(poly_req.fit_transform(y)), color='blue')
+    plt.title("pixel dist vs dist (Training)")
+    plt.xlabel("pixcel Dist")
+    plt.ylabel("Dist")
+    plt.show()
 
     return lin_reg2.predict(poly_req.fit_transform(pixelDist))
 
@@ -38,5 +47,6 @@ def printRes(pixelDist):
 
 
 if __name__=="__main__":
-    printRes(7)
+    # printRes(43)
+    polyGetDidt(43)
 
