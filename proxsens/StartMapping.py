@@ -69,6 +69,7 @@ def goToPoint(target):
         sens.moveForward()
 
 
+
 #DEBUGGING FUNCTIONS
 def debug_makegrid(xsize,ysize):
 	grid=[]
