@@ -88,7 +88,7 @@ def debug_main():
     grid=debug_makegrid(10,15)
     start=(1,1)
     np.save('Grid', grid)
-    np.save('Home', home)
+    np.save('Home', start)
 	#grid[3][1]=status.unexplored
 	#grid[3][3]=status.unexplored
 	#path,endpoint=uncheckFinder(start,grid)
