@@ -32,9 +32,9 @@ def createScript():
         # a= subprocess.run('python3 startet.py',shell=True,timeout=None)
 
 
-        # os.system("chmod +x data.sh")
+        os.system("chmod +x data.sh &")
 
-        os.spawnl(os.P_DETACH, "chmod +x data.sh")
+        # os.spawnl(os.P_DETACH, "chmod +x data.sh")
 
         # os.system("./data.sh")
 
