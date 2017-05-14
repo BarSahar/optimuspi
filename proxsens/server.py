@@ -91,8 +91,8 @@ def savePoints(path):
 
         while ":" in pointString:
             pointString = pointString[pointString.index(":") + 1:]
-            x = int(pointString[0])
-            y = int(pointString[1])
+            x = int(pointString[:pointString.index(",")])
+            y = int(pointString[pointString.index(",")+1:pointString.index(",")])
             pointsList.append((x, y))
 
         np.save("points", pointsList)
