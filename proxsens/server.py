@@ -92,7 +92,7 @@ def savePoints(path):
         while ":" in pointString:
             pointString = pointString[pointString.index(":") + 1:]
             x = int(pointString[:pointString.index(",")])
-            y = int(pointString[pointString.index(",")+1:pointString.index(",")])
+            y = int(pointString[pointString.index(",")+1:pointString.index("~")])
             pointsList.append((x, y))
 
         np.save("points", pointsList)
@@ -106,7 +106,7 @@ def getPoint():
         points = np.load("points.npy")
         msg=""
         for item in points:
-            msg=msg+":"+str(item[0])+str(item[1])
+            msg=msg+":"+str(item[0])+','+str(item[1])+'~'
         return msg
     except:
         return "False"
