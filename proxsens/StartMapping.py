@@ -85,7 +85,7 @@ def debug_makegrid(xsize,ysize):
 		grid[xsize-1][y]=status.block
 	return grid
 def debug_main():
-    grid=makegrid(10,15)
+    grid=debug_makegrid(10,15)
     start=(1,1)
     np.save('Grid', grid)
     np.save('Home', home)
