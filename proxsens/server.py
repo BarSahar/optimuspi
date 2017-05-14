@@ -272,7 +272,6 @@ class myHandler(BaseHTTPRequestHandler):
 try:
     # Create a web server and define the handler to manage the
     # incoming request
-    time.sleep(10)
     server = HTTPServer(('', PORT_NUMBER), myHandler)
     print('Started httpserver on port ', PORT_NUMBER)
     print(str(server.server_address))
