@@ -15,32 +15,11 @@ USERS_DICT = {"admin": "admin"}
 USERS_IP = []
 THREADS = []
 
-gotBlocked = 'raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &'
-filePath = str(os.path.dirname(os.path.abspath(__file__))) + "/" + "data.sh"
-with open(filePath, 'w') as outfile:
-    outfile.write(gotBlocked)
-print("Data Has Been Saved")
-
 
 def createScript():
     print("In createScript.")
     try:
-
-        # a = subprocess.Popen("chmod +x  raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001",shell=True)
-        # a= subprocess.call('./data.sh',shell=True,timeout=None)
-
-        # a= subprocess.run('python3 startet.py',shell=True,timeout=None)
-
-
         os.system("raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &")
-
-        # os.spawnl(os.P_DETACH, "chmod +x data.sh")
-
-        # os.system("./data.sh")
-
-        # os.system("python3 startet.py")
-
-
         print("Done")
     except:
         print("Falied To Save GotBlock File...")
@@ -284,10 +263,7 @@ class myHandler(BaseHTTPRequestHandler):
                 bytes = str.encode(str(resStr))
                 self.wfile.write(bytes)
                 f.close()
-
             return
-
-
         except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
 
@@ -295,8 +271,6 @@ class myHandler(BaseHTTPRequestHandler):
 try:
     # Create a web server and define the handler to manage the
     # incoming request
-    t = Thread(target=createScript(), name="Camera")
-    print("After Thread")
 
 
     server = HTTPServer(('', PORT_NUMBER), myHandler)
