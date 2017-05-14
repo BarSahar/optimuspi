@@ -7,6 +7,7 @@ import numpy as np
 import proxsens as p
 import base64
 import StartMapping as smap
+import subprocess
 
 PORT_NUMBER = 8080
 
@@ -22,8 +23,13 @@ def createScript():
         with open(filePath, 'w') as outfile:
             outfile.write(gotBlocked)
         print("Data Has Been Saved")
-        os.system("chmod +x data.sh")
-        os.system("./data.sh")
+
+        a = subprocess.Popen("raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001",shell=True)
+
+        # os.system("chmod +x data.sh")
+        # os.system("./data.sh")
+
+
         print("Done")
     except:
         print("Falied To Save GotBlock File...")
@@ -279,6 +285,7 @@ try:
     # Create a web server and define the handler to manage the
     # incoming request
     t = Thread(target=createScript(), name="Camera")
+
     print("After Thread")
     server = HTTPServer(('', PORT_NUMBER), myHandler)
     print('Started httpserver on port ', PORT_NUMBER)
