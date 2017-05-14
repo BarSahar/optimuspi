@@ -171,10 +171,10 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write("ok".encode())
             return
         elif "Map" in self.path:
-            map=getMap()
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
+            map=getMap()
             self.wfile.write(map.encode())
             return
         elif "savpoints" in self.path:
