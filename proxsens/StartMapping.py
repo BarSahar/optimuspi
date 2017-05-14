@@ -67,3 +67,30 @@ def goToPoint(target):
             time.sleep(1)
         slap.facesalpper(sens.cposition, endPoint)
         sens.moveForward()
+
+
+#DEBUGGING FUNCTIONS
+def debug_makegrid(xsize,ysize):
+	grid=[]
+	for x in range(xsize):
+		grid.append([])
+		for y in range(ysize):
+			grid[x].append(status.clear)
+	for x in range(xsize):
+		grid[x][0]=status.block
+		grid[x][ysize-1]=status.block
+	for y in range(ysize):
+		grid[0][y]=status.block
+		grid[xsize-1][y]=status.block
+	return grid
+def debug_main():
+    grid=makegrid(10,15)
+    start=(1,1)
+    np.save('Grid', grid)
+    np.save('Home', home)
+	#grid[3][1]=status.unexplored
+	#grid[3][3]=status.unexplored
+	#path,endpoint=uncheckFinder(start,grid)
+	#print("start: "+str(start))
+	#print("path: "+str(path))
+	#print("end point:"+str(endpoint))

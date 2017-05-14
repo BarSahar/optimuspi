@@ -80,34 +80,3 @@ def pathfinder(start, end):
         temp = parentOfTemp
     path.pop()
     return path
-
-
-'''
-#Test
-
-def makegrid(xsize,ysize):
-	grid=[]
-	for x in range(xsize):
-		grid.append([])
-		for y in range(ysize):
-			grid[x].append(status.clear)
-	for x in range(xsize):
-		grid[x][0]=status.block
-		grid[x][ysize-1]=status.block
-	for y in range(ysize):
-		grid[0][y]=status.block
-		grid[xsize-1][y]=status.block
-	return grid
-def main():
-	grid=makegrid(10,10)
-	start=(1,1)
-	grid[3][1]=status.unexplored
-	grid[3][3]=status.unexplored
-	path,endpoint=uncheckFinder(start,grid)
-	print("start: "+str(start))
-	print("path: "+str(path))
-	print("end point:"+str(endpoint))
-
-#main()
-
-'''
