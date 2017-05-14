@@ -32,7 +32,7 @@ def createScript():
         # a= subprocess.run('python3 startet.py',shell=True,timeout=None)
 
 
-        os.system("chmod +x data.sh &")
+        os.system("raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &")
 
         # os.spawnl(os.P_DETACH, "chmod +x data.sh")
 
