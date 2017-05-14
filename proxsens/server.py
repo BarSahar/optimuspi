@@ -15,7 +15,7 @@ USERS_DICT = {"admin": "admin"}
 USERS_IP = []
 THREADS = []
 
-gotBlocked = 'raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001'
+gotBlocked = 'raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &'
 filePath = str(os.path.dirname(os.path.abspath(__file__))) + "/" + "data.sh"
 with open(filePath, 'w') as outfile:
     outfile.write(gotBlocked)
