@@ -145,6 +145,11 @@ class myHandler(BaseHTTPRequestHandler):
         if "/main" in self.path:
             t = Thread(target=createScript(), name="Camera")
             THREADS.append(t)
+            msg="ok"
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
             return
         elif "/Login" in self.path:
             if login(self.path, self.client_address[0]) is True:
