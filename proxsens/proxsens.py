@@ -163,7 +163,8 @@ def fill(graph):
         for y in range(2, 13):
             graph[x][y] = status.clear
     graph[5][5] = status.unexplored
-    np.save('Home2.npy',graph)
+    np.save('Home2.npy', graph)
+
 
 def globalinit():
     global counterleft
@@ -174,6 +175,7 @@ def globalinit():
     counterright = 0
     counterleft_limit = 0
     counterright_limit = 0
+
 
 def turnright():
     # global counterright_limit
@@ -223,7 +225,6 @@ def turnleft():
     moveTicksL(100, "L")
 
 
-
 # ONLY USE AFTER SETTING COUNTER LIMITS!!!
 def goleft():
     global counterleft
@@ -268,11 +269,10 @@ def moveForwardMicro():
     fixAngle(HeadingAngle)
     HeadingAngle = -1
 
+
 def moveForward():
     moveForwardMicro()
     updateCposition()
-
-
 
 
 def fixAngle(destAngle):
@@ -331,13 +331,13 @@ def turnsens():
 def getCompRead():
     while True:
         try:
-            one=myCompass.heading()
+            one = myCompass.heading()
             time.sleep(0.01)
-            two=myCompass.heading()
+            two = myCompass.heading()
             time.sleep(0.01)
-            three=myCompass.heading()
+            three = myCompass.heading()
 
-            return (one+two+three)/3
+            return (one + two + three) / 3
         except IOError as e:
             pass
 
@@ -398,7 +398,7 @@ def laserDistHelper():
                                  np.logical_and(noiseFiltery1, noiseFiltery2))
     y_val = np.median(xy_val[0][finalFilter])
     dist = abs(y_val - 240)
-    # print ("pixel dist is" + str(dist))
+    print ("pixel dist is" + str(dist))
     theta = LaserSlope * dist + LaserInters
     try:
         tan_theta = tan(theta)
@@ -426,6 +426,7 @@ def main():
     while True:
         pass
 
+
 # main()
 def moveBunch():
     tick = 0
@@ -435,15 +436,16 @@ def moveBunch():
         tick = tick + 1
         time.sleep(0.5)
         print(34 * "-")
-        #x=input()
+        # x=input()
 
-def moveTicksL(num,dir):
+
+def moveTicksL(num, dir):
     for x in range(num):
         counterleft = 0
         counterright = 0
         counterleft_limit = 1
         counterright_limit = 1
-        if dir =="R":
+        if dir == "R":
             goright()
         else:
             goleft()
@@ -456,6 +458,3 @@ def newplan():
             moveForwardMicro()
             time.sleep(1)
         turnleft()
-
-
-

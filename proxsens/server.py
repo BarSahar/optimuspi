@@ -6,6 +6,9 @@ from threading import Thread
 import numpy as np
 import proxsens as p
 import base64
+import StartMapping as smap
+import subprocess
+import time
 
 PORT_NUMBER = 8080
 
@@ -15,14 +18,9 @@ THREADS = []
 
 
 def createScript():
+    print("In createScript.")
     try:
-        gotBlocked = 'raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001'
-        filePath = str(os.path.dirname(os.path.abspath(__file__))) + "/" + "data.sh"
-        with open(filePath, 'w') as outfile:
-            outfile.write(gotBlocked)
-        print("Data Has Been Saved")
-        os.system("chmod +x data.sh")
-        os.system("./data.sh")
+        os.system("raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &")
         print("Done")
     except:
         print("Falied To Save GotBlock File...")
@@ -86,6 +84,55 @@ def stopCamera():
             pass
 
 
+def savePoints(path):
+    try:
+        pointsList = []
+        pointString = path[path.index("?") + 1:]
+
+        while ":" in pointString:
+            pointString = pointString[pointString.index(":") + 1:]
+            x = int(pointString[0])
+            y = int(pointString[1])
+            pointsList.append((x, y))
+
+        np.save("points", pointsList)
+        return True
+    except:
+        return False
+
+
+def getPoint():
+    try:
+        points = np.load("points.npy")
+        msg=""
+        for item in points:
+            msg=msg+":"+str(item[0])+str(item[1])
+        return msg
+    except:
+        return "False"
+
+
+
+import picamera
+
+
+def startPatrol():
+    points = np.load("points.npy")
+    counter = 0
+    for point in points:
+        point = tuple(point)
+        smap.goToPoint(point)
+        for x in range(4):
+            with picamera.PiCamera() as camera:
+                camera.resolution = (1024, 768)
+                camera.capture('/patrolPics/pic{}.jpg'.format(str(counter)))
+            p.turnleft()
+            counter += 1
+
+
+
+
+
 class myHandler(BaseHTTPRequestHandler):
     global THREADS
 
@@ -95,6 +142,11 @@ class myHandler(BaseHTTPRequestHandler):
         if "/main" in self.path:
             t = Thread(target=createScript(), name="Camera")
             THREADS.append(t)
+            msg="ok"
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
             return
         elif "/Login" in self.path:
             if login(self.path, self.client_address[0]) is True:
@@ -125,14 +177,32 @@ class myHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(map.encode())
             return
+        elif "savpoints" in self.path:
+            msg= "true" if savePoints(self.path) is True else "false"
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
+            return
+        elif "getpoints" in self.path:
+            msg=getPoint()
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write(msg.encode())
+            return
+        elif "patrol" in self.path:
+            startPatrol()
+            return
         elif "getPicInfo" in self.path:
             import os.path
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
-            filePath = str(os.getcwd())+'/patrolPics'
-            num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
-            self.wfile.write((str(num_files)+'3').encode())
+            #filePath = str(os.getcwd())+'/patrolPics'
+            #num_files = len([f for f in os.listdir(filePath) if os.path.isfile(os.path.join(filePath, f))])
+            points = np.load("points.npy")
+            self.wfile.write((str(len(points)*4)+'3').encode())
             return
         elif "getPic" in self.path:
             import os.path
@@ -194,10 +264,7 @@ class myHandler(BaseHTTPRequestHandler):
                 bytes = str.encode(str(resStr))
                 self.wfile.write(bytes)
                 f.close()
-
             return
-
-
         except IOError:
             self.send_error(404, 'File Not Found: %s' % self.path)
 
