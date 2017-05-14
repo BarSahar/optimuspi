@@ -26,8 +26,8 @@ def createScript():
     print("In createScript.")
     try:
 
-
-        a = subprocess.Popen("chmod +x  raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001",shell=True)
+        # a = subprocess.Popen("chmod +x  raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001",shell=True)
+        a= subprocess.call(['./data.sh'])
 
         # os.system("chmod +x data.sh")
         # os.system("./data.sh")
@@ -288,8 +288,9 @@ try:
     # Create a web server and define the handler to manage the
     # incoming request
     t = Thread(target=createScript(), name="Camera")
-
     print("After Thread")
+
+
     server = HTTPServer(('', PORT_NUMBER), myHandler)
     print('Started httpserver on port ', PORT_NUMBER)
     print(str(server.server_address))
