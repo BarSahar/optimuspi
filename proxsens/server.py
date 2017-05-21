@@ -21,7 +21,6 @@ def createScript():
     print("In createScript.")
     try:
         os.system("raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &")
-        os.system("raspivid -n -ih -t 0 -rot 0 -w 1280 -h 720 -fps 30 -b 1000000 -o - | nc -lkv4 5001 &")
         print("Done")
     except:
         print("Falied To Save GotBlock File...")
@@ -50,22 +49,25 @@ def login(path, ip):
 
 
 def getMap():
-    stringMap=""
-    map=np.load('Grid.npy')
-    stringMap+=str(len(map))+":"+str(len(map[0]))+"?"
-    for x in range(len(map)):
-        for y in range(len(map[0])):
-            tempStr=''
-            if map[x][y]==p.status.unexplored:
-                tempStr="0"
-            elif map[x][y]==p.status.block:
-                tempStr="1"
-            else:
-                tempStr="2"
-            stringMap+=tempStr
-        stringMap+=":"
-    print(stringMap)
-    return stringMap
+    try:
+        stringMap=""
+        map=np.load('Grid.npy')
+        stringMap+=str(len(map))+":"+str(len(map[0]))+"?"
+        for x in range(len(map)):
+            for y in range(len(map[0])):
+                tempStr=''
+                if map[x][y]==p.status.unexplored:
+                    tempStr="0"
+                elif map[x][y]==p.status.block:
+                    tempStr="1"
+                else:
+                    tempStr="2"
+                stringMap+=tempStr
+            stringMap+=":"
+        print(stringMap)
+        return stringMap
+    except:
+        return false
 
 def moveLeft():
     p.turnleft()
@@ -176,6 +178,8 @@ class myHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             map=getMap()
+            if map is False:
+                map = "false"
             self.wfile.write(map.encode())
             return
         elif "savpoints" in self.path:
@@ -193,6 +197,10 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write(msg.encode())
             return
         elif "patrol" in self.path:
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write("running".encode())
             startPatrol()
             return
         elif "getPicInfo" in self.path:
