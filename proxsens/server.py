@@ -116,6 +116,18 @@ def getPoint():
 
 
 
+def startDemo(): #demo for outliner
+    #try:
+    #    points = np.load("points.npy")
+    #    msg=""
+    #    for item in points:
+    #        msg=msg+":"+str(item[0])+','+str(item[1])+'~'
+    #    return msg
+    #except:
+    #    return "False"
+    return True
+
+
 import picamera
 
 
@@ -196,12 +208,19 @@ class myHandler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(msg.encode())
             return
-        elif "patrol" in self.path:
+        elif "startPatrol" in self.path:
             self.send_response(200)
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write("running".encode())
             startPatrol()
+            return
+        elif "startDemo" in self.path:
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write("running".encode())
+            startDemo()
             return
         elif "getPicInfo" in self.path:
             import os.path
