@@ -104,7 +104,7 @@ def doorcheck():
             time.sleep(0.5)
             updateCposition()
             if ifathome():
-                print("Door? Yes.")
+                print("Door? No.")
                 return False
         else:
             markrightpoint(x)
@@ -122,7 +122,7 @@ def doorcheck():
     time.sleep(0.5)
     sens.turnleft()
     time.sleep(0.5)
-    print("Door? No.")
+    print("Door? Yes.")
     return True
 
 

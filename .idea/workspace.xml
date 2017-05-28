@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8398c187-a053-4be6-b9ef-f287dbc1eba0" name="Default" comment="hfg">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/outlineDemo.py" afterPath="$PROJECT_DIR$/proxsens/outlineDemo.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/proxsens.py" afterPath="$PROJECT_DIR$/proxsens/proxsens.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="362" column="8" lean-forward="false" selection-start-line="362" selection-start-column="4" selection-end-line="362" selection-end-column="8" />
+            <state relative-caret-position="980">
+              <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -29,14 +30,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="outlineDemo.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="outlineDemo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/outlineDemo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3565">
-              <caret line="124" column="19" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+            <state relative-caret-position="819">
+              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="51" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StartMapping.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="508">
+              <caret line="73" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="96" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mappingDemo.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proxsens/mappingDemo.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="469">
+              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,8 +65,8 @@
       <file leaf-file-name="robotModels.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/robotModels.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state relative-caret-position="1014">
+              <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -84,7 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Affilitest bad api</find>
       <find>deleteOfferInCrossmob</find>
       <find>mail</find>
       <find>offer</find>
@@ -114,6 +134,7 @@
       <find>moveforward</find>
       <find>delta</find>
       <find>getL</find>
+      <find>show</find>
     </findStrings>
     <replaceStrings>
       <replace>offersNeedtoStop</replace>
@@ -159,8 +180,9 @@
         <option value="$PROJECT_DIR$/proxsens/server.py" />
         <option value="$PROJECT_DIR$/proxsens/outliner.py" />
         <option value="$PROJECT_DIR$/outlineDemo.py" />
-        <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
         <option value="$PROJECT_DIR$/proxsens/outlineDemo.py" />
+        <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
+        <option value="$PROJECT_DIR$/proxsens/mappingDemo.py" />
       </list>
     </option>
   </component>
@@ -493,7 +515,7 @@
     <frame x="-16" y="-16" width="3872" height="2092" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1593583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1593583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32910246" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41929924" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -623,13 +645,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -809,20 +824,12 @@
       </provider>
     </entry>
     <entry file="file://D:/server.py" />
-    <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1482">
-          <caret line="45" column="29" lean-forward="false" selection-start-line="45" selection-start-column="28" selection-end-line="45" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="44" column="13" lean-forward="false" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
           <folding>
-            <element signature="e#0#58#0" expanded="true" />
+            <element signature="e#0#58#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -855,31 +862,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
+    <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="362" column="8" lean-forward="false" selection-start-line="362" selection-start-column="4" selection-end-line="362" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="508">
+          <caret line="73" column="27" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="96" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/robotModels.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state relative-caret-position="1014">
+          <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="14" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="980">
+          <caret line="157" column="17" lean-forward="false" selection-start-line="157" selection-start-column="17" selection-end-line="157" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/outlineDemo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3565">
-          <caret line="124" column="19" lean-forward="false" selection-start-line="124" selection-start-column="19" selection-end-line="124" selection-end-column="19" />
+        <state relative-caret-position="819">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="51" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/mappingDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
