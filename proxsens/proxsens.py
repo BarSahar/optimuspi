@@ -177,7 +177,7 @@ def globalinit():
     counterright_limit = 0
 
 
-def turnright(x=100):
+def turnright(x=77):
     # global counterright_limit
     # global counterleft_limit
     global dir
@@ -209,7 +209,7 @@ def goright():
     con.release()
 
 
-def turnleft(x=100):
+def turnleft(x=83):
     # global counterright_limit
     # global counterleft_limit
     global dir
