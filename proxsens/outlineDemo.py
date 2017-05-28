@@ -67,6 +67,8 @@ def outline(steps):
                 markrightpoint(0)
                 sens.moveForward()
                 updateCposition()
+    print(34 * "-")
+
     printlist()
 
 
@@ -95,12 +97,14 @@ def ifathome():
 
 
 def doorcheck():
+    print("In doorcheck ")
     for x in range(4):
         if sens.getProxDist() > 60 and sens.getLaserDist() > 17:
             sens.moveForward()
             time.sleep(0.5)
             updateCposition()
             if ifathome():
+                print("Door? Yes.")
                 return False
         else:
             markrightpoint(x)
@@ -118,6 +122,7 @@ def doorcheck():
     time.sleep(0.5)
     sens.turnleft()
     time.sleep(0.5)
+    print("Door? No.")
     return True
 
 
