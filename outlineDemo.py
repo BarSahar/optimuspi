@@ -16,102 +16,59 @@ outlinenodes = []
 outlinenodes.append((cposition[0], cposition[1], status.clear))
 
 
-def outline():
-    first = True
+def outline(steps):
 
-    while True:
-        if (home == cposition) and not first:
-            markrightpoint(0)
-            break
-        first = False
+    for step in range(steps):
+        print(34*"-")
         frontdis = sens.getLaserDist()
         sidedis = sens.getProxDist()
 
-        print("Front: " + str(frontdis))
-        print("Side: " + str(sidedis))
-        print("current pos: " + str(cposition))
+        print("Front Distance: " + str(frontdis))
+        print("Side Distance: " + str(sidedis))
+        print("Current Position: ({},{})".format(cposition[0],cposition[1]))
 
         # input()
         time.sleep(2)
 
-        if frontdis > 60 and sidedis > 60:  # door or slit
-
-
-            # door or slit old
-            if doorcheck():
+        if frontdis > 60 and sidedis > 45:  # door or slit
+            if doorcheck() is True:
                 sens.turnright()
                 time.sleep(0.5)
                 sens.moveForward()
                 updateCposition()
         elif sidedis > 30 and sidedis < 45:  # wall too far on the right
-            print("wall too far on the right")
+            print("output: wall too far on the right")
             sens.turnright()
             time.sleep(0.5)
             sens.moveForward()
-            # updateCposition()
+            updateCposition()
             time.sleep(0.5)
             sens.turnleft()
-        elif sidedis < 13.5:  # wall too close on the right
-            print("wall too close on the right")
+        elif sidedis < 13.5 :  # wall too close on the right
+            print("output: wall too close on the right")
             sens.turnleft()
             time.sleep(0.5)
             sens.moveForward()
-            # updateCposition()
+            updateCposition()
             time.sleep(0.5)
             sens.turnright()
-            # markrightpoint(0)
+            markrightpoint(0)
         else:  # wall on the right is OK
             if frontdis > 30:
-                print("wall on the right is OK")
+                print("output: wall on the right is OK")
                 markrightpoint(0)
                 sens.moveForward()
                 updateCposition()
             else:
-                print("corner")
+                print("output: corner")
                 markrightpoint(0)
                 sens.turnleft()
                 markrightpoint(0)
                 sens.moveForward()
                 updateCposition()
-            #        printlist()
+    printlist()
 
-    xoffset = 0
-    yoffset = 0
 
-    offsetHome = (0, 0)
-
-    xsize = 0
-    ysize = 0
-
-    if minx < 0:
-        xoffset = -minx
-        xsize = (maxx - minx) + 1
-    else:
-        xsize = maxx
-
-    if miny < 0:
-        yoffset = -miny
-        ysize = (maxy - miny) + 1
-    else:
-        ysize = maxy
-
-    offsetHome = tuple(map(op.add, home, (xoffset, yoffset)))
-
-    grid = []
-
-    print('xoff: ' + str(xoffset) + ' yoff: ' + str(yoffset))
-    print('xsize' + str(xsize) + ' ysize: ' + str(ysize))
-
-    for x in range(xsize):
-        grid.append([])
-        for y in range(ysize):
-            grid[x].append(status.unexplored)
-            # remember to check duplicate nodes and take the bloked
-
-    for node in outlinenodes:
-        grid[node[0] + xoffset][node[1] + yoffset] = node[2]
-    print('done')
-    return (grid, offsetHome)
 
 
 def updateParam(point):
@@ -188,4 +145,4 @@ def doorcheck():
 
 def printlist():
     for node in outlinenodes:
-        print(str(node))
+        print("({},{}) Status: {}".format(node[0],node[1],node[2].name))
