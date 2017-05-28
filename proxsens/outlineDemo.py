@@ -20,13 +20,13 @@ def outline(steps):
 
     for step in range(steps):
         print(34*"-")
-        print("step {}/{}".format(step,steps))
+        print("step {}/{} \n".format(step+1,steps))
         frontdis = sens.getLaserDist()
         sidedis = sens.getProxDist()
 
         print("Front Distance: " + str(frontdis))
         print("Side Distance: " + str(sidedis))
-        print("Current Position: ({},{})".format(cposition[0],cposition[1]))
+        print("Current Position: ({},{})\n".format(cposition[0],cposition[1]))
 
         # input()
         time.sleep(2)
