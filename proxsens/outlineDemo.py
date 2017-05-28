@@ -55,7 +55,7 @@ def outline(steps):
             sens.turnright()
             markrightpoint(0)
         else:  # wall on the right is OK
-            if frontdis > 30:
+            if frontdis > 25:
                 print("output: wall on the right is OK")
                 markrightpoint(0)
                 sens.moveForward()
