@@ -140,7 +140,7 @@ def startPatrol():
         for x in range(4):
             with picamera.PiCamera() as camera:
                 camera.resolution = (1024, 768)
-                camera.capture('/patrolPics/pic{}.jpg'.format(str(counter)))
+                camera.capture('patrolPics/pic{}.jpg'.format(str(counter)))
             p.turnleft()
             counter += 1
 
