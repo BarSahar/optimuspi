@@ -59,7 +59,7 @@ def updateCposition():
 def addleft(channel):
     global counterleft, con
     counterleft += 1
-    # print("left: " + str(counterleft))
+    print("left: " + str(counterleft))
     # print(str(getCompRead()))
     if counterleft >= counterleft_limit:
         # GPIO.setmode(GPIO.BCM)
@@ -76,7 +76,7 @@ def addleft(channel):
 def addright(channel):
     global counterright, con
     counterright += 1
-    # print ("right: " + str(counterright))
+    print ("right: " + str(counterright))
     # if counterright>=counterright_limit or (abs(thisAng-HeadingAngle)>4 and HeadingAngle!=-1):
     if counterright >= counterright_limit:
         # GPIO.setmode(GPIO.BCM)
