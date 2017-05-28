@@ -41,6 +41,7 @@ def mapStart(xsize, ysize, steps):
             print("didn't find unexplored points")
             break
         else:
+            print("found unexplored point: ({},{}) \n".format(endPoint[0], endPoint[1]))
             while path:
                 nextpoint = path.pop()
                 slap.facesalpper(sens.cposition, nextpoint)
