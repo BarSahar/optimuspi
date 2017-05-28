@@ -20,6 +20,7 @@ def outline(steps):
 
     for step in range(steps):
         print(34*"-")
+        print("step {}/{}".format(step,steps))
         frontdis = sens.getLaserDist()
         sidedis = sens.getProxDist()
 
@@ -93,6 +94,7 @@ def updateParam(point):
 
 # mark right point as block
 def markrightpoint(num):
+    global outlinenodes
     bpoint = cposition
     for x in range(num + 1):
         temp = tuple(map(op.add, bpoint, sens.giverightdir()))
@@ -102,8 +104,7 @@ def markrightpoint(num):
 
 
 def updateCposition():
-    global cposition
-    #	print("current pos: "+str(cposition)+"+"+str(sens.cosmos[sens.dir].value))
+    global cposition,outlinenodes
     cposition = tuple(map(op.add, cposition, sens.cosmos[sens.dir].value))
     outlinenodes.append((cposition[0], cposition[1], status.clear))
     updateParam(cposition)
