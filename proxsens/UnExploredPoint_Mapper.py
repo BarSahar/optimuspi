@@ -18,5 +18,6 @@ def unexploredpoint(position, graph):
     else:
         for x in range(math.floor(front_distance / 15)):
             point = tuple(map(op.add, point, direction))
-            graph[point[0]][point[1]] = status.clear
+            if graph[point[0]][point[1]] != status.block:
+                graph[point[0]][point[1]] = status.clear
     return

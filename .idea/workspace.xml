@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8398c187-a053-4be6-b9ef-f287dbc1eba0" name="Default" comment="hfg">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py" afterPath="$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/proxsens/mappingDemo.py" afterPath="$PROJECT_DIR$/proxsens/mappingDemo.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,11 +52,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mappingDemo.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mappingDemo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/mappingDemo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1404">
-              <caret line="53" column="32" lean-forward="false" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+            <state relative-caret-position="78">
+              <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnExploredPoint_Mapper.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="702">
+              <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -149,7 +160,6 @@
       <list>
         <option value="$PROJECT_DIR$/proxsens/robotModels.py" />
         <option value="$PROJECT_DIR$/proxsens/FaceSlapper.py" />
-        <option value="$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py" />
         <option value="$PROJECT_DIR$/proxsens/Adafruit_I2C.py" />
         <option value="$PROJECT_DIR$/proxsens/fuelgauge.py" />
         <option value="C:/AffiliMob/TapticaIntegration/specialBanner_V1.1.py" />
@@ -182,6 +192,7 @@
         <option value="$PROJECT_DIR$/proxsens/outlineDemo.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
         <option value="$PROJECT_DIR$/proxsens/mappingDemo.py" />
+        <option value="$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py" />
       </list>
     </option>
   </component>
@@ -794,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="21" column="10" lean-forward="false" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/unexploredPointFinder.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="280">
@@ -899,8 +903,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/mappingDemo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1404">
-          <caret line="53" column="32" lean-forward="false" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+        <state relative-caret-position="78">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="21" column="16" lean-forward="false" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding />
         </state>
       </provider>

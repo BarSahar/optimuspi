@@ -30,7 +30,7 @@ def mapStart(xsize, ysize, steps):
         for y in range(1, ysize - 1):
             grid[x][y] = status.unexplored
 
-    sens.cposition = home
+    sens.cposition = (1,1)
     sens.showoff(grid)
 
     for step in range(steps):
@@ -44,14 +44,11 @@ def mapStart(xsize, ysize, steps):
             print("found unexplored point: ({},{}) \n".format(endPoint[0], endPoint[1]))
             while path:
                 nextpoint = path.pop()
-                print("nextpoint: ({},{}) \n".format(nextpoint[0], nextpoint[1]))
                 slap.facesalpper(sens.cposition, nextpoint)
                 sens.moveForward()
                 time.sleep(1)
             slap.facesalpper(sens.cposition, endPoint)
-            print("before mapit")
             mapit.unexploredpoint(sens.cposition, grid)
-            print("after mapit")
         sens.showoff(grid)
         print('\n\n\n')
 
