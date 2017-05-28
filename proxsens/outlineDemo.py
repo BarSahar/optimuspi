@@ -71,34 +71,12 @@ def outline(steps):
 
 
 
-
-def updateParam(point):
-    global maxx
-    global minx
-    global maxy
-    global miny
-
-    x = point[0]
-    y = point[1]
-
-    if x > maxx:
-        maxx = x
-    elif x < minx:
-        minx = x
-
-    if y > maxy:
-        maxy = y
-    elif y < miny:
-        miny = y
-
-
 # mark right point as block
 def markrightpoint(num):
     global outlinenodes
     bpoint = cposition
     for x in range(num + 1):
         temp = tuple(map(op.add, bpoint, sens.giverightdir()))
-        updateParam(temp)
         outlinenodes.append((temp[0], temp[1], status.block))
         bpoint = tuple(map(op.add, bpoint, sens.givebackdir()))
 
@@ -107,7 +85,6 @@ def updateCposition():
     global cposition,outlinenodes
     cposition = tuple(map(op.add, cposition, sens.cosmos[sens.dir].value))
     outlinenodes.append((cposition[0], cposition[1], status.clear))
-    updateParam(cposition)
 
 
 def ifathome():

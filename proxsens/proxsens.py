@@ -177,7 +177,7 @@ def globalinit():
     counterright_limit = 0
 
 
-def turnright():
+def turnright(x=100):
     # global counterright_limit
     # global counterleft_limit
     global dir
@@ -189,7 +189,7 @@ def turnright():
     # time.sleep(0.5)
     # fixAngle((originalAngle + 90) % 360)  # fine tuning
     dir = (dir + 1) % 4
-    moveTicksL(100, "R")
+    moveTicksL(x, "R")
 
 
 # ONLY USE AFTER SETTING COUNTER LIMITS!!!
@@ -209,7 +209,7 @@ def goright():
     con.release()
 
 
-def turnleft():
+def turnleft(x=100):
     # global counterright_limit
     # global counterleft_limit
     global dir
@@ -222,7 +222,10 @@ def turnleft():
     # fixAngle(((originalAngle - 90 + 360) % 360))  # fine tuning
     dir = (dir - 1) % 4
 
-    moveTicksL(100, "L")
+    moveTicksL(x, "L")
+
+
+
 
 
 # ONLY USE AFTER SETTING COUNTER LIMITS!!!
