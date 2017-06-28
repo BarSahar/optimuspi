@@ -135,6 +135,7 @@ import picamera
 def startPatrol():
     global THREADS
     THREADS = []
+    print("before fuser")
     os.system("fuser -k 5001/tcp")
     points = np.load("points.npy")
     counter = 0
