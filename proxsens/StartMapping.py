@@ -54,9 +54,9 @@ def mapStart():
 
 def goToPoint(target):
     if len(grid) == 0:
-        printt("Error: no map saved")
+        print("Error: no map saved")
         return
-    printt("goToPoint: "+str(target))
+    print("goToPoint: "+str(target))
     prevStat = grid[target[0]][target[1]]
     grid[target[0]][target[1]] = status.unexplored
     path, endPoint = finder.uncheckFinder(sens.cposition, grid)
