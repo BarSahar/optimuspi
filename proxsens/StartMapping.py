@@ -9,8 +9,11 @@ import time
 
 try:
     grid = np.load('Grid.npy')
+    home = np.load('Home.npy')
+    home=tuple(home)
 except:
     grid = []
+    home = (-1, -1)
     
 
 
