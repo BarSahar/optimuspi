@@ -135,8 +135,8 @@ def killCameraScript():
     output = os.popen("ps -aux").read()
     output = output.split("\n")
     for line in output:
-        if "nc" in line or "raspivid" in line:
-            line = line.split(" ")
+        if "nc -lkv4" in line or "raspivid" in line:
+            line = line.split()
             pid = line[1]
             os.system("kill " + pid )
 
