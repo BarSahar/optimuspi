@@ -139,6 +139,7 @@ def startPatrol():
     os.system("fuser -k 5001/tcp")
     os.system("pkill rapivid")
     points = np.load("points.npy")
+    points = list(set(points))
     counter = 0
     for point in points:
         point = tuple(point)
