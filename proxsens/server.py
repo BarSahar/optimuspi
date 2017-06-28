@@ -131,13 +131,21 @@ def startDemo(): #demo for outliner
 
 import picamera
 
+def killCameraScript():
+    output = os.popen("ps -aux")
+    output = output.split("/n")
+    for line in output:
+        if "nc" in line or "raspivid" in line:
+            line = line.split(" ")
+            pid = line[1]
+            os.system("kill " + pid )
+
 
 def startPatrol():
     global THREADS
     THREADS = []
     print("before fuser")
-    #os.system("fuser -k 5001/tcp")
-    #os.system("pkill rapivid")
+    killCameraScript()
     points = np.load("points.npy")
     counter = 0
     for point in points:
