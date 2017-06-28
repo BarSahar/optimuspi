@@ -26,10 +26,6 @@ def createScript():
         print("Falied To Save GotBlock File...")
         print(traceback.format_exc())
 
-def killScript():
-    os.system("pkill rapivid")
-    os.system("fuser -k 5001/tcp")
-
 
 def login(path, ip):
     global USERS_IP
@@ -139,8 +135,9 @@ import picamera
 def startPatrol():
     global THREADS
     THREADS = []
-    t = Thread(target=killScript(), name="killerThread")
-    t.join()
+    print("before fuser")
+    #os.system("fuser -k 5001/tcp")
+    #os.system("pkill rapivid")
     points = np.load("points.npy")
     counter = 0
     for point in points:
