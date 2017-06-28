@@ -7,7 +7,12 @@ import FaceSlapper as slap
 from robotModels import status
 import time
 
-grid = []
+try:
+    grid = np.load('Grid.npy')
+except:
+    grid = []
+    
+
 
 def mapStart():
     global grid
@@ -49,7 +54,9 @@ def mapStart():
 
 def goToPoint(target):
     if len(grid) == 0:
+        printt("Error: no map saved")
         return
+    printt("goToPoint: "+str(target))
     prevStat = grid[target[0]][target[1]]
     grid[target[0]][target[1]] = status.unexplored
     path, endPoint = finder.uncheckFinder(sens.cposition, grid)
