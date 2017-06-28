@@ -133,7 +133,7 @@ import picamera
 
 def killCameraScript():
     output = os.popen("ps -aux").read()
-    output = output.split("/n")
+    output = output.split("\n")
     for line in output:
         if "nc" in line or "raspivid" in line:
             line = line.split(" ")
