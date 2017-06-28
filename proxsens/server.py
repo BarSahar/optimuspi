@@ -137,6 +137,7 @@ def startPatrol():
     THREADS = []
     print("before fuser")
     os.system("fuser -k 5001/tcp")
+    os.system("pkill rapivid")
     points = np.load("points.npy")
     counter = 0
     for point in points:
