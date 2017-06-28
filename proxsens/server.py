@@ -98,7 +98,7 @@ def savePoints(path):
             y = int(pointString[pointString.index(",")+1:pointString.index("~")])
             pointsList.append((x, y))
         
-        list(set(pointsList))
+        pointsList = list(set(pointsList))
         np.save("points", pointsList)
         return True
     except:
