@@ -11,9 +11,12 @@ try:
     grid = np.load('Grid.npy')
     home = np.load('Home.npy')
     home=tuple(home)
+    sens.cposition = home
 except:
     grid = []
     home = (-1, -1)
+    
+
     
 
 
