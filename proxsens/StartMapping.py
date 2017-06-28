@@ -15,10 +15,6 @@ try:
 except:
     grid = []
     home = (-1, -1)
-    
-
-    
-
 
 def mapStart():
     global grid
