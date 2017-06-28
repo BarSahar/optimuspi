@@ -134,7 +134,8 @@ import picamera
 
 def startPatrol():
     global THREADS
-    THREADS[0].exit()
+    for t in THREADS:
+        t.exit()
     THREADS = []
     points = np.load("points.npy")
     counter = 0
