@@ -273,11 +273,11 @@ def moveForwardMicro():
 
 
 def moveForward():
-    moveForwardMicro()
-    updateCposition()
+    moveForwardMicro() #physically move forward
+    updateCposition() #update current position
 
 
-def fixAngle(destAngle):
+def fixAngle(destAngle): #function to fix position according to destAngle
     # going left is negative angle
     # variables
     global counterleft
@@ -319,7 +319,7 @@ def fixAngle(destAngle):
     # print("angle after fix: " + str(getCompRead()))
 
 
-def turnsens():
+def turnsens(): #function for testing hardware - not relevant
     # GPIO.add_event_detect(21,GPIO.RISING,callback=addright)
     # GPIO.add_event_detect(20,GPIO.RISING,callback=addleft)
     globalinit()
@@ -359,15 +359,15 @@ def getPicture():
     return image
 
 
-def getLaserDist():
+def getLaserDist(): #function to get distance from laser.
     i = 0
-    dist1 = laserDistHelper()
+    dist1 = laserDistHelper() #inner function to get raw distance from laser.
     if dist1 < 200:
-        return dist1 - 4
+        return dist1 - 4 #compensate for side sensor which is 4 cm farther away
     else:
         dist2 = laserDistHelper()
         dist3 = laserDistHelper()
-        res = min(dist1, dist2, dist3)
+        res = min(dist1, dist2, dist3) #if dist is more than 2m, takes minimum of 3 readings
         while res == 999 and i < 5:
             i = i + 1
             res = laserDistHelper()
@@ -376,7 +376,7 @@ def getLaserDist():
     if res == 999:
         return 50
     else:
-        return res - 4
+        return res - 4 #compensate for side sensor which is 4 cm farther away
 
 
 def laserDistHelper():
@@ -386,19 +386,20 @@ def laserDistHelper():
     GPIO.output(R1, True)  # laser on
     image = getPicture()
     GPIO.output(R1, False)  # laser off
-    num = (image[..., ..., 1] > 254)
+    num = (image[..., ..., 1] > 254) # only pixels that are bright green
     xy_val = num.nonzero()
     if len(xy_val[0]) == 0:
         #   print("Error detecting dot")
         return 999
-        # filter all indeces below horizon = reflections on the floor
+    # filter all indeces below horizon - reflections on the floor
     noiseFilterx1 = (xy_val[1][...] > 250)
     noiseFilterx2 = (xy_val[1][...] < 350)
+    # filter all indeces left and right father than 50 pixels from center - reflections from walls and shiny surfaces
     noiseFiltery1 = (xy_val[0][...] < 270)
     noiseFiltery2 = (xy_val[0][...] > 50)
     finalFilter = np.logical_and(np.logical_and(noiseFilterx1, noiseFilterx2),
                                  np.logical_and(noiseFiltery1, noiseFiltery2))
-    y_val = np.median(xy_val[0][finalFilter])
+    y_val = np.median(xy_val[0][finalFilter]) #in case multiple pixels (big dot), median gets the middle of it
     dist = abs(y_val - 240)
     # print ("pixel dist is" + str(dist))
     theta = LaserSlope * dist + LaserInters
@@ -409,36 +410,15 @@ def laserDistHelper():
     except:
         return 999
 
-
-def main():
-    # turnsens()
-    # turnleft()
-    # turn360()
-    # moveForward()
-    # movenone()
-    # print "end forward"
-    # time.sleep(3)
-    # print "after sleep"
-    # turnleft()
-    # stop()
-    # cali()
-    print(str(getProxDist()))
-    # move30cm()
-    # loopgetDist()
-    while True:
-        pass
-
-
-# main()
-def moveBunch():
-    tick = 0
-    for x in range(20):
-        moveForwardMicro()
-        print("step: " + str(tick) + " out of 20")
-        tick = tick + 1
-        time.sleep(0.5)
-        print(34 * "-")
-        # x=input()
+#def moveBunch(): #function for testing hardware - not relevant
+#    tick = 0
+#    for x in range(20):
+#        moveForwardMicro()
+#        print("step: " + str(tick) + " out of 20")
+#        tick = tick + 1
+#        time.sleep(0.5)
+#        print(34 * "-")
+#        x=input()
 
 
 def moveTicksL(num, dir):
@@ -454,9 +434,9 @@ def moveTicksL(num, dir):
         time.sleep(0.1)
 
 
-def newplan():
-    for x in range(4):
-        for x in range(5):
-            moveForwardMicro()
-            time.sleep(1)
-        turnleft()
+#def newplan(): #function for testing hardware - not relevant
+#    for x in range(4):
+#        for x in range(5):
+#            moveForwardMicro()
+#            time.sleep(1)
+#        turnleft()
