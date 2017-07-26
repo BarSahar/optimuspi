@@ -168,6 +168,8 @@ def putWall():
 
     showoff(grid)
 
+    np.save('Grid.npy', grid)
+
 
 def fill(graph):
     for x in range(2, 9):
