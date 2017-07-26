@@ -100,6 +100,7 @@ def debug_main(x,y):
     start = (1, 1)
     np.save('Grid', grid)
     np.save('Home', start)
+    
     # grid[3][1]=status.unexplored
     # grid[3][3]=status.unexplored
     # path,endpoint=uncheckFinder(start,grid)
