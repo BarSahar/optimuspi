@@ -18,20 +18,8 @@
       <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="163" column="14" lean-forward="true" selection-start-line="163" selection-start-column="14" selection-end-line="163" selection-end-column="14" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="outlineDemo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/proxsens/outlineDemo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="51" />
+            <state relative-caret-position="1140">
+              <caret line="170" column="17" lean-forward="true" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="17" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -42,11 +30,9 @@
       <file leaf-file-name="StartMapping.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
+            <state relative-caret-position="-360">
               <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="30" />
-              <folding>
-                <marker date="1501089345446" expanded="true" signature="218:289" ph="..." />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,9 +85,9 @@
       <find>outline</find>
       <find>outline(</find>
       <find>outline()</find>
-      <find>demo</find>
-      <find>show</find>
       <find>getMap</find>
+      <find>show</find>
+      <find>demo</find>
     </findStrings>
     <replaceStrings>
       <replace>offersNeedtoStop</replace>
@@ -812,16 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/outlineDemo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -838,16 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="30" />
-          <folding>
-            <marker date="1501089345446" expanded="true" signature="218:289" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
@@ -856,10 +822,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/outlineDemo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="819">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="163" column="14" lean-forward="true" selection-start-line="163" selection-start-column="14" selection-end-line="163" selection-end-column="14" />
+        <state relative-caret-position="1140">
+          <caret line="170" column="17" lean-forward="true" selection-start-line="170" selection-start-column="17" selection-end-line="170" selection-end-column="17" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
