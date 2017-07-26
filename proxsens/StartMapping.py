@@ -95,8 +95,8 @@ def debug_makegrid(xsize, ysize):
     return grid
 
 
-def debug_main():
-    grid = debug_makegrid(10, 15)
+def debug_main(x,y):
+    grid = debug_makegrid(x, y)
     start = (1, 1)
     np.save('Grid', grid)
     np.save('Home', start)
