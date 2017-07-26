@@ -51,7 +51,7 @@ def login(path, ip):
 def getMap():
     try:
         stringMap=""
-        map=np.load('Grid.npy')
+        map=np.load('Grid_wall.npy')
         stringMap+=str(len(map))+":"+str(len(map[0]))+"?"
         for x in range(len(map)):
             for y in range(len(map[0])):

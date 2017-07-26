@@ -15,7 +15,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="980">
@@ -37,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="25" />
+            <state relative-caret-position="780">
+              <caret line="56" column="40" lean-forward="true" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -86,8 +86,8 @@
       <find>outline(</find>
       <find>outline()</find>
       <find>getMap</find>
-      <find>show</find>
       <find>demo</find>
+      <find>show</find>
     </findStrings>
     <replaceStrings>
       <replace>offersNeedtoStop</replace>
@@ -128,7 +128,6 @@
         <option value="$PROJECT_DIR$/proxsens/compTest.py" />
         <option value="$PROJECT_DIR$/proxsens/calibcompass.py" />
         <option value="$PROJECT_DIR$/proxsens/unexploredPointFinder.py" />
-        <option value="$PROJECT_DIR$/proxsens/server.py" />
         <option value="$PROJECT_DIR$/proxsens/outliner.py" />
         <option value="$PROJECT_DIR$/outlineDemo.py" />
         <option value="$PROJECT_DIR$/proxsens/outlineDemo.py" />
@@ -136,6 +135,7 @@
         <option value="$PROJECT_DIR$/proxsens/UnExploredPoint_Mapper.py" />
         <option value="$PROJECT_DIR$/proxsens/StartMapping.py" />
         <option value="$PROJECT_DIR$/proxsens/proxsens.py" />
+        <option value="$PROJECT_DIR$/proxsens/server.py" />
       </list>
     </option>
   </component>
@@ -814,14 +814,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/proxsens/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="53" column="25" lean-forward="false" selection-start-line="53" selection-start-column="21" selection-end-line="53" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/outlineDemo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="819">
@@ -847,6 +839,14 @@
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxsens/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="56" column="40" lean-forward="true" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>
