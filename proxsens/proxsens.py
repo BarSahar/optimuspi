@@ -168,7 +168,7 @@ def putWall():
 
     showoff(grid)
 
-    np.save('Grid', grid)
+    np.save('Grid_wall', grid)
 
 
 def fill(graph):
