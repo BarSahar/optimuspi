@@ -157,6 +157,10 @@ def showoff(graph):
         print(line)
         line = ""
 
+def showSavedGrap():
+    grid = np.load('Grid.npy')
+    showoff(grid)
+
 def fill(graph):
     for x in range(2, 9):
         for y in range(2, 13):
