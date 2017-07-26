@@ -18,8 +18,8 @@
       <file leaf-file-name="proxsens.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="860">
-              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="168" selection-end-column="17" />
+            <state relative-caret-position="1140">
+              <caret line="170" column="4" lean-forward="true" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="30" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -30,8 +30,8 @@
       <file leaf-file-name="StartMapping.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1480">
-              <caret line="113" column="9" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+            <state relative-caret-position="1181">
+              <caret line="111" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,8 +97,8 @@
       <find>getMap</find>
       <find>savePoints</find>
       <find>startPatrol</find>
-      <find>demo</find>
       <find>smap</find>
+      <find>demo</find>
       <find>show</find>
     </findStrings>
     <replaceStrings>
@@ -848,8 +848,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/proxsens.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="860">
-          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="168" selection-end-column="17" />
+        <state relative-caret-position="1140">
+          <caret line="170" column="4" lean-forward="true" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="30" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -858,8 +858,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/proxsens/StartMapping.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1480">
-          <caret line="113" column="9" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        <state relative-caret-position="1181">
+          <caret line="111" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
           <folding />
         </state>
       </provider>

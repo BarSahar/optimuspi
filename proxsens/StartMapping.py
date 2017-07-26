@@ -10,11 +10,12 @@ import time
 try:
     grid = np.load('Grid_wall.npy')
     home = np.load('Home.npy')
-    home=tuple(home)
+    home = tuple(home)
     sens.cposition = home
 except:
     grid = []
     home = (-1, -1)
+
 
 def mapStart():
     global grid
@@ -23,7 +24,7 @@ def mapStart():
     try:
         grid = np.load('Grid_wall.npy')
         home = np.load('Home.npy')
-        home=tuple(home)
+        home = tuple(home)
     except:
         grid, home = ot.outline()
         np.save('Grid', grid)
@@ -58,7 +59,7 @@ def goToPoint(target):
     if len(grid) == 0:
         print("Error: no map saved")
         return
-    print("goToPoint: "+str(target))
+    print("goToPoint: " + str(target))
     prevStat = grid[target[0]][target[1]]
     grid[target[0]][target[1]] = status.unexplored
     path, endPoint = finder.uncheckFinder(sens.cposition, grid)
@@ -106,9 +107,11 @@ def debug_main():
     # print("path: "+str(path))
     # print("end point:"+str(endpoint))
 
+
 def putWall():
     grid = np.load('Grid.npy')
-    for y in range(0,7):
-        grid[y][6]=status.block
+    for y in range(0, 7):
+        grid[y][6] = status.block
 
     sens.showoff(grid)
+    np.save('Grid_wall', grid)
