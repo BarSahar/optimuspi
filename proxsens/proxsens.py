@@ -163,13 +163,10 @@ def showSavedGrap():
 
 def putWall():
     grid = np.load('Grid.npy')
-
-    for y in range(0,8):
+    for y in range(0,7):
         grid[y][6]=status.block
 
     showoff(grid)
-
-
 
 
 def fill(graph):
