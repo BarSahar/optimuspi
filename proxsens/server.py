@@ -15,7 +15,8 @@ PORT_NUMBER = 8080
 USERS_DICT = {"admin": "admin"}
 USERS_IP = []
 THREADS = []
-
+leftFlag = True
+rightFlag = True
 
 def createScript():
     print("In createScript.")
@@ -189,12 +190,20 @@ class myHandler(BaseHTTPRequestHandler):
             self.wfile.write(msg.encode())
             return
         elif "Left" in self.path:
-            moveLeft()
             self.wfile.write("ok".encode())
+            if leftFlag == True:
+                moveLeft()
+                leftFlag = False
+            else:
+                leftFlag = True
             return
         elif "Right" in self.path:
-            moveRight()
             self.wfile.write("ok".encode())
+            if rightFlag == True:
+                moveRight()
+                rightFlag = False
+            else:
+                rightFlag = True
             return
         elif "Forward" in self.path:
             moveForward()
