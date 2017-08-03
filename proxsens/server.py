@@ -191,6 +191,7 @@ class myHandler(BaseHTTPRequestHandler):
             return
         elif "Left" in self.path:
             self.wfile.write("ok".encode())
+            global leftFlag
             if leftFlag == True:
                 moveLeft()
                 leftFlag = False
@@ -199,6 +200,7 @@ class myHandler(BaseHTTPRequestHandler):
             return
         elif "Right" in self.path:
             self.wfile.write("ok".encode())
+            global rightFlag
             if rightFlag == True:
                 moveRight()
                 rightFlag = False
